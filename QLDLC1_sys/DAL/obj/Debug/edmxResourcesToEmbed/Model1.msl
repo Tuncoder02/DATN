@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLDLModelStoreContainer" CdmEntityContainer="QLDLEntities">
+    <EntitySetMapping Name="BillExport">
+      <EntityTypeMapping TypeName="QLDLModel.BillExport">
+        <MappingFragment StoreEntitySet="BillExport">
+          <ScalarProperty Name="BillDiscount" ColumnName="BillDiscount" />
+          <ScalarProperty Name="BillPayPercent" ColumnName="BillPayPercent" />
+          <ScalarProperty Name="BillTotalMoney" ColumnName="BillTotalMoney" />
+          <ScalarProperty Name="BillExportDate" ColumnName="BillExportDate" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="BillExportId" ColumnName="BillExportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillExportDetails">
+      <EntityTypeMapping TypeName="QLDLModel.BillExportDetails">
+        <MappingFragment StoreEntitySet="BillExportDetails">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="BillExportId" ColumnName="BillExportId" />
+          <ScalarProperty Name="BillExportDetailsId" ColumnName="BillExportDetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillImportDetails">
+      <EntityTypeMapping TypeName="QLDLModel.BillImportDetails">
+        <MappingFragment StoreEntitySet="BillImportDetails">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="BillImportId" ColumnName="BillImportId" />
+          <ScalarProperty Name="BillImportDetailsId" ColumnName="BillImportDetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product">
+      <EntityTypeMapping TypeName="QLDLModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="ProductImageLink" ColumnName="ProductImageLink" />
+          <ScalarProperty Name="ProductInfo" ColumnName="ProductInfo" />
+          <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productgroup">
+      <EntityTypeMapping TypeName="QLDLModel.productgroup">
+        <MappingFragment StoreEntitySet="productgroup">
+          <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+          <ScalarProperty Name="ProductGroupId" ColumnName="ProductGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="QLDLModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Vaitro" ColumnName="Vaitro" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillImport">
+      <EntityTypeMapping TypeName="QLDLModel.BillImport">
+        <MappingFragment StoreEntitySet="BillImport">
+          <ScalarProperty Name="BillImportDate" ColumnName="BillImportDate" />
+          <ScalarProperty Name="BillImportId" ColumnName="BillImportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="administrative_regions">
+      <EntityTypeMapping TypeName="QLDLModel.administrative_regions">
+        <MappingFragment StoreEntitySet="administrative_regions">
+          <ScalarProperty Name="code_name_en" ColumnName="code_name_en" />
+          <ScalarProperty Name="code_name" ColumnName="code_name" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="administrative_units">
+      <EntityTypeMapping TypeName="QLDLModel.administrative_units">
+        <MappingFragment StoreEntitySet="administrative_units">
+          <ScalarProperty Name="code_name_en" ColumnName="code_name_en" />
+          <ScalarProperty Name="code_name" ColumnName="code_name" />
+          <ScalarProperty Name="short_name_en" ColumnName="short_name_en" />
+          <ScalarProperty Name="short_name" ColumnName="short_name" />
+          <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="districts">
+      <EntityTypeMapping TypeName="QLDLModel.districts">
+        <MappingFragment StoreEntitySet="districts">
+          <ScalarProperty Name="administrative_unit_id" ColumnName="administrative_unit_id" />
+          <ScalarProperty Name="province_code" ColumnName="province_code" />
+          <ScalarProperty Name="code_name" ColumnName="code_name" />
+          <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provinces">
+      <EntityTypeMapping TypeName="QLDLModel.provinces">
+        <MappingFragment StoreEntitySet="provinces">
+          <ScalarProperty Name="administrative_region_id" ColumnName="administrative_region_id" />
+          <ScalarProperty Name="administrative_unit_id" ColumnName="administrative_unit_id" />
+          <ScalarProperty Name="code_name" ColumnName="code_name" />
+          <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wards">
+      <EntityTypeMapping TypeName="QLDLModel.wards">
+        <MappingFragment StoreEntitySet="wards">
+          <ScalarProperty Name="administrative_unit_id" ColumnName="administrative_unit_id" />
+          <ScalarProperty Name="district_code" ColumnName="district_code" />
+          <ScalarProperty Name="code_name" ColumnName="code_name" />
+          <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="name_en" ColumnName="name_en" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="QLDLModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="CustomerPoint" ColumnName="CustomerPoint" />
+          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+          <ScalarProperty Name="CustomerDiscount" ColumnName="CustomerDiscount" />
+          <ScalarProperty Name="CustomerCity" ColumnName="CustomerCity" />
+          <ScalarProperty Name="CustomerDistrict" ColumnName="CustomerDistrict" />
+          <ScalarProperty Name="CustomerWard" ColumnName="CustomerWard" />
+          <ScalarProperty Name="Isdailycap2" ColumnName="Isdailycap2" />
+          <ScalarProperty Name="Ngaydk" ColumnName="Ngaydk" />
+          <ScalarProperty Name="CustomerFullName" ColumnName="CustomerFullName" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receipts">
+      <EntityTypeMapping TypeName="QLDLModel.Receipts">
+        <MappingFragment StoreEntitySet="Receipts">
+          <ScalarProperty Name="ReceiptsDate" ColumnName="ReceiptsDate" />
+          <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ReceiptsId" ColumnName="ReceiptsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chietkhausp">
+      <EntityTypeMapping TypeName="QLDLModel.chietkhausp">
+        <MappingFragment StoreEntitySet="chietkhausp">
+          <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="chietkhauid" ColumnName="chietkhauid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,1197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QLDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="administrative_regions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="name_en" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="code_name_en" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="administrative_units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="short_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="short_name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="code_name_en" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="BillExport">
+          <Key>
+            <PropertyRef Name="BillExportId" />
+          </Key>
+          <Property Name="BillExportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="BillExportDate" Type="date" Nullable="false" />
+          <Property Name="BillTotalMoney" Type="float" />
+          <Property Name="BillPayPercent" Type="int" />
+          <Property Name="BillDiscount" Type="int" />
+        </EntityType>
+        <EntityType Name="BillExportDetails">
+          <Key>
+            <PropertyRef Name="BillExportDetailsId" />
+          </Key>
+          <Property Name="BillExportDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillExportId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="BillImport">
+          <Key>
+            <PropertyRef Name="BillImportId" />
+          </Key>
+          <Property Name="BillImportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillImportDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BillImportDetails">
+          <Key>
+            <PropertyRef Name="BillImportDetailsId" />
+          </Key>
+          <Property Name="BillImportDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillImportId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="chietkhausp">
+          <Key>
+            <PropertyRef Name="chietkhauid" />
+          </Key>
+          <Property Name="chietkhauid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="chietkhau" Type="float" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerFullName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Ngaydk" Type="date" />
+          <Property Name="Isdailycap2" Type="int" />
+          <Property Name="CustomerWard" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerDistrict" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerCity" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerDiscount" Type="int" />
+          <Property Name="CustomerPhoneNumber" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerEmail" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="CustomerPoint" Type="int" />
+        </EntityType>
+        <EntityType Name="districts">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="province_code" Type="nvarchar" MaxLength="20" />
+          <Property Name="administrative_unit_id" Type="int" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductGroupName" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductPrice" Type="float" Nullable="false" />
+          <Property Name="ProductQuantity" Type="int" />
+          <Property Name="ProductInfo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProductImageLink" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="productgroup">
+          <Key>
+            <PropertyRef Name="ProductGroupId" />
+          </Key>
+          <Property Name="ProductGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductGroupName" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="provinces">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="administrative_unit_id" Type="int" />
+          <Property Name="administrative_region_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Receipts">
+          <Key>
+            <PropertyRef Name="ReceiptsId" />
+          </Key>
+          <Property Name="ReceiptsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="TotalMoney" Type="float" />
+          <Property Name="ReceiptsDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="TaiKhoan" />
+          </Key>
+          <Property Name="TaiKhoan" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="30" />
+          <Property Name="Vaitro" Type="int" />
+        </EntityType>
+        <EntityType Name="wards">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+          <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="district_code" Type="nvarchar" MaxLength="20" />
+          <Property Name="administrative_unit_id" Type="int" />
+        </EntityType>
+        <Association Name="districts_administrative_unit_id_fkey">
+          <End Role="administrative_units" Type="Self.administrative_units" Multiplicity="0..1" />
+          <End Role="districts" Type="Self.districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="districts">
+              <PropertyRef Name="administrative_unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="districts_province_code_fkey">
+          <End Role="provinces" Type="Self.provinces" Multiplicity="0..1" />
+          <End Role="districts" Type="Self.districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provinces">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="districts">
+              <PropertyRef Name="province_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BillExport">
+          <End Role="BillExport" Type="Self.BillExport" Multiplicity="0..1" />
+          <End Role="BillExportDetails" Type="Self.BillExportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillExport">
+              <PropertyRef Name="BillExportId" />
+            </Principal>
+            <Dependent Role="BillExportDetails">
+              <PropertyRef Name="BillExportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BillExportProduct">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="BillExportDetails" Type="Self.BillExportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BillExportDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BillImport">
+          <End Role="BillImport" Type="Self.BillImport" Multiplicity="0..1" />
+          <End Role="BillImportDetails" Type="Self.BillImportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillImport">
+              <PropertyRef Name="BillImportId" />
+            </Principal>
+            <Dependent Role="BillImportDetails">
+              <PropertyRef Name="BillImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BillImportProduct">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="BillImportDetails" Type="Self.BillImportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BillImportDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_chietkhauCu">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="chietkhausp" Type="Self.chietkhausp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="chietkhausp">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_chietkhausp">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="chietkhausp" Type="Self.chietkhausp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="chietkhausp">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Customer">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="BillExport" Type="Self.BillExport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="BillExport">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_district">
+          <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="districts">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="CustomerDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_grname">
+          <End Role="productgroup" Type="Self.productgroup" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productgroup">
+              <PropertyRef Name="ProductGroupId" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="ProductGroupName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_province">
+          <End Role="provinces" Type="Self.provinces" Multiplicity="0..1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provinces">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="CustomerCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ReceiptsCu">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="Receipts" Type="Self.Receipts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Receipts">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ward">
+          <End Role="wards" Type="Self.wards" Multiplicity="0..1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="wards">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="CustomerWard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provinces_administrative_region_id_fkey">
+          <End Role="administrative_regions" Type="Self.administrative_regions" Multiplicity="0..1" />
+          <End Role="provinces" Type="Self.provinces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_regions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="provinces">
+              <PropertyRef Name="administrative_region_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provinces_administrative_unit_id_fkey">
+          <End Role="administrative_units" Type="Self.administrative_units" Multiplicity="0..1" />
+          <End Role="provinces" Type="Self.provinces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="provinces">
+              <PropertyRef Name="administrative_unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wards_administrative_unit_id_fkey">
+          <End Role="administrative_units" Type="Self.administrative_units" Multiplicity="0..1" />
+          <End Role="wards" Type="Self.wards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="wards">
+              <PropertyRef Name="administrative_unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wards_district_code_fkey">
+          <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+          <End Role="wards" Type="Self.wards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="districts">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="wards">
+              <PropertyRef Name="district_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLDLModelStoreContainer">
+          <EntitySet Name="administrative_regions" EntityType="Self.administrative_regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="administrative_units" EntityType="Self.administrative_units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillExport" EntityType="Self.BillExport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillExportDetails" EntityType="Self.BillExportDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillImport" EntityType="Self.BillImport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillImportDetails" EntityType="Self.BillImportDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chietkhausp" EntityType="Self.chietkhausp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="districts" EntityType="Self.districts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productgroup" EntityType="Self.productgroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="provinces" EntityType="Self.provinces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receipts" EntityType="Self.Receipts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wards" EntityType="Self.wards" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="districts_administrative_unit_id_fkey" Association="Self.districts_administrative_unit_id_fkey">
+            <End Role="administrative_units" EntitySet="administrative_units" />
+            <End Role="districts" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="districts_province_code_fkey" Association="Self.districts_province_code_fkey">
+            <End Role="provinces" EntitySet="provinces" />
+            <End Role="districts" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BillExport" Association="Self.fk_BillExport">
+            <End Role="BillExport" EntitySet="BillExport" />
+            <End Role="BillExportDetails" EntitySet="BillExportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BillExportProduct" Association="Self.fk_BillExportProduct">
+            <End Role="product" EntitySet="product" />
+            <End Role="BillExportDetails" EntitySet="BillExportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BillImport" Association="Self.fk_BillImport">
+            <End Role="BillImport" EntitySet="BillImport" />
+            <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BillImportProduct" Association="Self.fk_BillImportProduct">
+            <End Role="product" EntitySet="product" />
+            <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_chietkhauCu" Association="Self.fk_chietkhauCu">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="chietkhausp" EntitySet="chietkhausp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_chietkhausp" Association="Self.fk_chietkhausp">
+            <End Role="product" EntitySet="product" />
+            <End Role="chietkhausp" EntitySet="chietkhausp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Customer" Association="Self.fk_Customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="BillExport" EntitySet="BillExport" />
+          </AssociationSet>
+          <AssociationSet Name="fk_district" Association="Self.fk_district">
+            <End Role="districts" EntitySet="districts" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_grname" Association="Self.fk_grname">
+            <End Role="productgroup" EntitySet="productgroup" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="fk_province" Association="Self.fk_province">
+            <End Role="provinces" EntitySet="provinces" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ReceiptsCu" Association="Self.fk_ReceiptsCu">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="Receipts" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ward" Association="Self.fk_Ward">
+            <End Role="wards" EntitySet="wards" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="provinces_administrative_region_id_fkey" Association="Self.provinces_administrative_region_id_fkey">
+            <End Role="administrative_regions" EntitySet="administrative_regions" />
+            <End Role="provinces" EntitySet="provinces" />
+          </AssociationSet>
+          <AssociationSet Name="provinces_administrative_unit_id_fkey" Association="Self.provinces_administrative_unit_id_fkey">
+            <End Role="administrative_units" EntitySet="administrative_units" />
+            <End Role="provinces" EntitySet="provinces" />
+          </AssociationSet>
+          <AssociationSet Name="wards_administrative_unit_id_fkey" Association="Self.wards_administrative_unit_id_fkey">
+            <End Role="administrative_units" EntitySet="administrative_units" />
+            <End Role="wards" EntitySet="wards" />
+          </AssociationSet>
+          <AssociationSet Name="wards_district_code_fkey" Association="Self.wards_district_code_fkey">
+            <End Role="districts" EntitySet="districts" />
+            <End Role="wards" EntitySet="wards" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLDLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLDLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillExport" EntityType="QLDLModel.BillExport" />
+          <EntitySet Name="BillExportDetails" EntityType="QLDLModel.BillExportDetails" />
+          <EntitySet Name="BillImportDetails" EntityType="QLDLModel.BillImportDetails" />
+          <EntitySet Name="product" EntityType="QLDLModel.product" />
+          <EntitySet Name="productgroup" EntityType="QLDLModel.productgroup" />
+          <EntitySet Name="Users" EntityType="QLDLModel.Users" />
+          <AssociationSet Name="fk_BillExport" Association="QLDLModel.fk_BillExport">
+            <End Role="BillExport" EntitySet="BillExport" />
+            <End Role="BillExportDetails" EntitySet="BillExportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BillExportProduct" Association="QLDLModel.fk_BillExportProduct">
+            <End Role="product" EntitySet="product" />
+            <End Role="BillExportDetails" EntitySet="BillExportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BillImportProduct" Association="QLDLModel.fk_BillImportProduct">
+            <End Role="product" EntitySet="product" />
+            <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_grname" Association="QLDLModel.fk_grname">
+            <End Role="productgroup" EntitySet="productgroup" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <EntitySet Name="BillImport" EntityType="QLDLModel.BillImport" />
+          <AssociationSet Name="fk_BillImport" Association="QLDLModel.fk_BillImport">
+            <End Role="BillImport" EntitySet="BillImport" />
+            <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+          </AssociationSet>
+          <EntitySet Name="administrative_regions" EntityType="QLDLModel.administrative_regions" />
+          <EntitySet Name="administrative_units" EntityType="QLDLModel.administrative_units" />
+          <EntitySet Name="districts" EntityType="QLDLModel.districts" />
+          <EntitySet Name="provinces" EntityType="QLDLModel.provinces" />
+          <EntitySet Name="wards" EntityType="QLDLModel.wards" />
+          <AssociationSet Name="provinces_administrative_region_id_fkey" Association="QLDLModel.provinces_administrative_region_id_fkey">
+            <End Role="administrative_regions" EntitySet="administrative_regions" />
+            <End Role="provinces" EntitySet="provinces" />
+          </AssociationSet>
+          <AssociationSet Name="districts_administrative_unit_id_fkey" Association="QLDLModel.districts_administrative_unit_id_fkey">
+            <End Role="administrative_units" EntitySet="administrative_units" />
+            <End Role="districts" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="provinces_administrative_unit_id_fkey" Association="QLDLModel.provinces_administrative_unit_id_fkey">
+            <End Role="administrative_units" EntitySet="administrative_units" />
+            <End Role="provinces" EntitySet="provinces" />
+          </AssociationSet>
+          <AssociationSet Name="wards_administrative_unit_id_fkey" Association="QLDLModel.wards_administrative_unit_id_fkey">
+            <End Role="administrative_units" EntitySet="administrative_units" />
+            <End Role="wards" EntitySet="wards" />
+          </AssociationSet>
+          <AssociationSet Name="districts_province_code_fkey" Association="QLDLModel.districts_province_code_fkey">
+            <End Role="provinces" EntitySet="provinces" />
+            <End Role="districts" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="wards_district_code_fkey" Association="QLDLModel.wards_district_code_fkey">
+            <End Role="districts" EntitySet="districts" />
+            <End Role="wards" EntitySet="wards" />
+          </AssociationSet>
+          <EntitySet Name="customer" EntityType="QLDLModel.customer" />
+          <AssociationSet Name="fk_Customer" Association="QLDLModel.fk_Customer">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="BillExport" EntitySet="BillExport" />
+          </AssociationSet>
+          <AssociationSet Name="fk_district" Association="QLDLModel.fk_district">
+            <End Role="districts" EntitySet="districts" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_province" Association="QLDLModel.fk_province">
+            <End Role="provinces" EntitySet="provinces" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ward" Association="QLDLModel.fk_Ward">
+            <End Role="wards" EntitySet="wards" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ward1" Association="QLDLModel.fk_Ward1">
+            <End Role="wards" EntitySet="wards" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <EntitySet Name="Receipts" EntityType="QLDLModel.Receipts" />
+          <AssociationSet Name="fk_ReceiptsCu" Association="QLDLModel.fk_ReceiptsCu">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="Receipts" EntitySet="Receipts" />
+          </AssociationSet>
+          <EntitySet Name="chietkhausp" EntityType="QLDLModel.chietkhausp" />
+          <AssociationSet Name="fk_chietkhauCu" Association="QLDLModel.fk_chietkhauCu">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="chietkhausp" EntitySet="chietkhausp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_chietkhausp" Association="QLDLModel.fk_chietkhausp">
+            <End Role="product" EntitySet="product" />
+            <End Role="chietkhausp" EntitySet="chietkhausp" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BillExport">
+          <Key>
+            <PropertyRef Name="BillExportId" />
+          </Key>
+          <Property Name="BillExportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="BillExportDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BillTotalMoney" Type="Double" />
+          <Property Name="BillPayPercent" Type="Int32" />
+          <Property Name="BillDiscount" Type="Int32" />
+          <NavigationProperty Name="BillExportDetails" Relationship="QLDLModel.fk_BillExport" FromRole="BillExport" ToRole="BillExportDetails" />
+          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_Customer" FromRole="BillExport" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="BillExportDetails">
+          <Key>
+            <PropertyRef Name="BillExportDetailsId" />
+          </Key>
+          <Property Name="BillExportDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillExportId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="BillExport" Relationship="QLDLModel.fk_BillExport" FromRole="BillExportDetails" ToRole="BillExport" />
+          <NavigationProperty Name="product" Relationship="QLDLModel.fk_BillExportProduct" FromRole="BillExportDetails" ToRole="product" />
+        </EntityType>
+        <EntityType Name="BillImportDetails">
+          <Key>
+            <PropertyRef Name="BillImportDetailsId" />
+          </Key>
+          <Property Name="BillImportDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillImportId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="product" Relationship="QLDLModel.fk_BillImportProduct" FromRole="BillImportDetails" ToRole="product" />
+          <Property Name="Price" Type="Double" />
+          <NavigationProperty Name="BillImport" Relationship="QLDLModel.fk_BillImport" FromRole="BillImportDetails" ToRole="BillImport" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupName" Type="Int32" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPrice" Type="Double" Nullable="false" />
+          <Property Name="ProductQuantity" Type="Int32" />
+          <Property Name="ProductInfo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImageLink" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BillExportDetails" Relationship="QLDLModel.fk_BillExportProduct" FromRole="product" ToRole="BillExportDetails" />
+          <NavigationProperty Name="BillImportDetails" Relationship="QLDLModel.fk_BillImportProduct" FromRole="product" ToRole="BillImportDetails" />
+          <NavigationProperty Name="productgroup" Relationship="QLDLModel.fk_grname" FromRole="product" ToRole="productgroup" />
+          <NavigationProperty Name="chietkhausp" Relationship="QLDLModel.fk_chietkhausp" FromRole="product" ToRole="chietkhausp" />
+        </EntityType>
+        <EntityType Name="productgroup">
+          <Key>
+            <PropertyRef Name="ProductGroupId" />
+          </Key>
+          <Property Name="ProductGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="product" Relationship="QLDLModel.fk_grname" FromRole="productgroup" ToRole="product" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="TaiKhoan" />
+          </Key>
+          <Property Name="TaiKhoan" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Vaitro" Type="Int32" />
+        </EntityType>
+        <Association Name="fk_BillExport">
+          <End Type="QLDLModel.BillExport" Role="BillExport" Multiplicity="0..1" />
+          <End Type="QLDLModel.BillExportDetails" Role="BillExportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillExport">
+              <PropertyRef Name="BillExportId" />
+            </Principal>
+            <Dependent Role="BillExportDetails">
+              <PropertyRef Name="BillExportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BillExportProduct">
+          <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
+          <End Type="QLDLModel.BillExportDetails" Role="BillExportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BillExportDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BillImportProduct">
+          <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
+          <End Type="QLDLModel.BillImportDetails" Role="BillImportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BillImportDetails">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_grname">
+          <End Type="QLDLModel.productgroup" Role="productgroup" Multiplicity="0..1" />
+          <End Type="QLDLModel.product" Role="product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productgroup">
+              <PropertyRef Name="ProductGroupId" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="ProductGroupName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BillImport">
+          <Key>
+            <PropertyRef Name="BillImportId" />
+          </Key>
+          <Property Name="BillImportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillImportDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="BillImportDetails" Relationship="QLDLModel.fk_BillImport" FromRole="BillImport" ToRole="BillImportDetails" />
+        </EntityType>
+        <Association Name="fk_BillImport">
+          <End Type="QLDLModel.BillImport" Role="BillImport" Multiplicity="0..1" />
+          <End Type="QLDLModel.BillImportDetails" Role="BillImportDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillImport">
+              <PropertyRef Name="BillImportId" />
+            </Principal>
+            <Dependent Role="BillImportDetails">
+              <PropertyRef Name="BillImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="administrative_regions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name_en" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="code_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="code_name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="provinces" Relationship="QLDLModel.provinces_administrative_region_id_fkey" FromRole="administrative_regions" ToRole="provinces" />
+        </EntityType>
+        <EntityType Name="administrative_units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="full_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="full_name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="short_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="short_name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="code_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="code_name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="districts" Relationship="QLDLModel.districts_administrative_unit_id_fkey" FromRole="administrative_units" ToRole="districts" />
+          <NavigationProperty Name="provinces" Relationship="QLDLModel.provinces_administrative_unit_id_fkey" FromRole="administrative_units" ToRole="provinces" />
+          <NavigationProperty Name="wards" Relationship="QLDLModel.wards_administrative_unit_id_fkey" FromRole="administrative_units" ToRole="wards" />
+        </EntityType>
+        <EntityType Name="districts">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="full_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="full_name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="code_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="province_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="administrative_unit_id" Type="Int32" />
+          <NavigationProperty Name="administrative_units" Relationship="QLDLModel.districts_administrative_unit_id_fkey" FromRole="districts" ToRole="administrative_units" />
+          <NavigationProperty Name="provinces" Relationship="QLDLModel.districts_province_code_fkey" FromRole="districts" ToRole="provinces" />
+          <NavigationProperty Name="wards" Relationship="QLDLModel.wards_district_code_fkey" FromRole="districts" ToRole="wards" />
+          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_district" FromRole="districts" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="provinces">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="full_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="full_name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="code_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="administrative_unit_id" Type="Int32" />
+          <Property Name="administrative_region_id" Type="Int32" />
+          <NavigationProperty Name="administrative_regions" Relationship="QLDLModel.provinces_administrative_region_id_fkey" FromRole="provinces" ToRole="administrative_regions" />
+          <NavigationProperty Name="administrative_units" Relationship="QLDLModel.provinces_administrative_unit_id_fkey" FromRole="provinces" ToRole="administrative_units" />
+          <NavigationProperty Name="districts" Relationship="QLDLModel.districts_province_code_fkey" FromRole="provinces" ToRole="districts" />
+          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_province" FromRole="provinces" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="wards">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="full_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="full_name_en" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="code_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="district_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="administrative_unit_id" Type="Int32" />
+          <NavigationProperty Name="administrative_units" Relationship="QLDLModel.wards_administrative_unit_id_fkey" FromRole="wards" ToRole="administrative_units" />
+          <NavigationProperty Name="districts" Relationship="QLDLModel.wards_district_code_fkey" FromRole="wards" ToRole="districts" />
+          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_Ward" FromRole="wards" ToRole="customer" />
+          <NavigationProperty Name="customer1" Relationship="QLDLModel.fk_Ward1" FromRole="wards" ToRole="customer" />
+        </EntityType>
+        <Association Name="provinces_administrative_region_id_fkey">
+          <End Type="QLDLModel.administrative_regions" Role="administrative_regions" Multiplicity="0..1" />
+          <End Type="QLDLModel.provinces" Role="provinces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_regions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="provinces">
+              <PropertyRef Name="administrative_region_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="districts_administrative_unit_id_fkey">
+          <End Type="QLDLModel.administrative_units" Role="administrative_units" Multiplicity="0..1" />
+          <End Type="QLDLModel.districts" Role="districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="districts">
+              <PropertyRef Name="administrative_unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provinces_administrative_unit_id_fkey">
+          <End Type="QLDLModel.administrative_units" Role="administrative_units" Multiplicity="0..1" />
+          <End Type="QLDLModel.provinces" Role="provinces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="provinces">
+              <PropertyRef Name="administrative_unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wards_administrative_unit_id_fkey">
+          <End Type="QLDLModel.administrative_units" Role="administrative_units" Multiplicity="0..1" />
+          <End Type="QLDLModel.wards" Role="wards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="administrative_units">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="wards">
+              <PropertyRef Name="administrative_unit_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="districts_province_code_fkey">
+          <End Type="QLDLModel.provinces" Role="provinces" Multiplicity="0..1" />
+          <End Type="QLDLModel.districts" Role="districts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provinces">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="districts">
+              <PropertyRef Name="province_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="wards_district_code_fkey">
+          <End Type="QLDLModel.districts" Role="districts" Multiplicity="0..1" />
+          <End Type="QLDLModel.wards" Role="wards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="districts">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="wards">
+              <PropertyRef Name="district_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Ngaydk" Type="DateTime" Precision="0" />
+          <Property Name="Isdailycap2" Type="Int32" />
+          <Property Name="CustomerWard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerDistrict" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerDiscount" Type="Int32" />
+          <Property Name="CustomerPhoneNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerEmail" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerPoint" Type="Int32" />
+          <NavigationProperty Name="BillExport" Relationship="QLDLModel.fk_Customer" FromRole="customer" ToRole="BillExport" />
+          <NavigationProperty Name="districts" Relationship="QLDLModel.fk_district" FromRole="customer" ToRole="districts" />
+          <NavigationProperty Name="provinces" Relationship="QLDLModel.fk_province" FromRole="customer" ToRole="provinces" />
+          <NavigationProperty Name="wards" Relationship="QLDLModel.fk_Ward" FromRole="customer" ToRole="wards" />
+          <NavigationProperty Name="wards1" Relationship="QLDLModel.fk_Ward1" FromRole="customer" ToRole="wards" />
+          <NavigationProperty Name="Receipts" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="customer" ToRole="Receipts" />
+          <NavigationProperty Name="chietkhausp" Relationship="QLDLModel.fk_chietkhauCu" FromRole="customer" ToRole="chietkhausp" />
+        </EntityType>
+        <Association Name="fk_Customer">
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
+          <End Type="QLDLModel.BillExport" Role="BillExport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="BillExport">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_district">
+          <End Type="QLDLModel.districts" Role="districts" Multiplicity="0..1" />
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="districts">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="CustomerDistrict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_province">
+          <End Type="QLDLModel.provinces" Role="provinces" Multiplicity="0..1" />
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="provinces">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="CustomerCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ward">
+          <End Type="QLDLModel.wards" Role="wards" Multiplicity="0..1" />
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="wards">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="CustomerCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ward1">
+          <End Type="QLDLModel.wards" Role="wards" Multiplicity="0..1" />
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="wards">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="CustomerWard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Receipts">
+          <Key>
+            <PropertyRef Name="ReceiptsId" />
+          </Key>
+          <Property Name="ReceiptsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="TotalMoney" Type="Double" />
+          <Property Name="ReceiptsDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="Receipts" ToRole="customer" />
+        </EntityType>
+        <Association Name="fk_ReceiptsCu">
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
+          <End Type="QLDLModel.Receipts" Role="Receipts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Receipts">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="chietkhausp">
+          <Key>
+            <PropertyRef Name="chietkhauid" />
+          </Key>
+          <Property Name="chietkhauid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="chietkhau" Type="Double" />
+          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_chietkhauCu" FromRole="chietkhausp" ToRole="customer" />
+          <NavigationProperty Name="product" Relationship="QLDLModel.fk_chietkhausp" FromRole="chietkhausp" ToRole="product" />
+        </EntityType>
+        <Association Name="fk_chietkhauCu">
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
+          <End Type="QLDLModel.chietkhausp" Role="chietkhausp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="chietkhausp">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_chietkhausp">
+          <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
+          <End Type="QLDLModel.chietkhausp" Role="chietkhausp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="chietkhausp">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLDLModelStoreContainer" CdmEntityContainer="QLDLEntities">
+          <EntitySetMapping Name="BillExport">
+            <EntityTypeMapping TypeName="QLDLModel.BillExport">
+              <MappingFragment StoreEntitySet="BillExport">
+                <ScalarProperty Name="BillDiscount" ColumnName="BillDiscount" />
+                <ScalarProperty Name="BillPayPercent" ColumnName="BillPayPercent" />
+                <ScalarProperty Name="BillTotalMoney" ColumnName="BillTotalMoney" />
+                <ScalarProperty Name="BillExportDate" ColumnName="BillExportDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="BillExportId" ColumnName="BillExportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillExportDetails">
+            <EntityTypeMapping TypeName="QLDLModel.BillExportDetails">
+              <MappingFragment StoreEntitySet="BillExportDetails">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="BillExportId" ColumnName="BillExportId" />
+                <ScalarProperty Name="BillExportDetailsId" ColumnName="BillExportDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillImportDetails">
+            <EntityTypeMapping TypeName="QLDLModel.BillImportDetails">
+              <MappingFragment StoreEntitySet="BillImportDetails">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="BillImportId" ColumnName="BillImportId" />
+                <ScalarProperty Name="BillImportDetailsId" ColumnName="BillImportDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="QLDLModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="ProductImageLink" ColumnName="ProductImageLink" />
+                <ScalarProperty Name="ProductInfo" ColumnName="ProductInfo" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productgroup">
+            <EntityTypeMapping TypeName="QLDLModel.productgroup">
+              <MappingFragment StoreEntitySet="productgroup">
+                <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+                <ScalarProperty Name="ProductGroupId" ColumnName="ProductGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="QLDLModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Vaitro" ColumnName="Vaitro" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillImport">
+            <EntityTypeMapping TypeName="QLDLModel.BillImport">
+              <MappingFragment StoreEntitySet="BillImport">
+                <ScalarProperty Name="BillImportDate" ColumnName="BillImportDate" />
+                <ScalarProperty Name="BillImportId" ColumnName="BillImportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="administrative_regions">
+            <EntityTypeMapping TypeName="QLDLModel.administrative_regions">
+              <MappingFragment StoreEntitySet="administrative_regions">
+                <ScalarProperty Name="code_name_en" ColumnName="code_name_en" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="name_en" ColumnName="name_en" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="administrative_units">
+            <EntityTypeMapping TypeName="QLDLModel.administrative_units">
+              <MappingFragment StoreEntitySet="administrative_units">
+                <ScalarProperty Name="code_name_en" ColumnName="code_name_en" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="short_name_en" ColumnName="short_name_en" />
+                <ScalarProperty Name="short_name" ColumnName="short_name" />
+                <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="districts">
+            <EntityTypeMapping TypeName="QLDLModel.districts">
+              <MappingFragment StoreEntitySet="districts">
+                <ScalarProperty Name="administrative_unit_id" ColumnName="administrative_unit_id" />
+                <ScalarProperty Name="province_code" ColumnName="province_code" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="name_en" ColumnName="name_en" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provinces">
+            <EntityTypeMapping TypeName="QLDLModel.provinces">
+              <MappingFragment StoreEntitySet="provinces">
+                <ScalarProperty Name="administrative_region_id" ColumnName="administrative_region_id" />
+                <ScalarProperty Name="administrative_unit_id" ColumnName="administrative_unit_id" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="name_en" ColumnName="name_en" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wards">
+            <EntityTypeMapping TypeName="QLDLModel.wards">
+              <MappingFragment StoreEntitySet="wards">
+                <ScalarProperty Name="administrative_unit_id" ColumnName="administrative_unit_id" />
+                <ScalarProperty Name="district_code" ColumnName="district_code" />
+                <ScalarProperty Name="code_name" ColumnName="code_name" />
+                <ScalarProperty Name="full_name_en" ColumnName="full_name_en" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="name_en" ColumnName="name_en" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer">
+            <EntityTypeMapping TypeName="QLDLModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="CustomerPoint" ColumnName="CustomerPoint" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+                <ScalarProperty Name="CustomerDiscount" ColumnName="CustomerDiscount" />
+                <ScalarProperty Name="CustomerCity" ColumnName="CustomerCity" />
+                <ScalarProperty Name="CustomerDistrict" ColumnName="CustomerDistrict" />
+                <ScalarProperty Name="CustomerWard" ColumnName="CustomerWard" />
+                <ScalarProperty Name="Isdailycap2" ColumnName="Isdailycap2" />
+                <ScalarProperty Name="Ngaydk" ColumnName="Ngaydk" />
+                <ScalarProperty Name="CustomerFullName" ColumnName="CustomerFullName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receipts">
+            <EntityTypeMapping TypeName="QLDLModel.Receipts">
+              <MappingFragment StoreEntitySet="Receipts">
+                <ScalarProperty Name="ReceiptsDate" ColumnName="ReceiptsDate" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ReceiptsId" ColumnName="ReceiptsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chietkhausp">
+            <EntityTypeMapping TypeName="QLDLModel.chietkhausp">
+              <MappingFragment StoreEntitySet="chietkhausp">
+                <ScalarProperty Name="chietkhau" ColumnName="chietkhau" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="chietkhauid" ColumnName="chietkhauid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

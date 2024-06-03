@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="administrative_regions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="name_en" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="code_name_en" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="administrative_units">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="short_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="short_name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="code_name_en" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="BillExport">
+    <Key>
+      <PropertyRef Name="BillExportId" />
+    </Key>
+    <Property Name="BillExportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="BillExportDate" Type="date" Nullable="false" />
+    <Property Name="BillTotalMoney" Type="float" />
+    <Property Name="BillPayPercent" Type="int" />
+    <Property Name="BillDiscount" Type="int" />
+  </EntityType>
+  <EntityType Name="BillExportDetails">
+    <Key>
+      <PropertyRef Name="BillExportDetailsId" />
+    </Key>
+    <Property Name="BillExportDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillExportId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="BillImport">
+    <Key>
+      <PropertyRef Name="BillImportId" />
+    </Key>
+    <Property Name="BillImportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillImportDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BillImportDetails">
+    <Key>
+      <PropertyRef Name="BillImportDetailsId" />
+    </Key>
+    <Property Name="BillImportDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillImportId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="chietkhausp">
+    <Key>
+      <PropertyRef Name="chietkhauid" />
+    </Key>
+    <Property Name="chietkhauid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="chietkhau" Type="float" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Ngaydk" Type="date" />
+    <Property Name="Isdailycap2" Type="int" />
+    <Property Name="CustomerWard" Type="nvarchar" MaxLength="20" />
+    <Property Name="CustomerDistrict" Type="nvarchar" MaxLength="20" />
+    <Property Name="CustomerCity" Type="nvarchar" MaxLength="20" />
+    <Property Name="CustomerDiscount" Type="int" />
+    <Property Name="CustomerPhoneNumber" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CustomerEmail" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="CustomerPoint" Type="int" />
+  </EntityType>
+  <EntityType Name="districts">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="province_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="administrative_unit_id" Type="int" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductGroupName" Type="int" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductPrice" Type="float" Nullable="false" />
+    <Property Name="ProductQuantity" Type="int" />
+    <Property Name="ProductInfo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProductImageLink" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="productgroup">
+    <Key>
+      <PropertyRef Name="ProductGroupId" />
+    </Key>
+    <Property Name="ProductGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductGroupName" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="provinces">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="administrative_unit_id" Type="int" />
+    <Property Name="administrative_region_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Receipts">
+    <Key>
+      <PropertyRef Name="ReceiptsId" />
+    </Key>
+    <Property Name="ReceiptsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="TotalMoney" Type="float" />
+    <Property Name="ReceiptsDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="30" />
+    <Property Name="Vaitro" Type="int" />
+  </EntityType>
+  <EntityType Name="wards">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="full_name_en" Type="nvarchar" MaxLength="255" />
+    <Property Name="code_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="district_code" Type="nvarchar" MaxLength="20" />
+    <Property Name="administrative_unit_id" Type="int" />
+  </EntityType>
+  <Association Name="districts_administrative_unit_id_fkey">
+    <End Role="administrative_units" Type="Self.administrative_units" Multiplicity="0..1" />
+    <End Role="districts" Type="Self.districts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrative_units">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="districts">
+        <PropertyRef Name="administrative_unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="districts_province_code_fkey">
+    <End Role="provinces" Type="Self.provinces" Multiplicity="0..1" />
+    <End Role="districts" Type="Self.districts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provinces">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="districts">
+        <PropertyRef Name="province_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BillExport">
+    <End Role="BillExport" Type="Self.BillExport" Multiplicity="0..1" />
+    <End Role="BillExportDetails" Type="Self.BillExportDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BillExport">
+        <PropertyRef Name="BillExportId" />
+      </Principal>
+      <Dependent Role="BillExportDetails">
+        <PropertyRef Name="BillExportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BillExportProduct">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="BillExportDetails" Type="Self.BillExportDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="BillExportDetails">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BillImport">
+    <End Role="BillImport" Type="Self.BillImport" Multiplicity="0..1" />
+    <End Role="BillImportDetails" Type="Self.BillImportDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BillImport">
+        <PropertyRef Name="BillImportId" />
+      </Principal>
+      <Dependent Role="BillImportDetails">
+        <PropertyRef Name="BillImportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BillImportProduct">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="BillImportDetails" Type="Self.BillImportDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="BillImportDetails">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_chietkhauCu">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="chietkhausp" Type="Self.chietkhausp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="chietkhausp">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_chietkhausp">
+    <End Role="product" Type="Self.product" Multiplicity="0..1" />
+    <End Role="chietkhausp" Type="Self.chietkhausp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="chietkhausp">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="BillExport" Type="Self.BillExport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="BillExport">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_district">
+    <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+    <End Role="customer" Type="Self.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="districts">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="CustomerDistrict" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_grname">
+    <End Role="productgroup" Type="Self.productgroup" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productgroup">
+        <PropertyRef Name="ProductGroupId" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="ProductGroupName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_province">
+    <End Role="provinces" Type="Self.provinces" Multiplicity="0..1" />
+    <End Role="customer" Type="Self.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provinces">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="CustomerCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ReceiptsCu">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="Receipts" Type="Self.Receipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Receipts">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Ward">
+    <End Role="wards" Type="Self.wards" Multiplicity="0..1" />
+    <End Role="customer" Type="Self.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wards">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="CustomerWard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="provinces_administrative_region_id_fkey">
+    <End Role="administrative_regions" Type="Self.administrative_regions" Multiplicity="0..1" />
+    <End Role="provinces" Type="Self.provinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrative_regions">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provinces">
+        <PropertyRef Name="administrative_region_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="provinces_administrative_unit_id_fkey">
+    <End Role="administrative_units" Type="Self.administrative_units" Multiplicity="0..1" />
+    <End Role="provinces" Type="Self.provinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrative_units">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provinces">
+        <PropertyRef Name="administrative_unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="wards_administrative_unit_id_fkey">
+    <End Role="administrative_units" Type="Self.administrative_units" Multiplicity="0..1" />
+    <End Role="wards" Type="Self.wards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="administrative_units">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="wards">
+        <PropertyRef Name="administrative_unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="wards_district_code_fkey">
+    <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+    <End Role="wards" Type="Self.wards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="districts">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="wards">
+        <PropertyRef Name="district_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLDLModelStoreContainer">
+    <EntitySet Name="administrative_regions" EntityType="Self.administrative_regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="administrative_units" EntityType="Self.administrative_units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillExport" EntityType="Self.BillExport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillExportDetails" EntityType="Self.BillExportDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillImport" EntityType="Self.BillImport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillImportDetails" EntityType="Self.BillImportDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chietkhausp" EntityType="Self.chietkhausp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="districts" EntityType="Self.districts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productgroup" EntityType="Self.productgroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="provinces" EntityType="Self.provinces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receipts" EntityType="Self.Receipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wards" EntityType="Self.wards" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="districts_administrative_unit_id_fkey" Association="Self.districts_administrative_unit_id_fkey">
+      <End Role="administrative_units" EntitySet="administrative_units" />
+      <End Role="districts" EntitySet="districts" />
+    </AssociationSet>
+    <AssociationSet Name="districts_province_code_fkey" Association="Self.districts_province_code_fkey">
+      <End Role="provinces" EntitySet="provinces" />
+      <End Role="districts" EntitySet="districts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BillExport" Association="Self.fk_BillExport">
+      <End Role="BillExport" EntitySet="BillExport" />
+      <End Role="BillExportDetails" EntitySet="BillExportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BillExportProduct" Association="Self.fk_BillExportProduct">
+      <End Role="product" EntitySet="product" />
+      <End Role="BillExportDetails" EntitySet="BillExportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BillImport" Association="Self.fk_BillImport">
+      <End Role="BillImport" EntitySet="BillImport" />
+      <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BillImportProduct" Association="Self.fk_BillImportProduct">
+      <End Role="product" EntitySet="product" />
+      <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_chietkhauCu" Association="Self.fk_chietkhauCu">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="chietkhausp" EntitySet="chietkhausp" />
+    </AssociationSet>
+    <AssociationSet Name="fk_chietkhausp" Association="Self.fk_chietkhausp">
+      <End Role="product" EntitySet="product" />
+      <End Role="chietkhausp" EntitySet="chietkhausp" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Customer" Association="Self.fk_Customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="BillExport" EntitySet="BillExport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_district" Association="Self.fk_district">
+      <End Role="districts" EntitySet="districts" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_grname" Association="Self.fk_grname">
+      <End Role="productgroup" EntitySet="productgroup" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="fk_province" Association="Self.fk_province">
+      <End Role="provinces" EntitySet="provinces" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ReceiptsCu" Association="Self.fk_ReceiptsCu">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="Receipts" EntitySet="Receipts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Ward" Association="Self.fk_Ward">
+      <End Role="wards" EntitySet="wards" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="provinces_administrative_region_id_fkey" Association="Self.provinces_administrative_region_id_fkey">
+      <End Role="administrative_regions" EntitySet="administrative_regions" />
+      <End Role="provinces" EntitySet="provinces" />
+    </AssociationSet>
+    <AssociationSet Name="provinces_administrative_unit_id_fkey" Association="Self.provinces_administrative_unit_id_fkey">
+      <End Role="administrative_units" EntitySet="administrative_units" />
+      <End Role="provinces" EntitySet="provinces" />
+    </AssociationSet>
+    <AssociationSet Name="wards_administrative_unit_id_fkey" Association="Self.wards_administrative_unit_id_fkey">
+      <End Role="administrative_units" EntitySet="administrative_units" />
+      <End Role="wards" EntitySet="wards" />
+    </AssociationSet>
+    <AssociationSet Name="wards_district_code_fkey" Association="Self.wards_district_code_fkey">
+      <End Role="districts" EntitySet="districts" />
+      <End Role="wards" EntitySet="wards" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
