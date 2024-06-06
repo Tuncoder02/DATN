@@ -34,11 +34,11 @@
         <AssociationConnector Association="QLDLModel.fk_province" />
         <AssociationConnector Association="QLDLModel.fk_Ward" />
         <AssociationConnector Association="QLDLModel.fk_Ward1" />
-        <EntityTypeShape EntityType="QLDLModel.Receipts" Width="1.5" PointX="12" PointY="13.125" />
-        <AssociationConnector Association="QLDLModel.fk_ReceiptsCu" />
         <EntityTypeShape EntityType="QLDLModel.chietkhausp" Width="1.5" PointX="12" PointY="8.875" />
         <AssociationConnector Association="QLDLModel.fk_chietkhauCu" />
         <AssociationConnector Association="QLDLModel.fk_chietkhausp" />
+        <EntityTypeShape EntityType="QLDLModel.Receipts" Width="1.5" PointX="12" PointY="13.125" />
+        <AssociationConnector Association="QLDLModel.fk_ReceiptsCu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

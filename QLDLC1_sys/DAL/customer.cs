@@ -18,8 +18,8 @@ namespace DAL
         public customer()
         {
             this.BillExport = new HashSet<BillExport>();
-            this.Receipts = new HashSet<Receipts>();
             this.chietkhausp = new HashSet<chietkhausp>();
+            this.Receipts = new HashSet<Receipts>();
         }
     
         public int CustomerId { get; set; }
@@ -41,8 +41,8 @@ namespace DAL
         public virtual wards wards { get; set; }
         public virtual wards wards1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Receipts> Receipts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<chietkhausp> chietkhausp { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receipts> Receipts { get; set; }
     }
 }

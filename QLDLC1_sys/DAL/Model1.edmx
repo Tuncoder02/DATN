@@ -141,6 +141,7 @@
           <Property Name="ReceiptsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerId" Type="int" />
           <Property Name="TotalMoney" Type="float" />
+          <Property Name="Content" Type="nvarchar" MaxLength="500" />
           <Property Name="ReceiptsDate" Type="date" />
         </EntityType>
         <EntityType Name="Users">
@@ -551,11 +552,6 @@
             <End Role="wards" EntitySet="wards" />
             <End Role="customer" EntitySet="customer" />
           </AssociationSet>
-          <EntitySet Name="Receipts" EntityType="QLDLModel.Receipts" />
-          <AssociationSet Name="fk_ReceiptsCu" Association="QLDLModel.fk_ReceiptsCu">
-            <End Role="customer" EntitySet="customer" />
-            <End Role="Receipts" EntitySet="Receipts" />
-          </AssociationSet>
           <EntitySet Name="chietkhausp" EntityType="QLDLModel.chietkhausp" />
           <AssociationSet Name="fk_chietkhauCu" Association="QLDLModel.fk_chietkhauCu">
             <End Role="customer" EntitySet="customer" />
@@ -564,6 +560,11 @@
           <AssociationSet Name="fk_chietkhausp" Association="QLDLModel.fk_chietkhausp">
             <End Role="product" EntitySet="product" />
             <End Role="chietkhausp" EntitySet="chietkhausp" />
+          </AssociationSet>
+          <EntitySet Name="Receipts" EntityType="QLDLModel.Receipts" />
+          <AssociationSet Name="fk_ReceiptsCu" Association="QLDLModel.fk_ReceiptsCu">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="Receipts" EntitySet="Receipts" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BillExport">
@@ -871,8 +872,8 @@
           <NavigationProperty Name="provinces" Relationship="QLDLModel.fk_province" FromRole="customer" ToRole="provinces" />
           <NavigationProperty Name="wards" Relationship="QLDLModel.fk_Ward" FromRole="customer" ToRole="wards" />
           <NavigationProperty Name="wards1" Relationship="QLDLModel.fk_Ward1" FromRole="customer" ToRole="wards" />
-          <NavigationProperty Name="Receipts" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="customer" ToRole="Receipts" />
           <NavigationProperty Name="chietkhausp" Relationship="QLDLModel.fk_chietkhauCu" FromRole="customer" ToRole="chietkhausp" />
+          <NavigationProperty Name="Receipts" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="customer" ToRole="Receipts" />
         </EntityType>
         <Association Name="fk_Customer">
           <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
@@ -934,28 +935,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Receipts">
-          <Key>
-            <PropertyRef Name="ReceiptsId" />
-          </Key>
-          <Property Name="ReceiptsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerId" Type="Int32" />
-          <Property Name="TotalMoney" Type="Double" />
-          <Property Name="ReceiptsDate" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="Receipts" ToRole="customer" />
-        </EntityType>
-        <Association Name="fk_ReceiptsCu">
-          <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
-          <End Type="QLDLModel.Receipts" Role="Receipts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="Receipts">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="chietkhausp">
           <Key>
             <PropertyRef Name="chietkhauid" />
@@ -988,6 +967,29 @@
             </Principal>
             <Dependent Role="chietkhausp">
               <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Receipts">
+          <Key>
+            <PropertyRef Name="ReceiptsId" />
+          </Key>
+          <Property Name="ReceiptsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="TotalMoney" Type="Double" />
+          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiptsDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="customer" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="Receipts" ToRole="customer" />
+        </EntityType>
+        <Association Name="fk_ReceiptsCu">
+          <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
+          <End Type="QLDLModel.Receipts" Role="Receipts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Receipts">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1151,16 +1153,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Receipts">
-            <EntityTypeMapping TypeName="QLDLModel.Receipts">
-              <MappingFragment StoreEntitySet="Receipts">
-                <ScalarProperty Name="ReceiptsDate" ColumnName="ReceiptsDate" />
-                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="ReceiptsId" ColumnName="ReceiptsId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="chietkhausp">
             <EntityTypeMapping TypeName="QLDLModel.chietkhausp">
               <MappingFragment StoreEntitySet="chietkhausp">
@@ -1168,6 +1160,17 @@
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="chietkhauid" ColumnName="chietkhauid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receipts">
+            <EntityTypeMapping TypeName="QLDLModel.Receipts">
+              <MappingFragment StoreEntitySet="Receipts">
+                <ScalarProperty Name="ReceiptsDate" ColumnName="ReceiptsDate" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ReceiptsId" ColumnName="ReceiptsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -15,6 +15,7 @@ namespace QLDLC1_sys.UC_control
 {
     public partial class UC_Hoadonbanhang : UserControl
     {
+
         public UC_Hoadonbanhang()
         {
             InitializeComponent();
@@ -205,10 +206,10 @@ namespace QLDLC1_sys.UC_control
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-       "Bạn có chắc chắn muốn xóa?",
-       "Warning",
-       MessageBoxButtons.YesNo,
-       MessageBoxIcon.Warning);
+               "Bạn có chắc chắn muốn xóa?",
+               "Warning",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 int idBill = int.Parse(txtMabillinfo.Text);

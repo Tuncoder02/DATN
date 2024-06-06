@@ -136,6 +136,7 @@
     <Property Name="ReceiptsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
     <Property Name="TotalMoney" Type="float" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" />
     <Property Name="ReceiptsDate" Type="date" />
   </EntityType>
   <EntityType Name="Users">

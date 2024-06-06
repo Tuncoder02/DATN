@@ -17,6 +17,7 @@ namespace DAL
         public int ReceiptsId { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public Nullable<double> TotalMoney { get; set; }
+        public string Content { get; set; }
         public Nullable<System.DateTime> ReceiptsDate { get; set; }
     
         public virtual customer customer { get; set; }

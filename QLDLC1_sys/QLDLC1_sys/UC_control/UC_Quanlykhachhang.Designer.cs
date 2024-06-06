@@ -142,7 +142,7 @@
             this.groupBox1.Size = new System.Drawing.Size(703, 640);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = " ";
+            this.groupBox1.Text = " Lịch sử phiếu thu";
             // 
             // button1
             // 

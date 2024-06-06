@@ -155,16 +155,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Receipts">
-      <EntityTypeMapping TypeName="QLDLModel.Receipts">
-        <MappingFragment StoreEntitySet="Receipts">
-          <ScalarProperty Name="ReceiptsDate" ColumnName="ReceiptsDate" />
-          <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
-          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-          <ScalarProperty Name="ReceiptsId" ColumnName="ReceiptsId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="chietkhausp">
       <EntityTypeMapping TypeName="QLDLModel.chietkhausp">
         <MappingFragment StoreEntitySet="chietkhausp">
@@ -172,6 +162,17 @@
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="chietkhauid" ColumnName="chietkhauid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receipts">
+      <EntityTypeMapping TypeName="QLDLModel.Receipts">
+        <MappingFragment StoreEntitySet="Receipts">
+          <ScalarProperty Name="ReceiptsDate" ColumnName="ReceiptsDate" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ReceiptsId" ColumnName="ReceiptsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

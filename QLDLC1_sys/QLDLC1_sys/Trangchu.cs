@@ -227,7 +227,7 @@ namespace QLDLC1_sys
             if (CongnoExpand == false)
             {
                 CongnoMenu.Height += 10;
-                if (CongnoMenu.Height >= 189)
+                if (CongnoMenu.Height >= 256)
                 {
                     Congnotrans.Stop();
                     CongnoExpand = true;
@@ -643,7 +643,8 @@ namespace QLDLC1_sys
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
-
+            UC_Baocaotungsanpham uc=new UC_Baocaotungsanpham();
+            showControl(uc);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -715,11 +716,12 @@ namespace QLDLC1_sys
             btnTKDoanhso.ForeColor = SystemColors.ControlText;
             btnTKDoanhso.BackColor = SystemColors.ControlLightLight;
             btnTKDoanhso.Image = Image.FromFile(defaultImagePath);
-
+             
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
-
+            UC_Thongketongquan uc=new UC_Thongketongquan();
+            showControl(uc);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -795,7 +797,8 @@ namespace QLDLC1_sys
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
-
+            UC_Baocaotoansanpham uc = new UC_Baocaotoansanpham();
+            showControl(uc);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -867,7 +870,8 @@ namespace QLDLC1_sys
             btnTongcongno.ForeColor = SystemColors.ControlText;
             btnTongcongno.BackColor = SystemColors.ControlLightLight;
             btnTongcongno.Image = Image.FromFile(defaultImagePath);
-
+            UC_Tongcongno uc = new UC_Tongcongno();
+            showControl(uc);
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
@@ -943,7 +947,8 @@ namespace QLDLC1_sys
             btnCongnokhachhang.ForeColor = SystemColors.ControlText;
             btnCongnokhachhang.BackColor = SystemColors.ControlLightLight;
             btnCongnokhachhang.Image = Image.FromFile(defaultImagePath);
-
+            UC_Congnokhachhang uc = new UC_Congnokhachhang();
+            showControl(uc);
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
@@ -1176,7 +1181,8 @@ namespace QLDLC1_sys
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
-
+            UC_Phieuthu uc = new UC_Phieuthu();
+            showControl(uc);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);

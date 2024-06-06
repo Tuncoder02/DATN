@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cboTinh = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -109,7 +109,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 475);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1080, 458);
+            this.panel3.Size = new System.Drawing.Size(1080, 392);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -126,18 +126,18 @@
             // 
             // chartXa
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartXa.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chartXa.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chartXa.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartXa.Legends.Add(legend1);
             this.chartXa.Location = new System.Drawing.Point(586, 81);
             this.chartXa.Name = "chartXa";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chartXa.Series.Add(series7);
-            this.chartXa.Size = new System.Drawing.Size(511, 374);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartXa.Series.Add(series1);
+            this.chartXa.Size = new System.Drawing.Size(511, 321);
             this.chartXa.TabIndex = 12;
             this.chartXa.Text = "chartXa";
             this.chartXa.Click += new System.EventHandler(this.chart1_Click);
@@ -146,26 +146,26 @@
             // 
             this.dtgvXa.BackgroundColor = System.Drawing.Color.White;
             this.dtgvXa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvXa.Location = new System.Drawing.Point(0, 81);
+            this.dtgvXa.Location = new System.Drawing.Point(3, 81);
             this.dtgvXa.Name = "dtgvXa";
             this.dtgvXa.RowHeadersWidth = 51;
             this.dtgvXa.RowTemplate.Height = 24;
-            this.dtgvXa.Size = new System.Drawing.Size(583, 377);
+            this.dtgvXa.Size = new System.Drawing.Size(583, 311);
             this.dtgvXa.TabIndex = 2;
             // 
             // chartHuyen
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartHuyen.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chartHuyen.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.chartHuyen.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartHuyen.Legends.Add(legend2);
             this.chartHuyen.Location = new System.Drawing.Point(586, 141);
             this.chartHuyen.Name = "chartHuyen";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chartHuyen.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartHuyen.Series.Add(series2);
             this.chartHuyen.Size = new System.Drawing.Size(482, 275);
             this.chartHuyen.TabIndex = 2;
             this.chartHuyen.Text = "chartHuyen";
@@ -336,7 +336,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 933);
+            this.ClientSize = new System.Drawing.Size(1080, 867);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

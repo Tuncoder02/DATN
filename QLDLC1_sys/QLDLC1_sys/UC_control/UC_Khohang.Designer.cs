@@ -43,7 +43,6 @@
             this.txtTensanpham = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ptrboxAnh = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,12 +50,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
+            this.ptrboxAnh = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nbrSoluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -219,14 +219,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Nhóm sản phẩm:";
             // 
-            // ptrboxAnh
-            // 
-            this.ptrboxAnh.Location = new System.Drawing.Point(50, 34);
-            this.ptrboxAnh.Name = "ptrboxAnh";
-            this.ptrboxAnh.Size = new System.Drawing.Size(330, 190);
-            this.ptrboxAnh.TabIndex = 0;
-            this.ptrboxAnh.TabStop = false;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtMaSP);
@@ -316,6 +308,14 @@
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
+            // ptrboxAnh
+            // 
+            this.ptrboxAnh.Location = new System.Drawing.Point(50, 34);
+            this.ptrboxAnh.Name = "ptrboxAnh";
+            this.ptrboxAnh.Size = new System.Drawing.Size(330, 190);
+            this.ptrboxAnh.TabIndex = 0;
+            this.ptrboxAnh.TabStop = false;
+            // 
             // UC_Khohang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -334,11 +334,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbrSoluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).EndInit();
             this.ResumeLayout(false);
 
         }

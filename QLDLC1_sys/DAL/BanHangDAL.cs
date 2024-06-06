@@ -151,8 +151,8 @@ namespace DAL
             public int ProductId { get; set; }
             public string ProductName { get; set; }
             public int Quantity { get; set; }
-            public float Price { get; set; }
-            public float DiscountAmount { get; set; }
+            public double Price { get; set; }
+            public double DiscountAmount { get; set; }
             // Các trường khác từ BillDetail nếu cần
         }
 
@@ -170,8 +170,8 @@ namespace DAL
                              ProductId =(int) bd.ProductId,
                              ProductName=bd.product.ProductName,
                              Quantity =(int) bd.Quantity,
-                             Price = (float)bd.product.ProductPrice,
-                             DiscountAmount = dg == null ? 0 : (float)dg.chietkhau
+                             Price = (double)bd.product.ProductPrice,
+                             DiscountAmount = dg == null ? 0 : (double)dg.chietkhau
                          };
 
             return result.ToList();

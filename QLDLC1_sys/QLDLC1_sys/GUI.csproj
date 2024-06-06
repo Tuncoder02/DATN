@@ -165,6 +165,24 @@
     <Compile Include="Dangnhap.Designer.cs">
       <DependentUpon>Dangnhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_control\UC_Baocaotoansanpham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_control\UC_Baocaotoansanpham.Designer.cs">
+      <DependentUpon>UC_Baocaotoansanpham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_control\UC_Baocaotungsanpham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_control\UC_Baocaotungsanpham.Designer.cs">
+      <DependentUpon>UC_Baocaotungsanpham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_control\UC_Congnokhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_control\UC_Congnokhachhang.Designer.cs">
+      <DependentUpon>UC_Congnokhachhang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_control\UC_Hoadonbanhang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,11 +219,29 @@
     <Compile Include="UC_control\UC_nhaphang.Designer.cs">
       <DependentUpon>UC_nhaphang.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_control\UC_Phieuthu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_control\UC_Phieuthu.Designer.cs">
+      <DependentUpon>UC_Phieuthu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_control\UC_Quanlykhachhang.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC_control\UC_Quanlykhachhang.Designer.cs">
       <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_control\UC_Thongketongquan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_control\UC_Thongketongquan.Designer.cs">
+      <DependentUpon>UC_Thongketongquan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_control\UC_Tongcongno.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_control\UC_Tongcongno.Designer.cs">
+      <DependentUpon>UC_Tongcongno.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Kiemtradaily.resx">
       <DependentUpon>Kiemtradaily.cs</DependentUpon>
@@ -230,6 +266,15 @@
     <EmbeddedResource Include="Dangnhap.resx">
       <DependentUpon>Dangnhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_control\UC_Baocaotoansanpham.resx">
+      <DependentUpon>UC_Baocaotoansanpham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_control\UC_Baocaotungsanpham.resx">
+      <DependentUpon>UC_Baocaotungsanpham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_control\UC_Congnokhachhang.resx">
+      <DependentUpon>UC_Congnokhachhang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_control\UC_Hoadonbanhang.resx">
       <DependentUpon>UC_Hoadonbanhang.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,8 +293,17 @@
     <EmbeddedResource Include="UC_control\UC_nhaphang.resx">
       <DependentUpon>UC_nhaphang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_control\UC_Phieuthu.resx">
+      <DependentUpon>UC_Phieuthu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_control\UC_Quanlykhachhang.resx">
       <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_control\UC_Thongketongquan.resx">
+      <DependentUpon>UC_Thongketongquan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_control\UC_Tongcongno.resx">
+      <DependentUpon>UC_Tongcongno.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

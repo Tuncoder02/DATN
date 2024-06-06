@@ -39,7 +39,7 @@ namespace DAL
         public virtual DbSet<provinces> provinces { get; set; }
         public virtual DbSet<wards> wards { get; set; }
         public virtual DbSet<customer> customer { get; set; }
-        public virtual DbSet<Receipts> Receipts { get; set; }
         public virtual DbSet<chietkhausp> chietkhausp { get; set; }
+        public virtual DbSet<Receipts> Receipts { get; set; }
     }
 }
