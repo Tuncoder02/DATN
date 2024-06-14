@@ -142,7 +142,7 @@ namespace DAL
         public List<ProductTransactionSummary> getNhapxuat(DateTime startDate,DateTime endDate) 
         {
             // Truy vấn mua hàng
-            var purchaseQuery = from invoice in DataProvider.Ins.DB.BillImport
+         /*   var purchaseQuery = from invoice in DataProvider.Ins.DB.BillImport
                                 where invoice.BillImportDate >= startDate && invoice.BillImportDate <= endDate
                                 from detail in invoice.BillImportDetails
                                 join product in DataProvider.Ins.DB.product on detail.ProductId equals product.ProductId
@@ -181,10 +181,10 @@ namespace DAL
                                            ProductName = g.Key.ProductName,
                                            TotalPurchase = g.Sum(x => x.TotalPurchase),
                                            TotalSales = g.Sum(x => x.TotalSales)
-                                       }).ToList();
+                                       }).ToList();*/
 
 
-            return productTransactions;
+            return null;
 
         }
 

@@ -23,9 +23,7 @@ namespace DAL
         public int BillExportId { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public System.DateTime BillExportDate { get; set; }
-        public Nullable<double> BillTotalMoney { get; set; }
-        public Nullable<int> BillPayPercent { get; set; }
-        public Nullable<int> BillDiscount { get; set; }
+        public Nullable<double> BillPay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BillExportDetails> BillExportDetails { get; set; }

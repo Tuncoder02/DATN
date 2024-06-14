@@ -50,12 +50,7 @@ namespace BLL
             data.DataSource = result2.ToList();
         }
 
-        public void getBillInfonew(DataGridView data, int id)
-        {
-            List<BillDetailWithDiscount> result = BanHangDAL.Instance.GetBillDetailsWithDiscounts().Where(x=>x.BillId==id).ToList();
-            var result2 = from c in result select new { IdBill = c.BillDetailId, IdProduct = c.ProductId, TenSanPham = c.ProductName, SoLuong = c.Quantity, Giaban = c.Price,Chietkhau=c.DiscountAmount, ThanhTien =( c.Price * c.Quantity)*(100-c.DiscountAmount)/100 };
-            data.DataSource = result2.ToList();
-        }
+      
 
         public void addBillInfo(int idBill, int Product, int soluong)
         {
@@ -93,16 +88,16 @@ namespace BLL
         {
             return BanHangDAL.Instance.updateProduct(id, soluong);
         }
-        public bool luuBill(int idBill,int idKH,int pay)
+        public bool luuBill(int idBill,int idKH,int pay,DateTime date)
         {
-            return BanHangDAL.Instance.luuBill(idBill,idKH,pay);
+            return BanHangDAL.Instance.luuBill(idBill,idKH,pay,date);
         }
 
 
         public void loadBillExport(DataGridView data)
         {
             List<BillExport> result = BanHangDAL.Instance.getBillExport();
-            var result2 = from c in result select new { IdBill = c.BillExportId,Customer=c.CustomerId,PayPercent=c.BillPayPercent, Ngayban = c.BillExportDate };
+            var result2 = from c in result select new { IdBill = c.BillExportId,Customer=c.CustomerId,PayPercent=c.BillPay, Ngayban = c.BillExportDate };
             data.DataSource = result2.ToList();
         }
 

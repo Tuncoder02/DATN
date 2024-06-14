@@ -37,23 +37,25 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.SlideMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.BanhangMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.CongnoMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.KhachhangMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
             this.ThongkeMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.CongnoMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.KhachhangMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
+            this.BanhangMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.Khohangtrans = new System.Windows.Forms.Timer(this.components);
             this.Slidemenutrans = new System.Windows.Forms.Timer(this.components);
             this.Banhangtrans = new System.Windows.Forms.Timer(this.components);
@@ -61,7 +63,7 @@
             this.Thongketrans = new System.Windows.Forms.Timer(this.components);
             this.Khachhangtrans = new System.Windows.Forms.Timer(this.components);
             this.panelBody = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnTongquan = new System.Windows.Forms.Button();
             this.btnNhaphang = new System.Windows.Forms.Button();
@@ -69,10 +71,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.btnTaohoadon = new System.Windows.Forms.Button();
             this.btnLichsuban = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnTKDoanhso = new System.Windows.Forms.Button();
-            this.btnTKSanpham = new System.Windows.Forms.Button();
-            this.btnTKKhachhang = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnTongcongno = new System.Windows.Forms.Button();
             this.btnCongnokhachhang = new System.Windows.Forms.Button();
@@ -80,6 +78,10 @@
             this.button17 = new System.Windows.Forms.Button();
             this.btnQuanly = new System.Windows.Forms.Button();
             this.btnDangkyKH = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnTKDoanhso = new System.Windows.Forms.Button();
+            this.btnTKSanpham = new System.Windows.Forms.Button();
+            this.btnTKKhachhang = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -91,24 +93,25 @@
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.SlideMenu.SuspendLayout();
-            this.BanhangMenu.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.CongnoMenu.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.KhachhangMenu.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.ThongkeMenu.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.CongnoMenu.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.KhachhangMenu.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
+            this.BanhangMenu.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -128,7 +131,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(3, 338);
+            this.panel3.Location = new System.Drawing.Point(3, 411);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
             this.panel3.Size = new System.Drawing.Size(298, 67);
@@ -141,7 +144,7 @@
             this.KhohangMenu.Controls.Add(this.panel4);
             this.KhohangMenu.Controls.Add(this.panel2);
             this.KhohangMenu.Controls.Add(this.panel10);
-            this.KhohangMenu.Location = new System.Drawing.Point(0, 0);
+            this.KhohangMenu.Location = new System.Drawing.Point(0, 73);
             this.KhohangMenu.Margin = new System.Windows.Forms.Padding(0);
             this.KhohangMenu.Name = "KhohangMenu";
             this.KhohangMenu.Size = new System.Drawing.Size(298, 67);
@@ -194,11 +197,12 @@
             this.SlideMenu.AutoScrollMargin = new System.Drawing.Size(50, 50);
             this.SlideMenu.AutoScrollMinSize = new System.Drawing.Size(30, 30);
             this.SlideMenu.BackColor = System.Drawing.SystemColors.ControlText;
+            this.SlideMenu.Controls.Add(this.panel8);
             this.SlideMenu.Controls.Add(this.KhohangMenu);
             this.SlideMenu.Controls.Add(this.BanhangMenu);
-            this.SlideMenu.Controls.Add(this.ThongkeMenu);
             this.SlideMenu.Controls.Add(this.CongnoMenu);
             this.SlideMenu.Controls.Add(this.KhachhangMenu);
+            this.SlideMenu.Controls.Add(this.ThongkeMenu);
             this.SlideMenu.Controls.Add(this.panel3);
             this.SlideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.SlideMenu.Location = new System.Drawing.Point(0, 43);
@@ -208,47 +212,109 @@
             this.SlideMenu.TabIndex = 10;
             this.SlideMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.SlideMenu_Paint);
             // 
-            // BanhangMenu
+            // panel8
             // 
-            this.BanhangMenu.BackColor = System.Drawing.SystemColors.ControlText;
-            this.BanhangMenu.Controls.Add(this.panel11);
-            this.BanhangMenu.Controls.Add(this.panel12);
-            this.BanhangMenu.Controls.Add(this.panel13);
-            this.BanhangMenu.Location = new System.Drawing.Point(0, 67);
-            this.BanhangMenu.Margin = new System.Windows.Forms.Padding(0);
-            this.BanhangMenu.Name = "BanhangMenu";
-            this.BanhangMenu.Size = new System.Drawing.Size(298, 67);
-            this.BanhangMenu.TabIndex = 10;
+            this.panel8.Controls.Add(this.button2);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel8.Size = new System.Drawing.Size(298, 67);
+            this.panel8.TabIndex = 4;
             // 
-            // panel11
+            // CongnoMenu
             // 
-            this.panel11.Controls.Add(this.button10);
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(0);
-            this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel11.Size = new System.Drawing.Size(300, 67);
-            this.panel11.TabIndex = 5;
+            this.CongnoMenu.BackColor = System.Drawing.SystemColors.ControlText;
+            this.CongnoMenu.Controls.Add(this.panel5);
+            this.CongnoMenu.Controls.Add(this.panel14);
+            this.CongnoMenu.Controls.Add(this.panel15);
+            this.CongnoMenu.Controls.Add(this.panel21);
+            this.CongnoMenu.Location = new System.Drawing.Point(0, 207);
+            this.CongnoMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.CongnoMenu.Name = "CongnoMenu";
+            this.CongnoMenu.Size = new System.Drawing.Size(298, 67);
+            this.CongnoMenu.TabIndex = 11;
             // 
-            // panel12
+            // panel5
             // 
-            this.panel12.Controls.Add(this.btnTaohoadon);
-            this.panel12.Location = new System.Drawing.Point(0, 67);
-            this.panel12.Margin = new System.Windows.Forms.Padding(0);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel12.Size = new System.Drawing.Size(300, 59);
-            this.panel12.TabIndex = 4;
+            this.panel5.Controls.Add(this.button3);
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel5.Size = new System.Drawing.Size(300, 67);
+            this.panel5.TabIndex = 5;
             // 
-            // panel13
+            // panel14
             // 
-            this.panel13.Controls.Add(this.btnLichsuban);
-            this.panel13.Location = new System.Drawing.Point(0, 126);
-            this.panel13.Margin = new System.Windows.Forms.Padding(0);
-            this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel13.Size = new System.Drawing.Size(300, 59);
-            this.panel13.TabIndex = 5;
+            this.panel14.Controls.Add(this.btnTongcongno);
+            this.panel14.Location = new System.Drawing.Point(0, 67);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0);
+            this.panel14.Name = "panel14";
+            this.panel14.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel14.Size = new System.Drawing.Size(300, 59);
+            this.panel14.TabIndex = 4;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.btnCongnokhachhang);
+            this.panel15.Location = new System.Drawing.Point(0, 126);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
+            this.panel15.Name = "panel15";
+            this.panel15.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel15.Size = new System.Drawing.Size(300, 59);
+            this.panel15.TabIndex = 5;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.btnDangkyDL);
+            this.panel21.Location = new System.Drawing.Point(0, 185);
+            this.panel21.Margin = new System.Windows.Forms.Padding(0);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel21.Size = new System.Drawing.Size(300, 59);
+            this.panel21.TabIndex = 6;
+            // 
+            // KhachhangMenu
+            // 
+            this.KhachhangMenu.BackColor = System.Drawing.SystemColors.ControlText;
+            this.KhachhangMenu.Controls.Add(this.panel18);
+            this.KhachhangMenu.Controls.Add(this.panel19);
+            this.KhachhangMenu.Controls.Add(this.panel20);
+            this.KhachhangMenu.Location = new System.Drawing.Point(0, 274);
+            this.KhachhangMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.KhachhangMenu.Name = "KhachhangMenu";
+            this.KhachhangMenu.Size = new System.Drawing.Size(298, 67);
+            this.KhachhangMenu.TabIndex = 13;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.button17);
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Margin = new System.Windows.Forms.Padding(0);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel18.Size = new System.Drawing.Size(300, 67);
+            this.panel18.TabIndex = 5;
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.btnQuanly);
+            this.panel19.Location = new System.Drawing.Point(0, 67);
+            this.panel19.Margin = new System.Windows.Forms.Padding(0);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel19.Size = new System.Drawing.Size(300, 59);
+            this.panel19.TabIndex = 4;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.btnDangkyKH);
+            this.panel20.Location = new System.Drawing.Point(0, 126);
+            this.panel20.Margin = new System.Windows.Forms.Padding(0);
+            this.panel20.Name = "panel20";
+            this.panel20.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel20.Size = new System.Drawing.Size(300, 59);
+            this.panel20.TabIndex = 5;
             // 
             // ThongkeMenu
             // 
@@ -257,7 +323,7 @@
             this.ThongkeMenu.Controls.Add(this.panel16);
             this.ThongkeMenu.Controls.Add(this.panel17);
             this.ThongkeMenu.Controls.Add(this.panel7);
-            this.ThongkeMenu.Location = new System.Drawing.Point(0, 134);
+            this.ThongkeMenu.Location = new System.Drawing.Point(0, 341);
             this.ThongkeMenu.Margin = new System.Windows.Forms.Padding(0);
             this.ThongkeMenu.Name = "ThongkeMenu";
             this.ThongkeMenu.Size = new System.Drawing.Size(298, 67);
@@ -303,90 +369,47 @@
             this.panel7.Size = new System.Drawing.Size(300, 59);
             this.panel7.TabIndex = 6;
             // 
-            // CongnoMenu
+            // BanhangMenu
             // 
-            this.CongnoMenu.BackColor = System.Drawing.SystemColors.ControlText;
-            this.CongnoMenu.Controls.Add(this.panel5);
-            this.CongnoMenu.Controls.Add(this.panel14);
-            this.CongnoMenu.Controls.Add(this.panel15);
-            this.CongnoMenu.Controls.Add(this.panel21);
-            this.CongnoMenu.Location = new System.Drawing.Point(0, 201);
-            this.CongnoMenu.Margin = new System.Windows.Forms.Padding(0);
-            this.CongnoMenu.Name = "CongnoMenu";
-            this.CongnoMenu.Size = new System.Drawing.Size(298, 67);
-            this.CongnoMenu.TabIndex = 11;
+            this.BanhangMenu.BackColor = System.Drawing.SystemColors.ControlText;
+            this.BanhangMenu.Controls.Add(this.panel11);
+            this.BanhangMenu.Controls.Add(this.panel12);
+            this.BanhangMenu.Controls.Add(this.panel13);
+            this.BanhangMenu.Location = new System.Drawing.Point(0, 140);
+            this.BanhangMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.BanhangMenu.Name = "BanhangMenu";
+            this.BanhangMenu.Size = new System.Drawing.Size(298, 67);
+            this.BanhangMenu.TabIndex = 10;
             // 
-            // panel5
+            // panel11
             // 
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(300, 67);
-            this.panel5.TabIndex = 5;
+            this.panel11.Controls.Add(this.button10);
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel11.Size = new System.Drawing.Size(300, 67);
+            this.panel11.TabIndex = 5;
             // 
-            // panel14
+            // panel12
             // 
-            this.panel14.Controls.Add(this.btnTongcongno);
-            this.panel14.Location = new System.Drawing.Point(0, 67);
-            this.panel14.Margin = new System.Windows.Forms.Padding(0);
-            this.panel14.Name = "panel14";
-            this.panel14.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel14.Size = new System.Drawing.Size(300, 59);
-            this.panel14.TabIndex = 4;
+            this.panel12.Controls.Add(this.btnTaohoadon);
+            this.panel12.Location = new System.Drawing.Point(0, 67);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel12.Size = new System.Drawing.Size(300, 59);
+            this.panel12.TabIndex = 4;
             // 
-            // panel15
+            // panel13
             // 
-            this.panel15.Controls.Add(this.btnCongnokhachhang);
-            this.panel15.Location = new System.Drawing.Point(0, 126);
-            this.panel15.Margin = new System.Windows.Forms.Padding(0);
-            this.panel15.Name = "panel15";
-            this.panel15.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel15.Size = new System.Drawing.Size(300, 59);
-            this.panel15.TabIndex = 5;
-            // 
-            // KhachhangMenu
-            // 
-            this.KhachhangMenu.BackColor = System.Drawing.SystemColors.ControlText;
-            this.KhachhangMenu.Controls.Add(this.panel18);
-            this.KhachhangMenu.Controls.Add(this.panel19);
-            this.KhachhangMenu.Controls.Add(this.panel20);
-            this.KhachhangMenu.Location = new System.Drawing.Point(0, 268);
-            this.KhachhangMenu.Margin = new System.Windows.Forms.Padding(0);
-            this.KhachhangMenu.Name = "KhachhangMenu";
-            this.KhachhangMenu.Size = new System.Drawing.Size(298, 67);
-            this.KhachhangMenu.TabIndex = 13;
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.button17);
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Margin = new System.Windows.Forms.Padding(0);
-            this.panel18.Name = "panel18";
-            this.panel18.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel18.Size = new System.Drawing.Size(300, 67);
-            this.panel18.TabIndex = 5;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.btnQuanly);
-            this.panel19.Location = new System.Drawing.Point(0, 67);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel19.Size = new System.Drawing.Size(300, 59);
-            this.panel19.TabIndex = 4;
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.btnDangkyKH);
-            this.panel20.Location = new System.Drawing.Point(0, 126);
-            this.panel20.Margin = new System.Windows.Forms.Padding(0);
-            this.panel20.Name = "panel20";
-            this.panel20.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel20.Size = new System.Drawing.Size(300, 59);
-            this.panel20.TabIndex = 5;
+            this.panel13.Controls.Add(this.btnLichsuban);
+            this.panel13.Location = new System.Drawing.Point(0, 126);
+            this.panel13.Margin = new System.Windows.Forms.Padding(0);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.panel13.Size = new System.Drawing.Size(300, 59);
+            this.panel13.TabIndex = 5;
             // 
             // Khohangtrans
             // 
@@ -427,15 +450,21 @@
             this.panelBody.TabIndex = 11;
             this.panelBody.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
-            // panel21
+            // button2
             // 
-            this.panel21.Controls.Add(this.btnDangkyDL);
-            this.panel21.Location = new System.Drawing.Point(0, 185);
-            this.panel21.Margin = new System.Windows.Forms.Padding(0);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel21.Size = new System.Drawing.Size(300, 59);
-            this.panel21.TabIndex = 6;
+            this.button2.BackColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::QLDLC1_sys.Properties.Resources.Hometrang2;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(-14, -17);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(327, 102);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "               Trang chủ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
@@ -469,7 +498,7 @@
             this.btnTongquan.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
             this.btnTongquan.Size = new System.Drawing.Size(327, 102);
             this.btnTongquan.TabIndex = 2;
-            this.btnTongquan.Text = "               Tổng quan";
+            this.btnTongquan.Text = "               Danh mục SP";
             this.btnTongquan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTongquan.UseVisualStyleBackColor = false;
             this.btnTongquan.Click += new System.EventHandler(this.button2_Click);
@@ -562,77 +591,6 @@
             this.btnLichsuban.UseVisualStyleBackColor = false;
             this.btnLichsuban.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::QLDLC1_sys.Properties.Resources.analytics__1_;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(-11, -17);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(327, 102);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "               Thống kê";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
-            this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
-            // 
-            // btnTKDoanhso
-            // 
-            this.btnTKDoanhso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.btnTKDoanhso.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTKDoanhso.ForeColor = System.Drawing.Color.White;
-            this.btnTKDoanhso.Image = global::QLDLC1_sys.Properties.Resources.circle;
-            this.btnTKDoanhso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTKDoanhso.Location = new System.Drawing.Point(-11, -24);
-            this.btnTKDoanhso.Name = "btnTKDoanhso";
-            this.btnTKDoanhso.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.btnTKDoanhso.Size = new System.Drawing.Size(327, 102);
-            this.btnTKDoanhso.TabIndex = 2;
-            this.btnTKDoanhso.Text = "               Tổng quan";
-            this.btnTKDoanhso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTKDoanhso.UseVisualStyleBackColor = false;
-            this.btnTKDoanhso.Click += new System.EventHandler(this.btnTKDoanhso_Click);
-            // 
-            // btnTKSanpham
-            // 
-            this.btnTKSanpham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.btnTKSanpham.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTKSanpham.ForeColor = System.Drawing.Color.White;
-            this.btnTKSanpham.Image = global::QLDLC1_sys.Properties.Resources.circle;
-            this.btnTKSanpham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTKSanpham.Location = new System.Drawing.Point(-11, -24);
-            this.btnTKSanpham.Name = "btnTKSanpham";
-            this.btnTKSanpham.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.btnTKSanpham.Size = new System.Drawing.Size(327, 102);
-            this.btnTKSanpham.TabIndex = 2;
-            this.btnTKSanpham.Text = "               Báo cáo xuất nhập";
-            this.btnTKSanpham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTKSanpham.UseVisualStyleBackColor = false;
-            this.btnTKSanpham.Click += new System.EventHandler(this.btnTKSanpham_Click);
-            // 
-            // btnTKKhachhang
-            // 
-            this.btnTKKhachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.btnTKKhachhang.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTKKhachhang.ForeColor = System.Drawing.Color.White;
-            this.btnTKKhachhang.Image = global::QLDLC1_sys.Properties.Resources.circle;
-            this.btnTKKhachhang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTKKhachhang.Location = new System.Drawing.Point(-11, -24);
-            this.btnTKKhachhang.Name = "btnTKKhachhang";
-            this.btnTKKhachhang.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.btnTKKhachhang.Size = new System.Drawing.Size(327, 102);
-            this.btnTKKhachhang.TabIndex = 2;
-            this.btnTKKhachhang.Text = "               Báo cáo sản phẩm";
-            this.btnTKKhachhang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTKKhachhang.UseVisualStyleBackColor = false;
-            this.btnTKKhachhang.Click += new System.EventHandler(this.button5_Click);
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ControlText;
@@ -682,7 +640,7 @@
             this.btnCongnokhachhang.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
             this.btnCongnokhachhang.Size = new System.Drawing.Size(327, 102);
             this.btnCongnokhachhang.TabIndex = 2;
-            this.btnCongnokhachhang.Text = "               Công nợ khách hàng";
+            this.btnCongnokhachhang.Text = "               Thẻ công nợ";
             this.btnCongnokhachhang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCongnokhachhang.UseVisualStyleBackColor = false;
             this.btnCongnokhachhang.Click += new System.EventHandler(this.btnCongnokhachhang_Click);
@@ -699,7 +657,7 @@
             this.btnDangkyDL.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
             this.btnDangkyDL.Size = new System.Drawing.Size(327, 102);
             this.btnDangkyDL.TabIndex = 2;
-            this.btnDangkyDL.Text = "               Phiếu thu";
+            this.btnDangkyDL.Text = "               Thu,Chi";
             this.btnDangkyDL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangkyDL.UseVisualStyleBackColor = false;
             this.btnDangkyDL.Click += new System.EventHandler(this.btnDangkyDL_Click);
@@ -757,6 +715,77 @@
             this.btnDangkyKH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangkyKH.UseVisualStyleBackColor = false;
             this.btnDangkyKH.Click += new System.EventHandler(this.btnDangkyKH_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Image = global::QLDLC1_sys.Properties.Resources.analytics__1_;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(-11, -17);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(327, 102);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "               Báo cáo";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
+            this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
+            // 
+            // btnTKDoanhso
+            // 
+            this.btnTKDoanhso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnTKDoanhso.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTKDoanhso.ForeColor = System.Drawing.Color.White;
+            this.btnTKDoanhso.Image = global::QLDLC1_sys.Properties.Resources.circle;
+            this.btnTKDoanhso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTKDoanhso.Location = new System.Drawing.Point(-11, -24);
+            this.btnTKDoanhso.Name = "btnTKDoanhso";
+            this.btnTKDoanhso.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.btnTKDoanhso.Size = new System.Drawing.Size(327, 102);
+            this.btnTKDoanhso.TabIndex = 2;
+            this.btnTKDoanhso.Text = "               Tổng quan";
+            this.btnTKDoanhso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTKDoanhso.UseVisualStyleBackColor = false;
+            this.btnTKDoanhso.Click += new System.EventHandler(this.btnTKDoanhso_Click);
+            // 
+            // btnTKSanpham
+            // 
+            this.btnTKSanpham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnTKSanpham.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTKSanpham.ForeColor = System.Drawing.Color.White;
+            this.btnTKSanpham.Image = global::QLDLC1_sys.Properties.Resources.circle;
+            this.btnTKSanpham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTKSanpham.Location = new System.Drawing.Point(-11, -24);
+            this.btnTKSanpham.Name = "btnTKSanpham";
+            this.btnTKSanpham.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.btnTKSanpham.Size = new System.Drawing.Size(327, 102);
+            this.btnTKSanpham.TabIndex = 2;
+            this.btnTKSanpham.Text = "               Báo cáo xuất nhập";
+            this.btnTKSanpham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTKSanpham.UseVisualStyleBackColor = false;
+            this.btnTKSanpham.Click += new System.EventHandler(this.btnTKSanpham_Click);
+            // 
+            // btnTKKhachhang
+            // 
+            this.btnTKKhachhang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnTKKhachhang.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTKKhachhang.ForeColor = System.Drawing.Color.White;
+            this.btnTKKhachhang.Image = global::QLDLC1_sys.Properties.Resources.circle;
+            this.btnTKKhachhang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTKKhachhang.Location = new System.Drawing.Point(-11, -24);
+            this.btnTKKhachhang.Name = "btnTKKhachhang";
+            this.btnTKKhachhang.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.btnTKKhachhang.Size = new System.Drawing.Size(327, 102);
+            this.btnTKKhachhang.TabIndex = 2;
+            this.btnTKKhachhang.Text = "               Báo cáo sản phẩm";
+            this.btnTKKhachhang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTKKhachhang.UseVisualStyleBackColor = false;
+            this.btnTKKhachhang.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
@@ -823,24 +852,25 @@
             this.panel2.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.SlideMenu.ResumeLayout(false);
-            this.BanhangMenu.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.CongnoMenu.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.KhachhangMenu.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
             this.ThongkeMenu.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.CongnoMenu.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.KhachhangMenu.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
+            this.BanhangMenu.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -903,5 +933,7 @@
         private System.Windows.Forms.Panel panelBody;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button btnDangkyDL;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button button2;
     }
 }

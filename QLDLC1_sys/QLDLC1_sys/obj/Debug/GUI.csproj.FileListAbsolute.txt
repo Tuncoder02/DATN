@@ -18,9 +18,7 @@ D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.Trangchu.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Khohang.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.Tongquankhohang.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_nhaphang.resources
-D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Lichsunhap.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Hoadonbanhang.resources
-D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Lichsuban.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Quanlykhachhang.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\bin\Debug\BLL.dll.config
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\bin\Debug\DAL.dll
@@ -82,9 +80,11 @@ D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.Kiemtradaily.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_HopdongDL.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Tongcongno.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Congnokhachhang.resources
-D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\bin\Debug\EntityFramework.SqlServer.dll
-D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\bin\Debug\EntityFramework.SqlServer.xml
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Phieuthu.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Thongketongquan.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Baocaotoansanpham.resources
 D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.UC_control.UC_Baocaotungsanpham.resources
+D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.ThemnhaSX.resources
+D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\obj\Debug\QLDLC1_sys.Daily.resources
+D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#\codehoc\QLDLC1_sys\QLDLC1_sys\bin\Debug\EntityFramework.SqlServer.xml

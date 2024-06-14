@@ -19,6 +19,8 @@ namespace QLDLC1_sys.UC_control
             InitializeComponent();
             DiagioiBLL.Instance.loadProvinces(cboTinh);
             KhachHangBLL.Instance.loadKhachHang(dtgvKhachhang);
+            DailyBLL.Instance.getdailycap(cboDaily);
+            cboDaily.DisplayMember = "dailyname";
             dtgvKhachhang.Columns[0].HeaderText = "Mã KH";
             dtgvKhachhang.Columns[1].HeaderText = "Tên khách hàng";
             dtgvKhachhang.Columns[2].HeaderText = "SĐT";
@@ -104,9 +106,8 @@ namespace QLDLC1_sys.UC_control
                 provinces tinh = cboTinh.SelectedItem as provinces;
                 districts huyen = cboHuyen.SelectedItem as districts;
                 wards xa = cboXa.SelectedItem as wards;
-                int isdaily;
-                if (radDaily.Checked == true) isdaily = 1; else isdaily=0;
-                KhachHangBLL.Instance.AddCustomer(txtTenKH.Text, txtSDT.Text, txtEmail.Text, tinh.code, huyen.code, xa.code,isdaily) ;
+                dailycap dl=cboDaily.SelectedItem as dailycap;
+                KhachHangBLL.Instance.AddCustomer(txtTenKH.Text, txtSDT.Text, txtEmail.Text, tinh.code, huyen.code, xa.code,dl.dailyid) ;
                 btnLammoi_Click(sender, e);
                 KhachHangBLL.Instance.loadKhachHang(dtgvKhachhang);
             }
@@ -132,9 +133,8 @@ namespace QLDLC1_sys.UC_control
                     cboXa.Text = row.Cells[7].Value.ToString();
                     nbrDiem.Value = int.Parse(row.Cells[4].Value.ToString());
 
-                    int isdaily = int.Parse(row.Cells[8].Value.ToString());
-                    if (isdaily==1) radDaily.Checked = true;
-                    else radKHBT.Checked = true;
+                   cboDaily.Text = row.Cells[8].Value.ToString();
+                    
                     dateNgaydangky.Value= (DateTime)row.Cells[9].Value;
 
                 }
@@ -148,6 +148,7 @@ namespace QLDLC1_sys.UC_control
             if(txtSDT.Text =="") return false;
             if(txtEmail.Text=="") return false;
             if(cboXa.SelectedItem == null) return false;
+            if (cboDaily.SelectedItem == null) return false;
             return true;
         }
 
@@ -159,9 +160,8 @@ namespace QLDLC1_sys.UC_control
             int id=int.Parse(txtMaKH.Text);
             DateTime date = dateNgaydangky.Value;
             int diem=(int)nbrDiem.Value;
-            int isdaily;
-            if (radDaily.Checked == true) isdaily = 1; else isdaily = 0;
-            KhachHangBLL.Instance.UpdateCustomer(id,txtTenKH.Text, txtSDT.Text, txtEmail.Text, tinh.code, huyen.code, xa.code,diem,date,isdaily);
+            dailycap dl=cboDaily.SelectedItem as dailycap;
+            KhachHangBLL.Instance.UpdateCustomer(id,txtTenKH.Text, txtSDT.Text, txtEmail.Text, tinh.code, huyen.code, xa.code,diem,date,dl.dailyid);
             btnLammoi_Click(sender, e);
             KhachHangBLL.Instance.loadKhachHang(dtgvKhachhang);
         }
@@ -191,6 +191,12 @@ namespace QLDLC1_sys.UC_control
         {
             Kiemtradaily kt =new Kiemtradaily();
             kt.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Daily dl=new Daily();
+            dl.ShowDialog();
         }
     }
 }

@@ -141,20 +141,22 @@
     <Compile Include="BillImportDetails.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="chietkhausp.cs">
+    <Compile Include="Bonus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="CongnokhachhangDAL.cs" />
     <Compile Include="customer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="dailycap.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyDAL.cs" />
     <Compile Include="DangNhapDAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DiagioiDAL.cs" />
     <Compile Include="districts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="HopdongDLDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="KhoHangDAL.cs" />
     <Compile Include="KiemtradailyDAL.cs" />
@@ -174,7 +176,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NhaSX.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="NhomSanPhamDAL.cs" />
+    <Compile Include="Payment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuchiDAL.cs" />
     <Compile Include="PhieuthuDAL.cs" />
     <Compile Include="product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -189,9 +198,18 @@
     <Compile Include="Receipts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Recharge.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SanphamDAL.cs" />
-    <Compile Include="ThongKeDAL.cs" />
-    <Compile Include="TongcongnoDAL.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThecongnokhachhangDAL.cs" />
+    <Compile Include="ThecongnonhasanxuatDAL.cs" />
+    <Compile Include="ThemNhaSXDAL.cs" />
+    <Compile Include="TongcongnokhachhangDAL.cs" />
+    <Compile Include="TongcongnonhasanxuatDAL.cs" />
     <Compile Include="TongquanthongkeDAL.cs" />
     <Compile Include="TrangnhaphangDAL.cs" />
     <Compile Include="Users.cs">

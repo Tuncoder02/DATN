@@ -37,11 +37,11 @@
             this.cbTen = new System.Windows.Forms.ComboBox();
             this.cbId = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtChietkhau = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtChietkhau = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbMaKH = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -138,6 +138,8 @@
             // 
             // cbTen
             // 
+            this.cbTen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTen.FormattingEnabled = true;
             this.cbTen.Location = new System.Drawing.Point(188, 182);
@@ -164,6 +166,14 @@
             this.label8.Size = new System.Drawing.Size(101, 23);
             this.label8.TabIndex = 13;
             this.label8.Text = "Chiết khấu:";
+            // 
+            // txtChietkhau
+            // 
+            this.txtChietkhau.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChietkhau.Location = new System.Drawing.Point(188, 230);
+            this.txtChietkhau.Name = "txtChietkhau";
+            this.txtChietkhau.Size = new System.Drawing.Size(164, 30);
+            this.txtChietkhau.TabIndex = 8;
             // 
             // label3
             // 
@@ -208,14 +218,6 @@
             this.panel1.Size = new System.Drawing.Size(1496, 57);
             this.panel1.TabIndex = 13;
             // 
-            // txtChietkhau
-            // 
-            this.txtChietkhau.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChietkhau.Location = new System.Drawing.Point(188, 230);
-            this.txtChietkhau.Name = "txtChietkhau";
-            this.txtChietkhau.Size = new System.Drawing.Size(164, 30);
-            this.txtChietkhau.TabIndex = 8;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbMaKH);
@@ -258,6 +260,8 @@
             // 
             // cbSodienthoai
             // 
+            this.cbSodienthoai.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbSodienthoai.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbSodienthoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSodienthoai.FormattingEnabled = true;
             this.cbSodienthoai.Location = new System.Drawing.Point(188, 113);
@@ -267,6 +271,8 @@
             // 
             // cbTenkhachhang
             // 
+            this.cbTenkhachhang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTenkhachhang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTenkhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTenkhachhang.FormattingEnabled = true;
             this.cbTenkhachhang.Location = new System.Drawing.Point(188, 70);
@@ -296,6 +302,8 @@
             // 
             // cbEmail
             // 
+            this.cbEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEmail.FormattingEnabled = true;
             this.cbEmail.Location = new System.Drawing.Point(188, 156);

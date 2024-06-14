@@ -40,7 +40,7 @@ namespace DAL
         public List<DistrictCustomerCount> GetCustomersCountByDistrict(string provinceId)
         {
           
-                var customersByDistrict = DataProvider.Ins.DB.customer
+             /*   var customersByDistrict = DataProvider.Ins.DB.customer
                     .Where(c => c.CustomerCity == provinceId)
                     .GroupBy(c => c.districts)
                     .Select(g => new DistrictCustomerCount
@@ -52,17 +52,17 @@ namespace DAL
                                              .SelectMany(o => o.BillExportDetails)
                                              .Sum(od => (int?)od.Quantity) ?? 0
                     })
-                    .ToList();
+                    .ToList();*/
 
-                return customersByDistrict;
+                return null;
             
         }
         public List<WardCustomerCount> GetCustomersCountByWard(string id)
         {
 
-            var customersByDistrict = DataProvider.Ins.DB.customer
+            /*var customersByDistrict = DataProvider.Ins.DB.customer
                 .Where(c => c.CustomerDistrict == id)
-                .GroupBy(c => c.wards1)
+                .GroupBy(c => c.wards)
                 .Select(g => new WardCustomerCount
                 {
                     WardName = g.Key.full_name,
@@ -72,9 +72,9 @@ namespace DAL
                                          .SelectMany(o => o.BillExportDetails)
                                          .Sum(od => (int?)od.Quantity) ?? 0
                 })
-                .ToList();
+                .ToList();*/
 
-            return customersByDistrict;
+            return null;
 
         }
 

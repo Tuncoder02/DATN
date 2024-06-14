@@ -5,40 +5,50 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="472eb45b90c74464808a065f57a2705c" Name="Diagram1" ZoomLevel="63">
-        <EntityTypeShape EntityType="QLDLModel.BillExport" Width="1.5" PointX="3" PointY="10.5" />
-        <EntityTypeShape EntityType="QLDLModel.BillExportDetails" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="QLDLModel.BillImportDetails" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="QLDLModel.product" Width="1.5" PointX="3" PointY="3.375" />
-        <EntityTypeShape EntityType="QLDLModel.productgroup" Width="1.5" PointX="0.75" PointY="4" />
-        <EntityTypeShape EntityType="QLDLModel.Users" Width="1.5" PointX="5.75" PointY="7" />
-        <AssociationConnector Association="QLDLModel.fk_BillExport" />
-        <AssociationConnector Association="QLDLModel.fk_BillExportProduct" />
-        <AssociationConnector Association="QLDLModel.fk_BillImportProduct" />
-        <AssociationConnector Association="QLDLModel.fk_grname" />
-        <EntityTypeShape EntityType="QLDLModel.BillImport" Width="1.5" PointX="7.375" PointY="0.875" />
-        <AssociationConnector Association="QLDLModel.fk_BillImport" />
-        <EntityTypeShape EntityType="QLDLModel.administrative_regions" Width="1.5" PointX="11.25" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLDLModel.administrative_units" Width="1.5" PointX="0.75" PointY="13.375" />
-        <EntityTypeShape EntityType="QLDLModel.districts" Width="1.5" PointX="5.25" PointY="14.375" />
-        <EntityTypeShape EntityType="QLDLModel.provinces" Width="1.5" PointX="3.25" PointY="13.625" />
-        <EntityTypeShape EntityType="QLDLModel.wards" Width="1.5" PointX="7.5" PointY="17.125" />
+        <EntityTypeShape EntityType="QLDLModel.administrative_regions" Width="1.5" PointX="3.75" PointY="10.25" />
+        <EntityTypeShape EntityType="QLDLModel.administrative_units" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="QLDLModel.BillExport" Width="1.5" PointX="12.75" PointY="10.25" />
+        <EntityTypeShape EntityType="QLDLModel.BillExportDetails" Width="1.5" PointX="15" PointY="9.25" />
+        <EntityTypeShape EntityType="QLDLModel.BillImport" Width="1.5" PointX="15.75" PointY="19.75" />
+        <EntityTypeShape EntityType="QLDLModel.BillImportDetails" Width="1.5" PointX="21" PointY="16.625" />
+        <EntityTypeShape EntityType="QLDLModel.Bonus" Width="1.5" PointX="12.75" PointY="18.25" />
+        <EntityTypeShape EntityType="QLDLModel.customer" Width="1.5" PointX="10.5" PointY="13.125" />
+        <EntityTypeShape EntityType="QLDLModel.districts" Width="1.5" PointX="3" PointY="13.5" />
+        <EntityTypeShape EntityType="QLDLModel.Payment" Width="1.5" PointX="15.75" PointY="12.75" />
+        <EntityTypeShape EntityType="QLDLModel.product" Width="1.5" PointX="18.75" PointY="13.625" />
+        <EntityTypeShape EntityType="QLDLModel.productgroup" Width="1.5" PointX="16.5" PointY="16.5" />
+        <EntityTypeShape EntityType="QLDLModel.provinces" Width="1.5" PointX="6" PointY="13.5" />
+        <EntityTypeShape EntityType="QLDLModel.Receipts" Width="1.5" PointX="12.75" PointY="21.125" />
+        <EntityTypeShape EntityType="QLDLModel.Recharge" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLDLModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLDLModel.Users" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="QLDLModel.wards" Width="1.5" PointX="8.25" PointY="13.625" />
         <AssociationConnector Association="QLDLModel.provinces_administrative_region_id_fkey" />
         <AssociationConnector Association="QLDLModel.districts_administrative_unit_id_fkey" />
         <AssociationConnector Association="QLDLModel.provinces_administrative_unit_id_fkey" />
         <AssociationConnector Association="QLDLModel.wards_administrative_unit_id_fkey" />
-        <AssociationConnector Association="QLDLModel.districts_province_code_fkey" />
-        <AssociationConnector Association="QLDLModel.wards_district_code_fkey" />
-        <EntityTypeShape EntityType="QLDLModel.customer" Width="1.5" PointX="9.75" PointY="12" />
+        <AssociationConnector Association="QLDLModel.fk_BillExport" />
         <AssociationConnector Association="QLDLModel.fk_Customer" />
+        <AssociationConnector Association="QLDLModel.fk_BillExportProduct" />
+        <AssociationConnector Association="QLDLModel.fk_BillImport" />
+        <AssociationConnector Association="QLDLModel.fk_BillImportProduct" />
+        <AssociationConnector Association="QLDLModel.fk_BonusCu" />
         <AssociationConnector Association="QLDLModel.fk_district" />
         <AssociationConnector Association="QLDLModel.fk_province" />
-        <AssociationConnector Association="QLDLModel.fk_Ward" />
-        <AssociationConnector Association="QLDLModel.fk_Ward1" />
-        <EntityTypeShape EntityType="QLDLModel.chietkhausp" Width="1.5" PointX="12" PointY="8.875" />
-        <AssociationConnector Association="QLDLModel.fk_chietkhauCu" />
-        <AssociationConnector Association="QLDLModel.fk_chietkhausp" />
-        <EntityTypeShape EntityType="QLDLModel.Receipts" Width="1.5" PointX="12" PointY="13.125" />
         <AssociationConnector Association="QLDLModel.fk_ReceiptsCu" />
+        <AssociationConnector Association="QLDLModel.fk_Ward" />
+        <AssociationConnector Association="QLDLModel.districts_province_code_fkey" />
+        <AssociationConnector Association="QLDLModel.wards_district_code_fkey" />
+        <AssociationConnector Association="QLDLModel.fk_grname" />
+        <EntityTypeShape EntityType="QLDLModel.dailycap" Width="1.5" PointX="8.25" PointY="10.375" />
+        <EntityTypeShape EntityType="QLDLModel.NhaSX" Width="1.5" PointX="13.5" PointY="13.25" />
+        <AssociationConnector Association="QLDLModel.fk_NhaSX1" />
+        <AssociationConnector Association="QLDLModel.fk_Daily" />
+        <AssociationConnector Association="QLDLModel.fk_district1" />
+        <AssociationConnector Association="QLDLModel.fk_nhasx" />
+        <AssociationConnector Association="QLDLModel.fk_province1" />
+        <AssociationConnector Association="QLDLModel.fk_ReceiptsNha" />
+        <AssociationConnector Association="QLDLModel.fk_Ward1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

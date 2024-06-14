@@ -17,8 +17,9 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public provinces()
         {
-            this.districts = new HashSet<districts>();
             this.customer = new HashSet<customer>();
+            this.districts = new HashSet<districts>();
+            this.NhaSX = new HashSet<NhaSX>();
         }
     
         public string code { get; set; }
@@ -33,8 +34,10 @@ namespace DAL
         public virtual administrative_regions administrative_regions { get; set; }
         public virtual administrative_units administrative_units { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<customer> customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<districts> districts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<customer> customer { get; set; }
+        public virtual ICollection<NhaSX> NhaSX { get; set; }
     }
 }

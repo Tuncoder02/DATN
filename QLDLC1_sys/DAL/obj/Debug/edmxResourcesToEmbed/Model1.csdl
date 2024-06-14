@@ -1,37 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="QLDLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="QLDLEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="BillExport" EntityType="QLDLModel.BillExport" />
-    <EntitySet Name="BillExportDetails" EntityType="QLDLModel.BillExportDetails" />
-    <EntitySet Name="BillImportDetails" EntityType="QLDLModel.BillImportDetails" />
-    <EntitySet Name="product" EntityType="QLDLModel.product" />
-    <EntitySet Name="productgroup" EntityType="QLDLModel.productgroup" />
-    <EntitySet Name="Users" EntityType="QLDLModel.Users" />
-    <AssociationSet Name="fk_BillExport" Association="QLDLModel.fk_BillExport">
-      <End Role="BillExport" EntitySet="BillExport" />
-      <End Role="BillExportDetails" EntitySet="BillExportDetails" />
-    </AssociationSet>
-    <AssociationSet Name="fk_BillExportProduct" Association="QLDLModel.fk_BillExportProduct">
-      <End Role="product" EntitySet="product" />
-      <End Role="BillExportDetails" EntitySet="BillExportDetails" />
-    </AssociationSet>
-    <AssociationSet Name="fk_BillImportProduct" Association="QLDLModel.fk_BillImportProduct">
-      <End Role="product" EntitySet="product" />
-      <End Role="BillImportDetails" EntitySet="BillImportDetails" />
-    </AssociationSet>
-    <AssociationSet Name="fk_grname" Association="QLDLModel.fk_grname">
-      <End Role="productgroup" EntitySet="productgroup" />
-      <End Role="product" EntitySet="product" />
-    </AssociationSet>
-    <EntitySet Name="BillImport" EntityType="QLDLModel.BillImport" />
-    <AssociationSet Name="fk_BillImport" Association="QLDLModel.fk_BillImport">
-      <End Role="BillImport" EntitySet="BillImport" />
-      <End Role="BillImportDetails" EntitySet="BillImportDetails" />
-    </AssociationSet>
     <EntitySet Name="administrative_regions" EntityType="QLDLModel.administrative_regions" />
     <EntitySet Name="administrative_units" EntityType="QLDLModel.administrative_units" />
+    <EntitySet Name="BillExport" EntityType="QLDLModel.BillExport" />
+    <EntitySet Name="BillExportDetails" EntityType="QLDLModel.BillExportDetails" />
+    <EntitySet Name="BillImport" EntityType="QLDLModel.BillImport" />
+    <EntitySet Name="BillImportDetails" EntityType="QLDLModel.BillImportDetails" />
+    <EntitySet Name="Bonus" EntityType="QLDLModel.Bonus" />
+    <EntitySet Name="customer" EntityType="QLDLModel.customer" />
     <EntitySet Name="districts" EntityType="QLDLModel.districts" />
+    <EntitySet Name="Payment" EntityType="QLDLModel.Payment" />
+    <EntitySet Name="product" EntityType="QLDLModel.product" />
+    <EntitySet Name="productgroup" EntityType="QLDLModel.productgroup" />
     <EntitySet Name="provinces" EntityType="QLDLModel.provinces" />
+    <EntitySet Name="Receipts" EntityType="QLDLModel.Receipts" />
+    <EntitySet Name="Recharge" EntityType="QLDLModel.Recharge" />
+    <EntitySet Name="sysdiagrams" EntityType="QLDLModel.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="QLDLModel.Users" />
     <EntitySet Name="wards" EntityType="QLDLModel.wards" />
     <AssociationSet Name="provinces_administrative_region_id_fkey" Association="QLDLModel.provinces_administrative_region_id_fkey">
       <End Role="administrative_regions" EntitySet="administrative_regions" />
@@ -49,18 +35,29 @@
       <End Role="administrative_units" EntitySet="administrative_units" />
       <End Role="wards" EntitySet="wards" />
     </AssociationSet>
-    <AssociationSet Name="districts_province_code_fkey" Association="QLDLModel.districts_province_code_fkey">
-      <End Role="provinces" EntitySet="provinces" />
-      <End Role="districts" EntitySet="districts" />
+    <AssociationSet Name="fk_BillExport" Association="QLDLModel.fk_BillExport">
+      <End Role="BillExport" EntitySet="BillExport" />
+      <End Role="BillExportDetails" EntitySet="BillExportDetails" />
     </AssociationSet>
-    <AssociationSet Name="wards_district_code_fkey" Association="QLDLModel.wards_district_code_fkey">
-      <End Role="districts" EntitySet="districts" />
-      <End Role="wards" EntitySet="wards" />
-    </AssociationSet>
-    <EntitySet Name="customer" EntityType="QLDLModel.customer" />
     <AssociationSet Name="fk_Customer" Association="QLDLModel.fk_Customer">
       <End Role="customer" EntitySet="customer" />
       <End Role="BillExport" EntitySet="BillExport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BillExportProduct" Association="QLDLModel.fk_BillExportProduct">
+      <End Role="product" EntitySet="product" />
+      <End Role="BillExportDetails" EntitySet="BillExportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BillImport" Association="QLDLModel.fk_BillImport">
+      <End Role="BillImport" EntitySet="BillImport" />
+      <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BillImportProduct" Association="QLDLModel.fk_BillImportProduct">
+      <End Role="product" EntitySet="product" />
+      <End Role="BillImportDetails" EntitySet="BillImportDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_BonusCu" Association="QLDLModel.fk_BonusCu">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="Bonus" EntitySet="Bonus" />
     </AssociationSet>
     <AssociationSet Name="fk_district" Association="QLDLModel.fk_district">
       <End Role="districts" EntitySet="districts" />
@@ -70,165 +67,57 @@
       <End Role="provinces" EntitySet="provinces" />
       <End Role="customer" EntitySet="customer" />
     </AssociationSet>
-    <AssociationSet Name="fk_Ward" Association="QLDLModel.fk_Ward">
-      <End Role="wards" EntitySet="wards" />
-      <End Role="customer" EntitySet="customer" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Ward1" Association="QLDLModel.fk_Ward1">
-      <End Role="wards" EntitySet="wards" />
-      <End Role="customer" EntitySet="customer" />
-    </AssociationSet>
-    <EntitySet Name="chietkhausp" EntityType="QLDLModel.chietkhausp" />
-    <AssociationSet Name="fk_chietkhauCu" Association="QLDLModel.fk_chietkhauCu">
-      <End Role="customer" EntitySet="customer" />
-      <End Role="chietkhausp" EntitySet="chietkhausp" />
-    </AssociationSet>
-    <AssociationSet Name="fk_chietkhausp" Association="QLDLModel.fk_chietkhausp">
-      <End Role="product" EntitySet="product" />
-      <End Role="chietkhausp" EntitySet="chietkhausp" />
-    </AssociationSet>
-    <EntitySet Name="Receipts" EntityType="QLDLModel.Receipts" />
     <AssociationSet Name="fk_ReceiptsCu" Association="QLDLModel.fk_ReceiptsCu">
       <End Role="customer" EntitySet="customer" />
       <End Role="Receipts" EntitySet="Receipts" />
     </AssociationSet>
+    <AssociationSet Name="fk_Ward" Association="QLDLModel.fk_Ward">
+      <End Role="wards" EntitySet="wards" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="districts_province_code_fkey" Association="QLDLModel.districts_province_code_fkey">
+      <End Role="provinces" EntitySet="provinces" />
+      <End Role="districts" EntitySet="districts" />
+    </AssociationSet>
+    <AssociationSet Name="wards_district_code_fkey" Association="QLDLModel.wards_district_code_fkey">
+      <End Role="districts" EntitySet="districts" />
+      <End Role="wards" EntitySet="wards" />
+    </AssociationSet>
+    <AssociationSet Name="fk_grname" Association="QLDLModel.fk_grname">
+      <End Role="productgroup" EntitySet="productgroup" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <EntitySet Name="dailycap" EntityType="QLDLModel.dailycap" />
+    <EntitySet Name="NhaSX" EntityType="QLDLModel.NhaSX" />
+    <AssociationSet Name="fk_NhaSX1" Association="QLDLModel.fk_NhaSX1">
+      <End Role="NhaSX" EntitySet="NhaSX" />
+      <End Role="BillImport" EntitySet="BillImport" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Daily" Association="QLDLModel.fk_Daily">
+      <End Role="dailycap" EntitySet="dailycap" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_district1" Association="QLDLModel.fk_district1">
+      <End Role="districts" EntitySet="districts" />
+      <End Role="NhaSX" EntitySet="NhaSX" />
+    </AssociationSet>
+    <AssociationSet Name="fk_nhasx" Association="QLDLModel.fk_nhasx">
+      <End Role="NhaSX" EntitySet="NhaSX" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="fk_province1" Association="QLDLModel.fk_province1">
+      <End Role="provinces" EntitySet="provinces" />
+      <End Role="NhaSX" EntitySet="NhaSX" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ReceiptsNha" Association="QLDLModel.fk_ReceiptsNha">
+      <End Role="NhaSX" EntitySet="NhaSX" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Ward1" Association="QLDLModel.fk_Ward1">
+      <End Role="wards" EntitySet="wards" />
+      <End Role="NhaSX" EntitySet="NhaSX" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="BillExport">
-    <Key>
-      <PropertyRef Name="BillExportId" />
-    </Key>
-    <Property Name="BillExportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CustomerId" Type="Int32" />
-    <Property Name="BillExportDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="BillTotalMoney" Type="Double" />
-    <Property Name="BillPayPercent" Type="Int32" />
-    <Property Name="BillDiscount" Type="Int32" />
-    <NavigationProperty Name="BillExportDetails" Relationship="QLDLModel.fk_BillExport" FromRole="BillExport" ToRole="BillExportDetails" />
-    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_Customer" FromRole="BillExport" ToRole="customer" />
-  </EntityType>
-  <EntityType Name="BillExportDetails">
-    <Key>
-      <PropertyRef Name="BillExportDetailsId" />
-    </Key>
-    <Property Name="BillExportDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BillExportId" Type="Int32" />
-    <Property Name="ProductId" Type="Int32" />
-    <Property Name="Quantity" Type="Int32" />
-    <NavigationProperty Name="BillExport" Relationship="QLDLModel.fk_BillExport" FromRole="BillExportDetails" ToRole="BillExport" />
-    <NavigationProperty Name="product" Relationship="QLDLModel.fk_BillExportProduct" FromRole="BillExportDetails" ToRole="product" />
-  </EntityType>
-  <EntityType Name="BillImportDetails">
-    <Key>
-      <PropertyRef Name="BillImportDetailsId" />
-    </Key>
-    <Property Name="BillImportDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BillImportId" Type="Int32" />
-    <Property Name="ProductId" Type="Int32" />
-    <Property Name="Quantity" Type="Int32" />
-    <NavigationProperty Name="product" Relationship="QLDLModel.fk_BillImportProduct" FromRole="BillImportDetails" ToRole="product" />
-    <Property Name="Price" Type="Double" />
-    <NavigationProperty Name="BillImport" Relationship="QLDLModel.fk_BillImport" FromRole="BillImportDetails" ToRole="BillImport" />
-  </EntityType>
-  <EntityType Name="product">
-    <Key>
-      <PropertyRef Name="ProductId" />
-    </Key>
-    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductGroupName" Type="Int32" />
-    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ProductPrice" Type="Double" Nullable="false" />
-    <Property Name="ProductQuantity" Type="Int32" />
-    <Property Name="ProductInfo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ProductImageLink" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="BillExportDetails" Relationship="QLDLModel.fk_BillExportProduct" FromRole="product" ToRole="BillExportDetails" />
-    <NavigationProperty Name="BillImportDetails" Relationship="QLDLModel.fk_BillImportProduct" FromRole="product" ToRole="BillImportDetails" />
-    <NavigationProperty Name="productgroup" Relationship="QLDLModel.fk_grname" FromRole="product" ToRole="productgroup" />
-    <NavigationProperty Name="chietkhausp" Relationship="QLDLModel.fk_chietkhausp" FromRole="product" ToRole="chietkhausp" />
-  </EntityType>
-  <EntityType Name="productgroup">
-    <Key>
-      <PropertyRef Name="ProductGroupId" />
-    </Key>
-    <Property Name="ProductGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ProductGroupName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="product" Relationship="QLDLModel.fk_grname" FromRole="productgroup" ToRole="product" />
-  </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="TaiKhoan" />
-    </Key>
-    <Property Name="TaiKhoan" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="MatKhau" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Vaitro" Type="Int32" />
-  </EntityType>
-  <Association Name="fk_BillExport">
-    <End Type="QLDLModel.BillExport" Role="BillExport" Multiplicity="0..1" />
-    <End Type="QLDLModel.BillExportDetails" Role="BillExportDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BillExport">
-        <PropertyRef Name="BillExportId" />
-      </Principal>
-      <Dependent Role="BillExportDetails">
-        <PropertyRef Name="BillExportId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_BillExportProduct">
-    <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
-    <End Type="QLDLModel.BillExportDetails" Role="BillExportDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="ProductId" />
-      </Principal>
-      <Dependent Role="BillExportDetails">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_BillImportProduct">
-    <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
-    <End Type="QLDLModel.BillImportDetails" Role="BillImportDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="ProductId" />
-      </Principal>
-      <Dependent Role="BillImportDetails">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_grname">
-    <End Type="QLDLModel.productgroup" Role="productgroup" Multiplicity="0..1" />
-    <End Type="QLDLModel.product" Role="product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="productgroup">
-        <PropertyRef Name="ProductGroupId" />
-      </Principal>
-      <Dependent Role="product">
-        <PropertyRef Name="ProductGroupName" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="BillImport">
-    <Key>
-      <PropertyRef Name="BillImportId" />
-    </Key>
-    <Property Name="BillImportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BillImportDate" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="BillImportDetails" Relationship="QLDLModel.fk_BillImport" FromRole="BillImport" ToRole="BillImportDetails" />
-  </EntityType>
-  <Association Name="fk_BillImport">
-    <End Type="QLDLModel.BillImport" Role="BillImport" Multiplicity="0..1" />
-    <End Type="QLDLModel.BillImportDetails" Role="BillImportDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BillImport">
-        <PropertyRef Name="BillImportId" />
-      </Principal>
-      <Dependent Role="BillImportDetails">
-        <PropertyRef Name="BillImportId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="administrative_regions">
     <Key>
       <PropertyRef Name="id" />
@@ -255,6 +144,83 @@
     <NavigationProperty Name="provinces" Relationship="QLDLModel.provinces_administrative_unit_id_fkey" FromRole="administrative_units" ToRole="provinces" />
     <NavigationProperty Name="wards" Relationship="QLDLModel.wards_administrative_unit_id_fkey" FromRole="administrative_units" ToRole="wards" />
   </EntityType>
+  <EntityType Name="BillExport">
+    <Key>
+      <PropertyRef Name="BillExportId" />
+    </Key>
+    <Property Name="BillExportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="BillExportDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BillPay" Type="Double" />
+    <NavigationProperty Name="BillExportDetails" Relationship="QLDLModel.fk_BillExport" FromRole="BillExport" ToRole="BillExportDetails" />
+    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_Customer" FromRole="BillExport" ToRole="customer" />
+  </EntityType>
+  <EntityType Name="BillExportDetails">
+    <Key>
+      <PropertyRef Name="BillExportDetailsId" />
+    </Key>
+    <Property Name="BillExportDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BillExportId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="BillExport" Relationship="QLDLModel.fk_BillExport" FromRole="BillExportDetails" ToRole="BillExport" />
+    <NavigationProperty Name="product" Relationship="QLDLModel.fk_BillExportProduct" FromRole="BillExportDetails" ToRole="product" />
+  </EntityType>
+  <EntityType Name="BillImport">
+    <Key>
+      <PropertyRef Name="BillImportId" />
+    </Key>
+    <Property Name="BillImportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhaSXId" Type="Int32" />
+    <Property Name="BillPay" Type="Double" />
+    <Property Name="BillImportDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="BillImportDetails" Relationship="QLDLModel.fk_BillImport" FromRole="BillImport" ToRole="BillImportDetails" />
+    <NavigationProperty Name="NhaSX" Relationship="QLDLModel.fk_NhaSX1" FromRole="BillImport" ToRole="NhaSX" />
+  </EntityType>
+  <EntityType Name="BillImportDetails">
+    <Key>
+      <PropertyRef Name="BillImportDetailsId" />
+    </Key>
+    <Property Name="BillImportDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BillImportId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="BillImport" Relationship="QLDLModel.fk_BillImport" FromRole="BillImportDetails" ToRole="BillImport" />
+    <NavigationProperty Name="product" Relationship="QLDLModel.fk_BillImportProduct" FromRole="BillImportDetails" ToRole="product" />
+  </EntityType>
+  <EntityType Name="Bonus">
+    <Key>
+      <PropertyRef Name="BonusId" />
+    </Key>
+    <Property Name="BonusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="TotalMoney" Type="Double" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BonusDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_BonusCu" FromRole="Bonus" ToRole="customer" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaydk" Type="DateTime" Precision="0" />
+    <Property Name="Dailycap" Type="Int32" />
+    <Property Name="CustomerWard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerDistrict" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerPhoneNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerEmail" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPoint" Type="Int32" />
+    <NavigationProperty Name="BillExport" Relationship="QLDLModel.fk_Customer" FromRole="customer" ToRole="BillExport" />
+    <NavigationProperty Name="Bonus" Relationship="QLDLModel.fk_BonusCu" FromRole="customer" ToRole="Bonus" />
+    <NavigationProperty Name="districts" Relationship="QLDLModel.fk_district" FromRole="customer" ToRole="districts" />
+    <NavigationProperty Name="provinces" Relationship="QLDLModel.fk_province" FromRole="customer" ToRole="provinces" />
+    <NavigationProperty Name="Receipts" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="customer" ToRole="Receipts" />
+    <NavigationProperty Name="wards" Relationship="QLDLModel.fk_Ward" FromRole="customer" ToRole="wards" />
+    <NavigationProperty Name="dailycap1" Relationship="QLDLModel.fk_Daily" FromRole="customer" ToRole="dailycap" />
+  </EntityType>
   <EntityType Name="districts">
     <Key>
       <PropertyRef Name="code" />
@@ -268,9 +234,46 @@
     <Property Name="province_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="administrative_unit_id" Type="Int32" />
     <NavigationProperty Name="administrative_units" Relationship="QLDLModel.districts_administrative_unit_id_fkey" FromRole="districts" ToRole="administrative_units" />
+    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_district" FromRole="districts" ToRole="customer" />
     <NavigationProperty Name="provinces" Relationship="QLDLModel.districts_province_code_fkey" FromRole="districts" ToRole="provinces" />
     <NavigationProperty Name="wards" Relationship="QLDLModel.wards_district_code_fkey" FromRole="districts" ToRole="wards" />
-    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_district" FromRole="districts" ToRole="customer" />
+    <NavigationProperty Name="NhaSX" Relationship="QLDLModel.fk_district1" FromRole="districts" ToRole="NhaSX" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhaSXId" Type="Int32" />
+    <Property Name="TotalMoney" Type="Double" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="NhaSX" Relationship="QLDLModel.fk_ReceiptsNha" FromRole="Payment" ToRole="NhaSX" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhaSXId" Type="Int32" />
+    <Property Name="ProductGroupName" Type="Int32" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductPrice" Type="Double" Nullable="false" />
+    <Property Name="ProductQuantity" Type="Int32" />
+    <Property Name="ProductInfo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProductImageLink" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BillExportDetails" Relationship="QLDLModel.fk_BillExportProduct" FromRole="product" ToRole="BillExportDetails" />
+    <NavigationProperty Name="BillImportDetails" Relationship="QLDLModel.fk_BillImportProduct" FromRole="product" ToRole="BillImportDetails" />
+    <NavigationProperty Name="productgroup" Relationship="QLDLModel.fk_grname" FromRole="product" ToRole="productgroup" />
+    <NavigationProperty Name="NhaSX" Relationship="QLDLModel.fk_nhasx" FromRole="product" ToRole="NhaSX" />
+  </EntityType>
+  <EntityType Name="productgroup">
+    <Key>
+      <PropertyRef Name="ProductGroupId" />
+    </Key>
+    <Property Name="ProductGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductGroupName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="product" Relationship="QLDLModel.fk_grname" FromRole="productgroup" ToRole="product" />
   </EntityType>
   <EntityType Name="provinces">
     <Key>
@@ -286,8 +289,47 @@
     <Property Name="administrative_region_id" Type="Int32" />
     <NavigationProperty Name="administrative_regions" Relationship="QLDLModel.provinces_administrative_region_id_fkey" FromRole="provinces" ToRole="administrative_regions" />
     <NavigationProperty Name="administrative_units" Relationship="QLDLModel.provinces_administrative_unit_id_fkey" FromRole="provinces" ToRole="administrative_units" />
-    <NavigationProperty Name="districts" Relationship="QLDLModel.districts_province_code_fkey" FromRole="provinces" ToRole="districts" />
     <NavigationProperty Name="customer" Relationship="QLDLModel.fk_province" FromRole="provinces" ToRole="customer" />
+    <NavigationProperty Name="districts" Relationship="QLDLModel.districts_province_code_fkey" FromRole="provinces" ToRole="districts" />
+    <NavigationProperty Name="NhaSX" Relationship="QLDLModel.fk_province1" FromRole="provinces" ToRole="NhaSX" />
+  </EntityType>
+  <EntityType Name="Receipts">
+    <Key>
+      <PropertyRef Name="ReceiptsId" />
+    </Key>
+    <Property Name="ReceiptsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="TotalMoney" Type="Double" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptsDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="Receipts" ToRole="customer" />
+  </EntityType>
+  <EntityType Name="Recharge">
+    <Key>
+      <PropertyRef Name="RechargeId" />
+    </Key>
+    <Property Name="RechargeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalMoney" Type="Double" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RechargeDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Vaitro" Type="Int32" />
   </EntityType>
   <EntityType Name="wards">
     <Key>
@@ -302,9 +344,9 @@
     <Property Name="district_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="administrative_unit_id" Type="Int32" />
     <NavigationProperty Name="administrative_units" Relationship="QLDLModel.wards_administrative_unit_id_fkey" FromRole="wards" ToRole="administrative_units" />
-    <NavigationProperty Name="districts" Relationship="QLDLModel.wards_district_code_fkey" FromRole="wards" ToRole="districts" />
     <NavigationProperty Name="customer" Relationship="QLDLModel.fk_Ward" FromRole="wards" ToRole="customer" />
-    <NavigationProperty Name="customer1" Relationship="QLDLModel.fk_Ward1" FromRole="wards" ToRole="customer" />
+    <NavigationProperty Name="districts" Relationship="QLDLModel.wards_district_code_fkey" FromRole="wards" ToRole="districts" />
+    <NavigationProperty Name="NhaSX" Relationship="QLDLModel.fk_Ward1" FromRole="wards" ToRole="NhaSX" />
   </EntityType>
   <Association Name="provinces_administrative_region_id_fkey">
     <End Type="QLDLModel.administrative_regions" Role="administrative_regions" Multiplicity="0..1" />
@@ -354,53 +396,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="districts_province_code_fkey">
-    <End Type="QLDLModel.provinces" Role="provinces" Multiplicity="0..1" />
-    <End Type="QLDLModel.districts" Role="districts" Multiplicity="*" />
+  <Association Name="fk_BillExport">
+    <End Type="QLDLModel.BillExport" Role="BillExport" Multiplicity="0..1" />
+    <End Type="QLDLModel.BillExportDetails" Role="BillExportDetails" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="provinces">
-        <PropertyRef Name="code" />
+      <Principal Role="BillExport">
+        <PropertyRef Name="BillExportId" />
       </Principal>
-      <Dependent Role="districts">
-        <PropertyRef Name="province_code" />
+      <Dependent Role="BillExportDetails">
+        <PropertyRef Name="BillExportId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="wards_district_code_fkey">
-    <End Type="QLDLModel.districts" Role="districts" Multiplicity="0..1" />
-    <End Type="QLDLModel.wards" Role="wards" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="districts">
-        <PropertyRef Name="code" />
-      </Principal>
-      <Dependent Role="wards">
-        <PropertyRef Name="district_code" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="customer">
-    <Key>
-      <PropertyRef Name="CustomerId" />
-    </Key>
-    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CustomerFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Ngaydk" Type="DateTime" Precision="0" />
-    <Property Name="Isdailycap2" Type="Int32" />
-    <Property Name="CustomerWard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="CustomerDistrict" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="CustomerCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="CustomerDiscount" Type="Int32" />
-    <Property Name="CustomerPhoneNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerEmail" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="CustomerPoint" Type="Int32" />
-    <NavigationProperty Name="BillExport" Relationship="QLDLModel.fk_Customer" FromRole="customer" ToRole="BillExport" />
-    <NavigationProperty Name="districts" Relationship="QLDLModel.fk_district" FromRole="customer" ToRole="districts" />
-    <NavigationProperty Name="provinces" Relationship="QLDLModel.fk_province" FromRole="customer" ToRole="provinces" />
-    <NavigationProperty Name="wards" Relationship="QLDLModel.fk_Ward" FromRole="customer" ToRole="wards" />
-    <NavigationProperty Name="wards1" Relationship="QLDLModel.fk_Ward1" FromRole="customer" ToRole="wards" />
-    <NavigationProperty Name="chietkhausp" Relationship="QLDLModel.fk_chietkhauCu" FromRole="customer" ToRole="chietkhausp" />
-    <NavigationProperty Name="Receipts" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="customer" ToRole="Receipts" />
-  </EntityType>
   <Association Name="fk_Customer">
     <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
     <End Type="QLDLModel.BillExport" Role="BillExport" Multiplicity="*" />
@@ -409,6 +416,54 @@
         <PropertyRef Name="CustomerId" />
       </Principal>
       <Dependent Role="BillExport">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BillExportProduct">
+    <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
+    <End Type="QLDLModel.BillExportDetails" Role="BillExportDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="BillExportDetails">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BillImport">
+    <End Type="QLDLModel.BillImport" Role="BillImport" Multiplicity="0..1" />
+    <End Type="QLDLModel.BillImportDetails" Role="BillImportDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BillImport">
+        <PropertyRef Name="BillImportId" />
+      </Principal>
+      <Dependent Role="BillImportDetails">
+        <PropertyRef Name="BillImportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BillImportProduct">
+    <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
+    <End Type="QLDLModel.BillImportDetails" Role="BillImportDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="BillImportDetails">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_BonusCu">
+    <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
+    <End Type="QLDLModel.Bonus" Role="Bonus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Bonus">
         <PropertyRef Name="CustomerId" />
       </Dependent>
     </ReferentialConstraint>
@@ -437,19 +492,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_Ward">
-    <End Type="QLDLModel.wards" Role="wards" Multiplicity="0..1" />
-    <End Type="QLDLModel.customer" Role="customer" Multiplicity="*" />
+  <Association Name="fk_ReceiptsCu">
+    <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
+    <End Type="QLDLModel.Receipts" Role="Receipts" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="wards">
-        <PropertyRef Name="code" />
+      <Principal Role="customer">
+        <PropertyRef Name="CustomerId" />
       </Principal>
-      <Dependent Role="customer">
-        <PropertyRef Name="CustomerCity" />
+      <Dependent Role="Receipts">
+        <PropertyRef Name="CustomerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_Ward1">
+  <Association Name="fk_Ward">
     <End Type="QLDLModel.wards" Role="wards" Multiplicity="0..1" />
     <End Type="QLDLModel.customer" Role="customer" Multiplicity="*" />
     <ReferentialConstraint>
@@ -461,61 +516,152 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="chietkhausp">
+  <Association Name="districts_province_code_fkey">
+    <End Type="QLDLModel.provinces" Role="provinces" Multiplicity="0..1" />
+    <End Type="QLDLModel.districts" Role="districts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provinces">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="districts">
+        <PropertyRef Name="province_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="wards_district_code_fkey">
+    <End Type="QLDLModel.districts" Role="districts" Multiplicity="0..1" />
+    <End Type="QLDLModel.wards" Role="wards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="districts">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="wards">
+        <PropertyRef Name="district_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_grname">
+    <End Type="QLDLModel.productgroup" Role="productgroup" Multiplicity="0..1" />
+    <End Type="QLDLModel.product" Role="product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productgroup">
+        <PropertyRef Name="ProductGroupId" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="ProductGroupName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="dailycap">
     <Key>
-      <PropertyRef Name="chietkhauid" />
+      <PropertyRef Name="dailyid" />
     </Key>
-    <Property Name="chietkhauid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CustomerId" Type="Int32" />
-    <Property Name="ProductId" Type="Int32" />
+    <Property Name="dailyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dailyname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="chietkhau" Type="Double" />
-    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_chietkhauCu" FromRole="chietkhausp" ToRole="customer" />
-    <NavigationProperty Name="product" Relationship="QLDLModel.fk_chietkhausp" FromRole="chietkhausp" ToRole="product" />
+    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_Daily" FromRole="dailycap" ToRole="customer" />
   </EntityType>
-  <Association Name="fk_chietkhauCu">
-    <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
-    <End Type="QLDLModel.chietkhausp" Role="chietkhausp" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="customer">
-        <PropertyRef Name="CustomerId" />
-      </Principal>
-      <Dependent Role="chietkhausp">
-        <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_chietkhausp">
-    <End Type="QLDLModel.product" Role="product" Multiplicity="0..1" />
-    <End Type="QLDLModel.chietkhausp" Role="chietkhausp" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="ProductId" />
-      </Principal>
-      <Dependent Role="chietkhausp">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Receipts">
+  <EntityType Name="NhaSX">
     <Key>
-      <PropertyRef Name="ReceiptsId" />
+      <PropertyRef Name="NhaSXId" />
     </Key>
-    <Property Name="ReceiptsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CustomerId" Type="Int32" />
-    <Property Name="TotalMoney" Type="Double" />
-    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="ReceiptsDate" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="customer" Relationship="QLDLModel.fk_ReceiptsCu" FromRole="Receipts" ToRole="customer" />
+    <Property Name="NhaSXId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NhaSXName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NhaSXSDT" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NhaSXEmail" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="NhaSXWard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NhaSXDistrict" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NhaSXCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NhaSXChietkhau" Type="Double" />
+    <Property Name="NhaSXDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="BillImport" Relationship="QLDLModel.fk_NhaSX1" FromRole="NhaSX" ToRole="BillImport" />
+    <NavigationProperty Name="districts" Relationship="QLDLModel.fk_district1" FromRole="NhaSX" ToRole="districts" />
+    <NavigationProperty Name="product" Relationship="QLDLModel.fk_nhasx" FromRole="NhaSX" ToRole="product" />
+    <NavigationProperty Name="provinces" Relationship="QLDLModel.fk_province1" FromRole="NhaSX" ToRole="provinces" />
+    <NavigationProperty Name="Payment" Relationship="QLDLModel.fk_ReceiptsNha" FromRole="NhaSX" ToRole="Payment" />
+    <NavigationProperty Name="wards" Relationship="QLDLModel.fk_Ward1" FromRole="NhaSX" ToRole="wards" />
   </EntityType>
-  <Association Name="fk_ReceiptsCu">
-    <End Type="QLDLModel.customer" Role="customer" Multiplicity="0..1" />
-    <End Type="QLDLModel.Receipts" Role="Receipts" Multiplicity="*" />
+  <Association Name="fk_NhaSX1">
+    <End Type="QLDLModel.NhaSX" Role="NhaSX" Multiplicity="0..1" />
+    <End Type="QLDLModel.BillImport" Role="BillImport" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="customer">
-        <PropertyRef Name="CustomerId" />
+      <Principal Role="NhaSX">
+        <PropertyRef Name="NhaSXId" />
       </Principal>
-      <Dependent Role="Receipts">
-        <PropertyRef Name="CustomerId" />
+      <Dependent Role="BillImport">
+        <PropertyRef Name="NhaSXId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Daily">
+    <End Type="QLDLModel.dailycap" Role="dailycap" Multiplicity="0..1" />
+    <End Type="QLDLModel.customer" Role="customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dailycap">
+        <PropertyRef Name="dailyid" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="Dailycap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_district1">
+    <End Type="QLDLModel.districts" Role="districts" Multiplicity="0..1" />
+    <End Type="QLDLModel.NhaSX" Role="NhaSX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="districts">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="NhaSX">
+        <PropertyRef Name="NhaSXDistrict" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_nhasx">
+    <End Type="QLDLModel.NhaSX" Role="NhaSX" Multiplicity="0..1" />
+    <End Type="QLDLModel.product" Role="product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSX">
+        <PropertyRef Name="NhaSXId" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="NhaSXId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_province1">
+    <End Type="QLDLModel.provinces" Role="provinces" Multiplicity="0..1" />
+    <End Type="QLDLModel.NhaSX" Role="NhaSX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provinces">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="NhaSX">
+        <PropertyRef Name="NhaSXCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ReceiptsNha">
+    <End Type="QLDLModel.NhaSX" Role="NhaSX" Multiplicity="0..1" />
+    <End Type="QLDLModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSX">
+        <PropertyRef Name="NhaSXId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="NhaSXId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Ward1">
+    <End Type="QLDLModel.wards" Role="wards" Multiplicity="0..1" />
+    <End Type="QLDLModel.NhaSX" Role="NhaSX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wards">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="NhaSX">
+        <PropertyRef Name="NhaSXWard" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

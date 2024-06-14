@@ -19,10 +19,11 @@ namespace DAL
                 return instance;
             }
         }
-        public bool addSanpham(int productgroup, string tensanpham,float gia,string mota,string img)
+        public bool addSanpham(int productgroup,int idnhasx, string tensanpham,float gia,string mota,string img)
         {
             product pr = new product();
             pr.ProductGroupName = productgroup;
+            pr.NhaSXId = idnhasx;
             pr.ProductName= tensanpham;
             pr.ProductPrice = gia;
             pr.ProductInfo = mota;

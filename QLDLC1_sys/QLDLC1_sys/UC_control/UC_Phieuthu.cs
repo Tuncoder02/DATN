@@ -17,29 +17,22 @@ namespace QLDLC1_sys.UC_control
         public UC_Phieuthu()
         {
             InitializeComponent();
-            CongnokhachhangBLL.Instance.getCustomer(cbMaKH);
 
-            cbMaKH.DisplayMember = "CustomerId";
-            cbEmail.DataSource = cbMaKH.DataSource;
-            cbEmail.DisplayMember = "CustomerEmail";
-            cbSodienthoai.DataSource = cbMaKH.DataSource;
-            cbSodienthoai.DisplayMember = "CustomerPhoneNumber";
-            cbTenkhachhang.DataSource = cbMaKH.DataSource;
-            cbTenkhachhang.DisplayMember = "CustomerFullName";
+            loadkhachhang();
             loadPhieuthu();
             kiemtra();
             
         }
         public void loadPhieuthu()
         {
-            PhieuthuBLL.Instance.getReceipts(dtgvPhieuthu);
+           PhieuthuBLL.Instance.getReceipts(dtgvPhieuthu);
 
             dtgvPhieuthu.Columns[0].HeaderText = "Mã phiếu";
-            dtgvPhieuthu.Columns[1].HeaderText = "Mã KH";
-            dtgvPhieuthu.Columns[2].HeaderText = "Tên khách hàng";
+            dtgvPhieuthu.Columns[1].HeaderText = "Mã KH/NSX";
+            dtgvPhieuthu.Columns[2].HeaderText = "Tên KH/NSX ";
             dtgvPhieuthu.Columns[3].HeaderText = "Số tiền";
             dtgvPhieuthu.Columns[4].HeaderText = "Nội dung";
-            dtgvPhieuthu.Columns[5].HeaderText = "Ngày thu";
+            dtgvPhieuthu.Columns[5].HeaderText = "Ngày thu/chi";
 
 
             dtgvPhieuthu.Columns[0].Width = 80;
@@ -51,17 +44,70 @@ namespace QLDLC1_sys.UC_control
  
 
         }
+        public void loadPhieuchi()
+        {
+            PhieuchiBLL.Instance.getPayment(dtgvPhieuthu);
+
+            dtgvPhieuthu.Columns[0].HeaderText = "Mã phiếu";
+            dtgvPhieuthu.Columns[1].HeaderText = "Mã KH/NSX";
+            dtgvPhieuthu.Columns[2].HeaderText = "Tên KH/NSX ";
+            dtgvPhieuthu.Columns[3].HeaderText = "Số tiền";
+            dtgvPhieuthu.Columns[4].HeaderText = "Nội dung";
+            dtgvPhieuthu.Columns[5].HeaderText = "Ngày thu/chi";
+
+
+            dtgvPhieuthu.Columns[0].Width = 80;
+            dtgvPhieuthu.Columns[1].Width = 80;
+            dtgvPhieuthu.Columns[2].Width = 100;
+            dtgvPhieuthu.Columns[3].Width = 100;
+            dtgvPhieuthu.Columns[4].Width = 300;
+            dtgvPhieuthu.Columns[5].Width = 100;
+
+
+        }
+        private void loadkhachhang()
+        {
+            ThecongnokhachhangBLL.Instance.getDSKH(cbMaKH);
+            cbMaKH.DisplayMember = "CustomerId";
+            cbEmail.DataSource = cbMaKH.DataSource;
+            cbEmail.DisplayMember = "CustomerEmail";
+            cbSodienthoai.DataSource = cbMaKH.DataSource;
+            cbSodienthoai.DisplayMember = "CustomerPhoneNumber";
+            cbTenkhachhang.DataSource = cbMaKH.DataSource;
+            cbTenkhachhang.DisplayMember = "CustomerFullName";
+        }
+
+        private void loadnhasanxuat()
+        {
+            ThecongnonhasanxuatBLL.Instance.getDSNSX(cbMaKH);
+            cbMaKH.DisplayMember = "NhaSXId";
+            cbEmail.DataSource = cbMaKH.DataSource;
+            cbEmail.DisplayMember = "NhaSXEmail";
+            cbSodienthoai.DataSource = cbMaKH.DataSource;
+            cbSodienthoai.DisplayMember = "NhaSXSDT";
+            cbTenkhachhang.DataSource = cbMaKH.DataSource;
+            cbTenkhachhang.DisplayMember = "NhaSXName";
+        }
         private void UC_Phieuthu_Load(object sender, EventArgs e)
         {
 
         }
-
+        private bool kiemtrathuchi = false;
         private void cbTenkhachhang_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtDiachi.Text = null;
-            customer ct = cbTenkhachhang.SelectedItem as customer;
-            if (ct.CustomerId != 1)
-                txtDiachi.Text = ct.wards1.full_name + ", " + ct.districts.full_name + ", " + ct.provinces.full_name;
+            if (kiemtrathuchi == false)
+            {
+                customer ct = cbTenkhachhang.SelectedItem as customer;
+
+                if (ct.CustomerId != 1)
+                    txtDiachi.Text = ct.wards.full_name + ", " + ct.districts.full_name + ", " + ct.provinces.full_name;
+            }
+            else
+            {
+                NhaSX ns = cbTenkhachhang.SelectedItem as NhaSX;
+                txtDiachi.Text = ns.wards.full_name + ", " + ns.districts.full_name + ", " + ns.provinces.full_name;
+            }
         }
         private bool kiemtraluu()
         {
@@ -74,9 +120,18 @@ namespace QLDLC1_sys.UC_control
         {
             if (kiemtraluu() == true)
             {
-                customer ct = cbTenkhachhang.SelectedItem as customer;
-                PhieuthuBLL.Instance.addReceipt(ct.CustomerId, float.Parse(txtSotien.Text), txtNoidung.Text, dateNgayThu.Value);
-                loadPhieuthu();
+                if (kiemtrathuchi == false)
+                {
+                    customer ct = cbTenkhachhang.SelectedItem as customer;
+                    PhieuthuBLL.Instance.addReceipt(ct.CustomerId, float.Parse(txtSotien.Text), txtNoidung.Text, dateNgayThu.Value);
+                    loadPhieuthu();
+                }
+                else
+                {
+                    NhaSX ns = cbTenkhachhang.SelectedItem as NhaSX;
+                    PhieuchiBLL.Instance.addPayment(ns.NhaSXId, float.Parse(txtSotien.Text), txtNoidung.Text, dateNgayThu.Value);
+                    loadPhieuchi();
+                }
             }
             else MessageBox.Show("Số tiền và nội dung không được để trống");
 
@@ -106,8 +161,17 @@ namespace QLDLC1_sys.UC_control
         {
             if (kiemtraluu() == true)
             {
-                customer ct = cbTenkhachhang.SelectedItem as customer;
-            PhieuthuBLL.Instance.editReceipt(int.Parse(txtMaphieu.Text),ct.CustomerId, float.Parse(txtSotien.Text), txtNoidung.Text, dateNgayThu.Value);
+                if (kiemtrathuchi == false)
+                {
+
+                    customer ct = cbTenkhachhang.SelectedItem as customer;
+                    PhieuthuBLL.Instance.editReceipt(int.Parse(txtMaphieu.Text), ct.CustomerId, float.Parse(txtSotien.Text), txtNoidung.Text, dateNgayThu.Value);
+                }
+                else
+                {
+                    NhaSX ns = cbTenkhachhang.SelectedItem as NhaSX;
+                    PhieuchiBLL.Instance.editPayment(int.Parse(txtMaphieu.Text), ns.NhaSXId, float.Parse(txtSotien.Text), txtNoidung.Text, dateNgayThu.Value);
+                }
             btnLammoi_Click(sender, e);
             }
             else MessageBox.Show("Số tiền và nội dung không được để trống");
@@ -116,7 +180,12 @@ namespace QLDLC1_sys.UC_control
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            PhieuthuBLL.Instance.removeReceipt(int.Parse(txtMaphieu.Text));
+
+            if (kiemtrathuchi == false)
+                PhieuthuBLL.Instance.removeReceipt(int.Parse(txtMaphieu.Text));
+            else
+                PhieuchiBLL.Instance.removePayment(int.Parse(txtMaphieu.Text));
+
             btnLammoi_Click(sender, e);
 
         }
@@ -127,13 +196,16 @@ namespace QLDLC1_sys.UC_control
             txtNoidung.Text=null;
             txtSotien.Text=null;
             txtSearch.Text=null;
-            loadPhieuthu();
+            if (kiemtrathuchi == false) loadPhieuthu();
+            else loadPhieuchi();
             kiemtra();
         }
 
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            PhieuthuBLL.Instance.getReceiptsBySDT(dtgvPhieuthu,txtSearch.Text);
+            if (kiemtrathuchi == false)
+                PhieuthuBLL.Instance.getReceiptsBySDT(dtgvPhieuthu, txtSearch.Text);
+            else PhieuchiBLL.Instance.getPaymentBySDT(dtgvPhieuthu, txtSearch.Text);
         }
         private void kiemtra()
         {
@@ -148,6 +220,28 @@ namespace QLDLC1_sys.UC_control
                 btnXoa.Enabled = true;
             }
         }
-        
+
+        private void btnSwitch_Click(object sender, EventArgs e)
+        {
+            kiemtrathuchi = !kiemtrathuchi;
+            if (kiemtrathuchi == false)
+            {
+                loadkhachhang();
+                lblTieude.Text = "PHIẾU THU";
+                btnLammoi_Click(sender, e);
+             }
+            else
+            {
+                loadnhasanxuat();
+                lblTieude.Text = "PHIẾU CHI";
+                btnLammoi_Click(sender, e);
+
+            }
+        }
+
+        private void dtgvPhieuthu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
     }
 }

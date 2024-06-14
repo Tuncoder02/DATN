@@ -42,8 +42,6 @@
             this.btnLammoi = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.radDaily = new System.Windows.Forms.RadioButton();
-            this.radKHBT = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.dateNgaydangky = new System.Windows.Forms.DateTimePicker();
             this.cboXa = new System.Windows.Forms.ComboBox();
@@ -62,6 +60,8 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnCapnhat = new System.Windows.Forms.Button();
+            this.cboDaily = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKhachhang)).BeginInit();
@@ -137,7 +137,7 @@
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.dtgvKhachhang);
-            this.groupBox1.Location = new System.Drawing.Point(608, 94);
+            this.groupBox1.Location = new System.Drawing.Point(653, 94);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(703, 640);
             this.groupBox1.TabIndex = 10;
@@ -200,9 +200,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.cboDaily);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.radDaily);
-            this.groupBox2.Controls.Add(this.radKHBT);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.dateNgaydangky);
             this.groupBox2.Controls.Add(this.cboXa);
@@ -224,7 +224,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(88, 94);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 609);
+            this.groupBox2.Size = new System.Drawing.Size(514, 609);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin khách hàng";
@@ -238,31 +238,6 @@
             this.label8.Size = new System.Drawing.Size(69, 23);
             this.label8.TabIndex = 31;
             this.label8.Text = "Mã KH:";
-            // 
-            // radDaily
-            // 
-            this.radDaily.AutoSize = true;
-            this.radDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radDaily.Location = new System.Drawing.Point(341, 448);
-            this.radDaily.Name = "radDaily";
-            this.radDaily.Size = new System.Drawing.Size(72, 24);
-            this.radDaily.TabIndex = 30;
-            this.radDaily.TabStop = true;
-            this.radDaily.Text = "Đại lý";
-            this.radDaily.UseVisualStyleBackColor = true;
-            // 
-            // radKHBT
-            // 
-            this.radKHBT.AutoSize = true;
-            this.radKHBT.Checked = true;
-            this.radKHBT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radKHBT.Location = new System.Drawing.Point(116, 448);
-            this.radKHBT.Name = "radKHBT";
-            this.radKHBT.Size = new System.Drawing.Size(209, 24);
-            this.radKHBT.TabIndex = 29;
-            this.radKHBT.TabStop = true;
-            this.radKHBT.Text = "Khách hàng bình thường";
-            this.radKHBT.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -288,6 +263,8 @@
             // 
             // cboXa
             // 
+            this.cboXa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboXa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboXa.DropDownHeight = 90;
             this.cboXa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboXa.FormattingEnabled = true;
@@ -299,6 +276,8 @@
             // 
             // cboHuyen
             // 
+            this.cboHuyen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboHuyen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboHuyen.DropDownHeight = 90;
             this.cboHuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHuyen.FormattingEnabled = true;
@@ -311,6 +290,8 @@
             // 
             // cboTinh
             // 
+            this.cboTinh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboTinh.DropDownHeight = 90;
             this.cboTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTinh.FormattingEnabled = true;
@@ -364,9 +345,9 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(26, 448);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 23);
+            this.label5.Size = new System.Drawing.Size(61, 23);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Vai trò:";
+            this.label5.Text = "Đại lý:";
             // 
             // label9
             // 
@@ -451,6 +432,31 @@
             this.btnCapnhat.UseVisualStyleBackColor = false;
             this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
             // 
+            // cboDaily
+            // 
+            this.cboDaily.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboDaily.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboDaily.DropDownHeight = 90;
+            this.cboDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDaily.FormattingEnabled = true;
+            this.cboDaily.IntegralHeight = false;
+            this.cboDaily.Location = new System.Drawing.Point(165, 443);
+            this.cboDaily.Name = "cboDaily";
+            this.cboDaily.Size = new System.Drawing.Size(248, 28);
+            this.cboDaily.TabIndex = 32;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(309, 33);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(156, 35);
+            this.button3.TabIndex = 28;
+            this.button3.Text = "Cấp đại lý";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // UC_Quanlykhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -511,8 +517,8 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnCapnhat;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radKHBT;
-        private System.Windows.Forms.RadioButton radDaily;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox cboDaily;
     }
 }

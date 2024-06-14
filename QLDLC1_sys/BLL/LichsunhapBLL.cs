@@ -24,7 +24,7 @@ namespace BLL
         public void  loadBillImport(DataGridView data)
         {
             List<BillImport> result = LichsunhapDAL.Instance.getBillImport();
-            var result2 = from c in result select new { IdBill = c.BillImportId, Ngaynhap = c.BillImportDate };
+            var result2 = from c in result select new { IdBill = c.BillImportId,Nhasx=c.NhaSX.NhaSXName,thanhtoan=c.BillPay, Ngaynhap = c.BillImportDate };
             //BindingList<product> bindingList = new BindingList<product>(result2);
             
             data.DataSource = result2.ToList();

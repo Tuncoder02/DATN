@@ -21,9 +21,12 @@ namespace DAL
         }
     
         public int BillImportId { get; set; }
+        public Nullable<int> NhaSXId { get; set; }
+        public Nullable<double> BillPay { get; set; }
         public System.DateTime BillImportDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BillImportDetails> BillImportDetails { get; set; }
+        public virtual NhaSX NhaSX { get; set; }
     }
 }

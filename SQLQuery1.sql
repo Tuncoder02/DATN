@@ -4,16 +4,17 @@ use QLDL
 /*tao bang customers*/
 drop table BillExportDetails
 drop table BillExport
+drop table BillImport
+drop table BillImportDetails
 drop table customer
 create table customer(
 CustomerId int identity ,
 CustomerFullName Nvarchar(200),
 Ngaydk Date,
-Isdailycap2 int default 0,
+Dailycap int default null,
 CustomerWard nvarchar(20),
 CustomerDistrict nvarchar(20),
 CustomerCity nvarchar(20),
-CustomerDiscount int default 0,
 CustomerPhoneNumber varchar(100) not null,
 CustomerEmail varchar(1000) not null,
 CustomerPoint int default 0,
@@ -21,9 +22,10 @@ Constraint pk_Customer Primary key (CustomerId),
 Constraint fk_province foreign key (CustomerCity) references provinces(code),
 Constraint fk_district foreign key (CustomerDistrict) references districts(code),
 Constraint fk_Ward foreign key (CustomerWard) references wards(code),
+Constraint fk_Daily foreign key (Dailycap) references dailycap(dailyid)
 )
-insert into customer(CustomerFullName,CustomerDiscount,CustomerCity,CustomerWard,CustomerPhoneNumber,CustomerEmail)
-values(N'Khách',null,null,null,'0','0')
+insert into customer(CustomerFullName,CustomerCity,CustomerWard,CustomerPhoneNumber,CustomerEmail)
+values(N'Khách',null,null,'0','0')
 select * from customer
 
 delete from customer where CustomerId=2
@@ -38,6 +40,7 @@ ProductGroupId int identity primary key,
 select * from productgroup      
 create table product(
 ProductId int identity,
+NhaSXId int,
 ProductGroupName int,
 ProductName Nvarchar(50) not null,
 ProductPrice float not null,
@@ -45,6 +48,8 @@ ProductQuantity int default 0,
 ProductInfo Nvarchar(100) not null,
 ProductImageLink Varchar(1000),
 constraint fk_grname foreign key (ProductGroupName) references productgroup(ProductGroupId),
+constraint fk_nhasx foreign key (NhaSXId) references NhaSX(NhaSXId),
+
 
 constraint pk_Product Primary key(ProductId)
 
@@ -63,21 +68,35 @@ select * from product
 /*tao bang hoa don Nhap*/
 create table BillImport(
 BillImportId int identity,
+NhaSXId int,
+BillPay float,
 BillImportDate Date not null default getdate(),
-constraint pk_BillImport primary key(BillImportId))
+constraint pk_BillImport primary key(BillImportId),
+constraint fk_NhaSX1 foreign key (NhaSXId) references NhaSX(NhaSXId))
 select * from BillImport
 drop table BillImport
-delete from BillImport where BillImportId<50
-delete from BillImportDetails where BillImportDetailsId<50
-delete from BillExport where BillExportId<50
-delete from BillExportDetails where BillExportDetailsId<50
+
+create table NhaSX(
+NhaSXId int identity primary key,
+NhaSXName nvarchar(200),
+NhaSXSDT varchar(100) not null,
+NhaSXEmail varchar(1000) not null, 
+NhaSXWard nvarchar(20),
+NhaSXDistrict nvarchar(20),
+NhaSXCity nvarchar(20),
+NhaSXChietkhau float,
+NhaSXDate Date,
+Constraint fk_province1 foreign key (NhaSXCity) references provinces(code),
+Constraint fk_district1 foreign key (NhaSXDistrict) references districts(code),
+Constraint fk_Ward1 foreign key (NhaSXWard) references wards(code),)
+drop table NhaSX
+
 
 /* tao bang chi tiet hoa don nhap*/
 Create table BillImportDetails(
 BillImportDetailsId int identity,
 BillImportId int,
 ProductId int,
-Price float,
 Quantity int,
 constraint pk_BillImportDetails primary key (BillImportDetailsId),
 constraint fk_BillImport foreign key (BillImportId) references BillImport(BillImportId),
@@ -90,9 +109,7 @@ create table BillExport(
 BillExportId int identity,
 CustomerId int,
 BillExportDate Date not null default getdate(),
-BillTotalMoney float,
-BillPayPercent int,
-BillDiscount int default 0,
+BillPay float,
 constraint pk_BillExport primary key(BillExportId),
 constraint fk_Customer foreign key (customerId) references Customer(CustomerId))
 select * from BillExport
@@ -121,22 +138,42 @@ create table Receipts(
 ReceiptsId int identity primary key,
 CustomerId int,
 TotalMoney float,
-ReceiptsDate Date
+Content nvarchar(500),
+ReceiptsDate Date,
 constraint fk_ReceiptsCu foreign key (CustomerId) references Customer(CustomerId),
 )
+drop table Receipts
+create table dailycap(
+dailyid int identity primary key,
+dailyname nvarchar(200),
+chietkhau float
+)
+DELETE FROM dailycap;
 
-create table chietkhausp(
-chietkhauid int identity primary key,
+
+create table Payment(
+PaymentId int identity primary key,
+NhaSXId int,
+TotalMoney float,
+Content nvarchar(500),
+PaymentDate Date,
+constraint fk_ReceiptsNha foreign key (NhaSXId) references NhaSX(NhaSXId),)
+drop table Payment
+
+create table Recharge(
+RechargeId int identity primary key,
+TotalMoney float,
+Content nvarchar(500),
+RechargeDate Date,)
+
+create table Bonus(
+BonusId int identity primary key,
 CustomerId int,
-ProductId int,
-chietkhau int
-constraint fk_chietkhauCu foreign key (CustomerId) references Customer(CustomerId),
-constraint fk_chietkhausp foreign key (ProductId) references Product(ProductId))
-
-
-
-  
-
+TotalMoney float,
+Content nvarchar(500),
+BonusDate Date,
+constraint fk_BonusCu foreign key (CustomerId) references Customer(CustomerId),
+)
 --Add dia gioi hanh chinh--
 CREATE TABLE administrative_regions (
 	id integer NOT NULL,

@@ -15,10 +15,12 @@ namespace QLDLC1_sys.UC_control
 {
     public partial class UC_Hoadonbanhang : UserControl
     {
-
+        private List<product> products;
         public UC_Hoadonbanhang()
         {
             InitializeComponent();
+       
+
             BanHangBLL.Instance.loadCustomer(cbTenkhachhang, cbSodienthoai, cbEmail);
             TrangnhaphangBLL.Instance.loadIdSanPham(cbId);
             cbTen.DataSource = cbId.DataSource;
@@ -26,6 +28,7 @@ namespace QLDLC1_sys.UC_control
             cbTen.DisplayMember = "ProductName";
             cbMaKH.DataSource=cbEmail.DataSource;
             cbMaKH.DisplayMember = "CustomerId";
+            products = cbId.DataSource as List<product>;
 
             BanHangBLL.Instance.loadBillExport(dtgvBillban);
             dtgvBillban.Columns[0].HeaderText = "Mã bill";
@@ -36,10 +39,13 @@ namespace QLDLC1_sys.UC_control
             dtgvBillban.Columns[1].Width = 80;
             dtgvBillban.Columns[2].Width = 100;
             dtgvBillban.Columns[3].Width = 300;
+
+          
             kiemtra();
 
 
         }
+      
         public bool checkupdate = false;
         private void kiemtra()
         {
@@ -75,10 +81,16 @@ namespace QLDLC1_sys.UC_control
         private void cbTenkhachhang_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtDiachi.Text = null;
+            txtChietkhau.Text = null;
             customer ct = cbTenkhachhang.SelectedItem as customer;
+
             if (ct.CustomerId != 1)
-                txtDiachi.Text = ct.wards1.full_name + ", " + ct.districts.full_name + ", " + ct.provinces.full_name;
-            
+            {
+                txtDiachi.Text = ct.wards.full_name + ", " + ct.districts.full_name + ", " + ct.provinces.full_name;
+                txtChietkhau.Text = ct.dailycap1.chietkhau.ToString();
+                txtThanhtoan.ReadOnly = false;
+            }
+            else { txtThanhtoan.ReadOnly = true; }
          }
 
         private void txtTongtien_TextChanged(object sender, EventArgs e)
@@ -112,7 +124,7 @@ namespace QLDLC1_sys.UC_control
             dateNgayban.Value = bill.BillExportDate;
             int id = int.Parse(txtId.Text);
 
-            BanHangBLL.Instance.getBillInfonew(dtgvBillbaninfo, id);
+            BanHangBLL.Instance.getBillInfo(dtgvBillbaninfo, id);
            
 
             dtgvBillbaninfo.Columns[0].HeaderText = "Mã số";
@@ -120,8 +132,7 @@ namespace QLDLC1_sys.UC_control
             dtgvBillbaninfo.Columns[2].HeaderText = "Tên sản phẩm";
             dtgvBillbaninfo.Columns[3].HeaderText = "Số lượng";
             dtgvBillbaninfo.Columns[4].HeaderText = "Giá bán";
-            dtgvBillbaninfo.Columns[5].HeaderText = "Chiết khấu";
-            dtgvBillbaninfo.Columns[6].HeaderText = "Thành tiền";
+            dtgvBillbaninfo.Columns[5].HeaderText = "Thành tiền";
 
 
 
@@ -130,8 +141,8 @@ namespace QLDLC1_sys.UC_control
             dtgvBillbaninfo.Columns[2].Width = 300;
             dtgvBillbaninfo.Columns[3].Width = 80;
             dtgvBillbaninfo.Columns[4].Width = 150;
-            dtgvBillbaninfo.Columns[5].Width = 80;
-            dtgvBillbaninfo.Columns[6].Width = 150;
+      
+            dtgvBillbaninfo.Columns[5].Width = 150;
             kiemtra();
 
         }
@@ -148,7 +159,7 @@ namespace QLDLC1_sys.UC_control
 
                 BanHangBLL.Instance.addBillInfo(idBill, product, soluong);
 
-                BanHangBLL.Instance.getBillInfonew(dtgvBillbaninfo, idBill);
+                BanHangBLL.Instance.getBillInfo(dtgvBillbaninfo, idBill);
                 txtMabillinfo.Text = null;
                 checkupdate = false;
 
@@ -162,12 +173,12 @@ namespace QLDLC1_sys.UC_control
         private void button4_Click(object sender, EventArgs e)
         {
             
-            if (cboThanhtoan.SelectedItem == null) cboThanhtoan.Text = "100";
+            if (txtThanhtoan.Text == "") txtThanhtoan.Text="0";
             int idKH = int.Parse(cbMaKH.Text);
-            int pay =int.Parse(cboThanhtoan.Text);
+            int pay =int.Parse(txtThanhtoan.Text);
             int idbill=int.Parse(txtId.Text);
-         
-            BanHangBLL.Instance.luuBill(idbill, idKH, pay);
+            if(idKH==1) pay=int.Parse(txtTongtien.Text);
+            BanHangBLL.Instance.luuBill(idbill, idKH, pay,dateNgayban.Value);
             BanHangBLL.Instance.loadBillExport(dtgvBillban);
             txtId.Text = null;
             dtgvBillbaninfo.DataSource = null; 
@@ -215,7 +226,7 @@ namespace QLDLC1_sys.UC_control
                 int idBill = int.Parse(txtMabillinfo.Text);
                 BanHangBLL.Instance.deleteBillInfo(idBill);
                 int id = int.Parse(txtId.Text);
-                BanHangBLL.Instance.getBillInfonew(dtgvBillbaninfo, id);
+                BanHangBLL.Instance.getBillInfo(dtgvBillbaninfo, id);
                 txtMabillinfo.Text = null;
                 checkupdate = false;
                 nbrSoluong.Value = 0;
@@ -235,7 +246,7 @@ namespace QLDLC1_sys.UC_control
                 bool kt = BanHangBLL.Instance.updateProduct(idBill, soluong);
                 if (kt == false) MessageBox.Show("Lỗi! Kho hàng không hợp lệ sau khi update");
                 int id = int.Parse(txtId.Text);
-                BanHangBLL.Instance.getBillInfonew(dtgvBillbaninfo, id);
+                BanHangBLL.Instance.getBillInfo(dtgvBillbaninfo, id);
                 txtMabillinfo.Text = null;
                 checkupdate = false;
                 nbrSoluong.Value = 0;
@@ -258,18 +269,18 @@ namespace QLDLC1_sys.UC_control
                     cbMaKH.Text = row.Cells[1].Value.ToString();
 
                     dateNgayban.Value = (DateTime)row.Cells[3].Value;
-                    cboThanhtoan.Text = row.Cells[2].Value.ToString();
+                    txtThanhtoan.Text = row.Cells[2].Value.ToString();
                     
                     int id = int.Parse(txtId.Text);
-                    BanHangBLL.Instance.getBillInfonew(dtgvBillbaninfo, id);
+                    BanHangBLL.Instance.getBillInfo(dtgvBillbaninfo, id);
 
                     dtgvBillbaninfo.Columns[0].HeaderText = "Mã số";
                     dtgvBillbaninfo.Columns[1].HeaderText = "Mã SP";
                     dtgvBillbaninfo.Columns[2].HeaderText = "Tên sản phẩm";
                     dtgvBillbaninfo.Columns[3].HeaderText = "Số lượng";
                     dtgvBillbaninfo.Columns[4].HeaderText = "Giá bán";
-                    dtgvBillbaninfo.Columns[5].HeaderText = "Chiết khấu";
-                    dtgvBillbaninfo.Columns[6].HeaderText = "Thành tiền";
+  
+                    dtgvBillbaninfo.Columns[5].HeaderText = "Thành tiền";
 
 
 
@@ -278,8 +289,8 @@ namespace QLDLC1_sys.UC_control
                     dtgvBillbaninfo.Columns[2].Width = 300;
                     dtgvBillbaninfo.Columns[3].Width = 80;
                     dtgvBillbaninfo.Columns[4].Width = 150;
-                    dtgvBillbaninfo.Columns[5].Width = 80;
-                    dtgvBillbaninfo.Columns[6].Width = 150;
+                
+                    dtgvBillbaninfo.Columns[5].Width = 150;
 
                 }
             }
@@ -314,7 +325,7 @@ namespace QLDLC1_sys.UC_control
         private void Tongtien()
         {
             float total = 0;
-
+            
             foreach (DataGridViewRow row in dtgvBillbaninfo.Rows)
             {
                 if (row.Cells["ThanhTien"].Value != null && float.TryParse(row.Cells["ThanhTien"].Value.ToString(), out float value))
@@ -336,7 +347,7 @@ namespace QLDLC1_sys.UC_control
 
                 int id = int.Parse(txtId.Text);
 
-                BanHangBLL.Instance.getBillInfonew(dtgvBillbaninfo, id);
+                BanHangBLL.Instance.getBillInfo(dtgvBillbaninfo, id);
 
 
                 dtgvBillbaninfo.Columns[0].HeaderText = "Mã số";
@@ -344,8 +355,8 @@ namespace QLDLC1_sys.UC_control
                 dtgvBillbaninfo.Columns[2].HeaderText = "Tên sản phẩm";
                 dtgvBillbaninfo.Columns[3].HeaderText = "Số lượng";
                 dtgvBillbaninfo.Columns[4].HeaderText = "Giá bán";
-                dtgvBillbaninfo.Columns[5].HeaderText = "Chiết khấu";
-                dtgvBillbaninfo.Columns[6].HeaderText = "Thành tiền";
+         
+                dtgvBillbaninfo.Columns[5].HeaderText = "Thành tiền";
 
 
 
@@ -354,8 +365,8 @@ namespace QLDLC1_sys.UC_control
                 dtgvBillbaninfo.Columns[2].Width = 300;
                 dtgvBillbaninfo.Columns[3].Width = 80;
                 dtgvBillbaninfo.Columns[4].Width = 150;
-                dtgvBillbaninfo.Columns[5].Width = 80;
-                dtgvBillbaninfo.Columns[6].Width = 150;
+
+                dtgvBillbaninfo.Columns[5].Width = 150;
                 Tongtien();
             }
         }

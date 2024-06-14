@@ -21,6 +21,8 @@ namespace QLDLC1_sys
             InitializeComponent();
             KhoHangBLL.Instance.loadProductGroup(cbNhomsanpham);
             lbpath.Text = "0";
+            ThemnhaSXBLL.Instance.cboNhaSX(cboNhaSX);
+            cboNhaSX.DisplayMember = "NhaSXName";
 
 
         }
@@ -59,11 +61,12 @@ namespace QLDLC1_sys
             if ((txtGiasanpham.Text != "") && (txtTensanpham.Text != ""))
             {
                 productgroup selectedItem = (productgroup)cbNhomsanpham.SelectedItem;
+                NhaSX nhasx = (NhaSX)cboNhaSX.SelectedItem;
                 int pg = selectedItem.ProductGroupId;
                 string ten = txtTensanpham.Text;
                 float gia = float.Parse(txtGiasanpham.Text);
                 string mota = txtMota.Text;
-                SanphamBLL.Instance.addSanpham(pg, ten, gia, mota, lbpath.Text);
+                SanphamBLL.Instance.addSanpham(pg,nhasx.NhaSXId, ten, gia, mota, lbpath.Text);
                 this.Close();
             }
             else MessageBox.Show("Hãy điền đầy đủ thông tin trước khi bấm!");

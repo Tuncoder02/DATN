@@ -29,9 +29,7 @@
     <Property Name="BillExportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
     <Property Name="BillExportDate" Type="date" Nullable="false" />
-    <Property Name="BillTotalMoney" Type="float" />
-    <Property Name="BillPayPercent" Type="int" />
-    <Property Name="BillDiscount" Type="int" />
+    <Property Name="BillPay" Type="float" />
   </EntityType>
   <EntityType Name="BillExportDetails">
     <Key>
@@ -47,6 +45,8 @@
       <PropertyRef Name="BillImportId" />
     </Key>
     <Property Name="BillImportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhaSXId" Type="int" />
+    <Property Name="BillPay" Type="float" />
     <Property Name="BillImportDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="BillImportDetails">
@@ -56,17 +56,17 @@
     <Property Name="BillImportDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BillImportId" Type="int" />
     <Property Name="ProductId" Type="int" />
-    <Property Name="Price" Type="float" />
     <Property Name="Quantity" Type="int" />
   </EntityType>
-  <EntityType Name="chietkhausp">
+  <EntityType Name="Bonus">
     <Key>
-      <PropertyRef Name="chietkhauid" />
+      <PropertyRef Name="BonusId" />
     </Key>
-    <Property Name="chietkhauid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BonusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
-    <Property Name="ProductId" Type="int" />
-    <Property Name="chietkhau" Type="float" />
+    <Property Name="TotalMoney" Type="float" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="BonusDate" Type="date" />
   </EntityType>
   <EntityType Name="customer">
     <Key>
@@ -75,14 +75,21 @@
     <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerFullName" Type="nvarchar" MaxLength="200" />
     <Property Name="Ngaydk" Type="date" />
-    <Property Name="Isdailycap2" Type="int" />
+    <Property Name="Dailycap" Type="int" />
     <Property Name="CustomerWard" Type="nvarchar" MaxLength="20" />
     <Property Name="CustomerDistrict" Type="nvarchar" MaxLength="20" />
     <Property Name="CustomerCity" Type="nvarchar" MaxLength="20" />
-    <Property Name="CustomerDiscount" Type="int" />
     <Property Name="CustomerPhoneNumber" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="CustomerEmail" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="CustomerPoint" Type="int" />
+  </EntityType>
+  <EntityType Name="dailycap">
+    <Key>
+      <PropertyRef Name="dailyid" />
+    </Key>
+    <Property Name="dailyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dailyname" Type="nvarchar" MaxLength="200" />
+    <Property Name="chietkhau" Type="float" />
   </EntityType>
   <EntityType Name="districts">
     <Key>
@@ -97,11 +104,36 @@
     <Property Name="province_code" Type="nvarchar" MaxLength="20" />
     <Property Name="administrative_unit_id" Type="int" />
   </EntityType>
+  <EntityType Name="NhaSX">
+    <Key>
+      <PropertyRef Name="NhaSXId" />
+    </Key>
+    <Property Name="NhaSXId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhaSXName" Type="nvarchar" MaxLength="200" />
+    <Property Name="NhaSXSDT" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NhaSXEmail" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="NhaSXWard" Type="nvarchar" MaxLength="20" />
+    <Property Name="NhaSXDistrict" Type="nvarchar" MaxLength="20" />
+    <Property Name="NhaSXCity" Type="nvarchar" MaxLength="20" />
+    <Property Name="NhaSXChietkhau" Type="float" />
+    <Property Name="NhaSXDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhaSXId" Type="int" />
+    <Property Name="TotalMoney" Type="float" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="PaymentDate" Type="date" />
+  </EntityType>
   <EntityType Name="product">
     <Key>
       <PropertyRef Name="ProductId" />
     </Key>
     <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NhaSXId" Type="int" />
     <Property Name="ProductGroupName" Type="int" />
     <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ProductPrice" Type="float" Nullable="false" />
@@ -138,6 +170,25 @@
     <Property Name="TotalMoney" Type="float" />
     <Property Name="Content" Type="nvarchar" MaxLength="500" />
     <Property Name="ReceiptsDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Recharge">
+    <Key>
+      <PropertyRef Name="RechargeId" />
+    </Key>
+    <Property Name="RechargeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalMoney" Type="float" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="RechargeDate" Type="date" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -232,27 +283,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_chietkhauCu">
+  <Association Name="fk_BonusCu">
     <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
-    <End Role="chietkhausp" Type="Self.chietkhausp" Multiplicity="*" />
+    <End Role="Bonus" Type="Self.Bonus" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="customer">
         <PropertyRef Name="CustomerId" />
       </Principal>
-      <Dependent Role="chietkhausp">
+      <Dependent Role="Bonus">
         <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_chietkhausp">
-    <End Role="product" Type="Self.product" Multiplicity="0..1" />
-    <End Role="chietkhausp" Type="Self.chietkhausp" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="product">
-        <PropertyRef Name="ProductId" />
-      </Principal>
-      <Dependent Role="chietkhausp">
-        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -268,6 +307,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_Daily">
+    <End Role="dailycap" Type="Self.dailycap" Multiplicity="0..1" />
+    <End Role="customer" Type="Self.customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dailycap">
+        <PropertyRef Name="dailyid" />
+      </Principal>
+      <Dependent Role="customer">
+        <PropertyRef Name="Dailycap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_district">
     <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
     <End Role="customer" Type="Self.customer" Multiplicity="*" />
@@ -277,6 +328,18 @@
       </Principal>
       <Dependent Role="customer">
         <PropertyRef Name="CustomerDistrict" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_district1">
+    <End Role="districts" Type="Self.districts" Multiplicity="0..1" />
+    <End Role="NhaSX" Type="Self.NhaSX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="districts">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="NhaSX">
+        <PropertyRef Name="NhaSXDistrict" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -292,6 +355,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_nhasx">
+    <End Role="NhaSX" Type="Self.NhaSX" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSX">
+        <PropertyRef Name="NhaSXId" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="NhaSXId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NhaSX1">
+    <End Role="NhaSX" Type="Self.NhaSX" Multiplicity="0..1" />
+    <End Role="BillImport" Type="Self.BillImport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSX">
+        <PropertyRef Name="NhaSXId" />
+      </Principal>
+      <Dependent Role="BillImport">
+        <PropertyRef Name="NhaSXId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_province">
     <End Role="provinces" Type="Self.provinces" Multiplicity="0..1" />
     <End Role="customer" Type="Self.customer" Multiplicity="*" />
@@ -301,6 +388,18 @@
       </Principal>
       <Dependent Role="customer">
         <PropertyRef Name="CustomerCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_province1">
+    <End Role="provinces" Type="Self.provinces" Multiplicity="0..1" />
+    <End Role="NhaSX" Type="Self.NhaSX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provinces">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="NhaSX">
+        <PropertyRef Name="NhaSXCity" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -316,6 +415,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_ReceiptsNha">
+    <End Role="NhaSX" Type="Self.NhaSX" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSX">
+        <PropertyRef Name="NhaSXId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="NhaSXId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_Ward">
     <End Role="wards" Type="Self.wards" Multiplicity="0..1" />
     <End Role="customer" Type="Self.customer" Multiplicity="*" />
@@ -325,6 +436,18 @@
       </Principal>
       <Dependent Role="customer">
         <PropertyRef Name="CustomerWard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Ward1">
+    <End Role="wards" Type="Self.wards" Multiplicity="0..1" />
+    <End Role="NhaSX" Type="Self.NhaSX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wards">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="NhaSX">
+        <PropertyRef Name="NhaSXWard" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -383,13 +506,18 @@
     <EntitySet Name="BillExportDetails" EntityType="Self.BillExportDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BillImport" EntityType="Self.BillImport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BillImportDetails" EntityType="Self.BillImportDetails" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="chietkhausp" EntityType="Self.chietkhausp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bonus" EntityType="Self.Bonus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dailycap" EntityType="Self.dailycap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="districts" EntityType="Self.districts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhaSX" EntityType="Self.NhaSX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="productgroup" EntityType="Self.productgroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="provinces" EntityType="Self.provinces" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Receipts" EntityType="Self.Receipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recharge" EntityType="Self.Recharge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="wards" EntityType="Self.wards" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="districts_administrative_unit_id_fkey" Association="Self.districts_administrative_unit_id_fkey">
@@ -416,37 +544,61 @@
       <End Role="product" EntitySet="product" />
       <End Role="BillImportDetails" EntitySet="BillImportDetails" />
     </AssociationSet>
-    <AssociationSet Name="fk_chietkhauCu" Association="Self.fk_chietkhauCu">
+    <AssociationSet Name="fk_BonusCu" Association="Self.fk_BonusCu">
       <End Role="customer" EntitySet="customer" />
-      <End Role="chietkhausp" EntitySet="chietkhausp" />
-    </AssociationSet>
-    <AssociationSet Name="fk_chietkhausp" Association="Self.fk_chietkhausp">
-      <End Role="product" EntitySet="product" />
-      <End Role="chietkhausp" EntitySet="chietkhausp" />
+      <End Role="Bonus" EntitySet="Bonus" />
     </AssociationSet>
     <AssociationSet Name="fk_Customer" Association="Self.fk_Customer">
       <End Role="customer" EntitySet="customer" />
       <End Role="BillExport" EntitySet="BillExport" />
     </AssociationSet>
+    <AssociationSet Name="fk_Daily" Association="Self.fk_Daily">
+      <End Role="dailycap" EntitySet="dailycap" />
+      <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
     <AssociationSet Name="fk_district" Association="Self.fk_district">
       <End Role="districts" EntitySet="districts" />
       <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_district1" Association="Self.fk_district1">
+      <End Role="districts" EntitySet="districts" />
+      <End Role="NhaSX" EntitySet="NhaSX" />
     </AssociationSet>
     <AssociationSet Name="fk_grname" Association="Self.fk_grname">
       <End Role="productgroup" EntitySet="productgroup" />
       <End Role="product" EntitySet="product" />
     </AssociationSet>
+    <AssociationSet Name="fk_nhasx" Association="Self.fk_nhasx">
+      <End Role="NhaSX" EntitySet="NhaSX" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NhaSX1" Association="Self.fk_NhaSX1">
+      <End Role="NhaSX" EntitySet="NhaSX" />
+      <End Role="BillImport" EntitySet="BillImport" />
+    </AssociationSet>
     <AssociationSet Name="fk_province" Association="Self.fk_province">
       <End Role="provinces" EntitySet="provinces" />
       <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_province1" Association="Self.fk_province1">
+      <End Role="provinces" EntitySet="provinces" />
+      <End Role="NhaSX" EntitySet="NhaSX" />
     </AssociationSet>
     <AssociationSet Name="fk_ReceiptsCu" Association="Self.fk_ReceiptsCu">
       <End Role="customer" EntitySet="customer" />
       <End Role="Receipts" EntitySet="Receipts" />
     </AssociationSet>
+    <AssociationSet Name="fk_ReceiptsNha" Association="Self.fk_ReceiptsNha">
+      <End Role="NhaSX" EntitySet="NhaSX" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
     <AssociationSet Name="fk_Ward" Association="Self.fk_Ward">
       <End Role="wards" EntitySet="wards" />
       <End Role="customer" EntitySet="customer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Ward1" Association="Self.fk_Ward1">
+      <End Role="wards" EntitySet="wards" />
+      <End Role="NhaSX" EntitySet="NhaSX" />
     </AssociationSet>
     <AssociationSet Name="provinces_administrative_region_id_fkey" Association="Self.provinces_administrative_region_id_fkey">
       <End Role="administrative_regions" EntitySet="administrative_regions" />

@@ -18,9 +18,8 @@ namespace DAL
         public Nullable<int> BillImportId { get; set; }
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public Nullable<double> Price { get; set; }
     
-        public virtual product product { get; set; }
         public virtual BillImport BillImport { get; set; }
+        public virtual product product { get; set; }
     }
 }

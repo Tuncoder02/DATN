@@ -127,11 +127,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Daily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Daily.Designer.cs">
+      <DependentUpon>Daily.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kiemtradaily.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Kiemtradaily.Designer.cs">
       <DependentUpon>Kiemtradaily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemnhaSX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemnhaSX.Designer.cs">
+      <DependentUpon>ThemnhaSX.cs</DependentUpon>
     </Compile>
     <Compile Include="Themnhom.cs">
       <SubType>Form</SubType>
@@ -201,18 +213,6 @@
     <Compile Include="UC_control\UC_Khohang.Designer.cs">
       <DependentUpon>UC_Khohang.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_control\UC_Lichsuban.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_control\UC_Lichsuban.Designer.cs">
-      <DependentUpon>UC_Lichsuban.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_control\UC_Lichsunhap.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_control\UC_Lichsunhap.Designer.cs">
-      <DependentUpon>UC_Lichsunhap.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_control\UC_nhaphang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -243,8 +243,14 @@
     <Compile Include="UC_control\UC_Tongcongno.Designer.cs">
       <DependentUpon>UC_Tongcongno.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Daily.resx">
+      <DependentUpon>Daily.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kiemtradaily.resx">
       <DependentUpon>Kiemtradaily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemnhaSX.resx">
+      <DependentUpon>ThemnhaSX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Themnhom.resx">
       <DependentUpon>Themnhom.cs</DependentUpon>
@@ -283,12 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_control\UC_Khohang.resx">
       <DependentUpon>UC_Khohang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_control\UC_Lichsuban.resx">
-      <DependentUpon>UC_Lichsuban.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_control\UC_Lichsunhap.resx">
-      <DependentUpon>UC_Lichsunhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_control\UC_nhaphang.resx">
       <DependentUpon>UC_nhaphang.cs</DependentUpon>
@@ -412,6 +412,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hometrang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hometrang1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hometrang2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

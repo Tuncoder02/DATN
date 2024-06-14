@@ -47,5 +47,7 @@ namespace BLL
             var result2 = from c in result select new { Idphieuthu = c.ReceiptsId, Idcustomer = c.CustomerId, Tenkhachhang = c.customer.CustomerFullName, Sotien = c.TotalMoney, Noidung = c.Content, Ngaythu = c.ReceiptsDate };
             data.DataSource = result2.ToList();
         }
+
+
     }
 }

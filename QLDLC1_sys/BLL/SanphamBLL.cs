@@ -19,9 +19,9 @@ namespace BLL
                 return instance;
             }
         }
-        public bool addSanpham(int productgroup, string tensanpham, float gia, string mota,string img)
+        public bool addSanpham(int productgroup,int idnhasx, string tensanpham, float gia, string mota,string img)
         {
-            return SanphamDAL.Instance.addSanpham(productgroup, tensanpham, gia, mota,img);
+            return SanphamDAL.Instance.addSanpham(productgroup,idnhasx, tensanpham, gia, mota,img);
         }
     }
 

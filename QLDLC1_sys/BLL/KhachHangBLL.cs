@@ -23,7 +23,7 @@ namespace BLL
         public void loadKhachHang(DataGridView data)
         {
             List<customer> result = KhachHangDAL.Instance.GetCustomer();
-            var result2 = from c in result select new {Id=c.CustomerId,Ten=c.CustomerFullName,SDT=c.CustomerPhoneNumber,Email=c.CustomerEmail,Diem=c.CustomerPoint,Tinh=c.provinces.full_name,Huyen=c.districts.full_name,Xa=c.wards1.full_name,isdaily=c.Isdailycap2,Ngaydangky=c.Ngaydk};
+            var result2 = from c in result select new {Id=c.CustomerId,Ten=c.CustomerFullName,SDT=c.CustomerPhoneNumber,Email=c.CustomerEmail,Diem=c.CustomerPoint,Tinh=c.provinces.full_name,Huyen=c.districts.full_name,Xa=c.wards.full_name,daily=c.dailycap1.dailyname,Ngaydangky=c.Ngaydk};
             //BindingList<product> bindingList = new BindingList<product>(result2);
 
             data.DataSource = result2.ToList();
@@ -49,7 +49,7 @@ namespace BLL
         public void searchKH(DataGridView dt,string sdt)
         {
             List<customer> customerList = KhachHangDAL.Instance.GetCustomer().Where(x=>x.CustomerPhoneNumber==sdt).ToList();
-            var result2 = from c in customerList select new { Id = c.CustomerId, Ten = c.CustomerFullName, SDT = c.CustomerPhoneNumber, Email = c.CustomerEmail, Diem = c.CustomerPoint, Tinh = c.provinces.full_name, Huyen = c.districts.full_name, Xa = c.wards1.full_name, Ngaydangky = c.Ngaydk };
+            var result2 = from c in customerList select new { Id = c.CustomerId, Ten = c.CustomerFullName, SDT = c.CustomerPhoneNumber, Email = c.CustomerEmail, Diem = c.CustomerPoint, Tinh = c.provinces.full_name, Huyen = c.districts.full_name, Xa = c.wards.full_name, Ngaydangky = c.Ngaydk };
 
             dt.DataSource = result2.ToList();
         }

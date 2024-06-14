@@ -24,9 +24,21 @@ namespace QLDLC1_sys.UC_control
 
             LichsunhapBLL.Instance.loadBillImport(dtgvBillnhap);
             dtgvBillnhap.Columns[0].HeaderText = "Mã bill";
-            dtgvBillnhap.Columns[1].HeaderText = "Thời gian";
+            dtgvBillnhap.Columns[1].HeaderText = "Nhà SX";
+            dtgvBillnhap.Columns[2].HeaderText = "Thanh toán";
+
+            dtgvBillnhap.Columns[3].HeaderText = "Thời gian";
             dtgvBillnhap.Columns[0].Width = 80;
-            dtgvBillnhap.Columns[1].Width = 300;
+            dtgvBillnhap.Columns[1].Width = 150;
+            dtgvBillnhap.Columns[2].Width = 150;
+
+            dtgvBillnhap.Columns[3].Width = 300;
+            ThemnhaSXBLL.Instance.cboNhaSX(cboNhaSX);
+            cboNhaSX.DisplayMember = "NhaSXName";
+            cboSDT.DataSource = cboNhaSX.DataSource;
+            cboEmail.DataSource=cboNhaSX.DataSource;
+            cboSDT.DisplayMember = "NhaSXSDT";
+            cboEmail.DisplayMember = "NhaSXEmail";
             kiemtra();
 
 
@@ -62,6 +74,22 @@ namespace QLDLC1_sys.UC_control
             }
 
         }
+        private void kiemtranhap()
+        {
+            if(txtId.Text=="")
+            {
+                cboNhaSX.Enabled = true;
+                cboSDT.Enabled = true;
+                cboEmail.Enabled = true;
+             
+            }   
+            else
+            {
+                cboNhaSX.Enabled = false;
+                cboSDT.Enabled = false;
+                cboEmail.Enabled = false;
+            }    
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             Themsanpham themsanpham = new Themsanpham();
@@ -78,8 +106,10 @@ namespace QLDLC1_sys.UC_control
         }
 
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
-        {
-            BillImport bill = TrangnhaphangBLL.Instance.taoHoaDon();
+        {   
+            NhaSX nh=cboNhaSX.SelectedItem as NhaSX;    
+
+            BillImport bill = TrangnhaphangBLL.Instance.taoHoaDon(nh.NhaSXId,dateNhap.Value);
             txtId.Text = bill.BillImportId.ToString();
             dateNhap.Value = bill.BillImportDate;
             int id=int.Parse(txtId.Text);
@@ -88,7 +118,7 @@ namespace QLDLC1_sys.UC_control
             dtgvBillInfo.Columns[1].HeaderText = "Mã SP";
             dtgvBillInfo.Columns[2].HeaderText = "Tên sản phẩm";
             dtgvBillInfo.Columns[3].HeaderText = "Số lượng";
-            dtgvBillInfo.Columns[4].HeaderText = "Giá nhập";
+            dtgvBillInfo.Columns[4].HeaderText = "Giá sản phẩm";
             dtgvBillInfo.Columns[5].HeaderText = "Thành tiền";
 
 
@@ -99,6 +129,7 @@ namespace QLDLC1_sys.UC_control
             dtgvBillInfo.Columns[3].Width = 80;
             dtgvBillInfo.Columns[4].Width = 150;
             dtgvBillInfo.Columns[5].Width = 150;
+            kiemtranhap();
             kiemtra();
         }
 
@@ -117,9 +148,14 @@ namespace QLDLC1_sys.UC_control
                 dtgvBillInfo.DataSource = null;
                 txtTongtien.Text = null;
                 LichsunhapBLL.Instance.loadBillImport(dtgvBillnhap);
-                txtMabill.Text = null;
+                txtMabill.Text =null;
                 checkupdate = false;
+                txtThanhtoan.Text = null;
+                txtTongtien.Text = null;
+                dtgvBillInfo.DataSource = null;
                 kiemtra();
+                kiemtranhap();
+
             }
 
         }
@@ -137,14 +173,13 @@ namespace QLDLC1_sys.UC_control
                 int idBill = int.Parse(txtId.Text);
                 int product = int.Parse(cbId.Text);
                 int soluong = (int)nbrSoluong.Value;
-                float gianhap = float.Parse(txtGia.Text);
-                TrangnhaphangBLL.Instance.addBillInfo(idBill, product, soluong, gianhap);
+                TrangnhaphangBLL.Instance.addBillInfo(idBill, product, soluong);
 
                 TrangnhaphangBLL.Instance.getBillInfo(dtgvBillInfo, idBill);
                 txtMabill.Text = null;
                 checkupdate = false;
 
-                txtGia.Text = null;
+            
                 nbrSoluong.Value = 0;
                 Tongtien();
             }
@@ -164,8 +199,8 @@ namespace QLDLC1_sys.UC_control
                     txtMabill.Text = row.Cells[0].Value.ToString();
                     cbId.Text = row.Cells[1].Value.ToString();
                     
-                    nbrSoluong.Value = int.Parse(row.Cells[3].Value.ToString());
-                    txtGia.Text = row.Cells[4].Value.ToString();
+                    nbrSoluong.Value = int.Parse(row.Cells[4].Value.ToString());
+                    txtGia.Text = row.Cells[3].Value.ToString();
                     checkupdate = true;
                     
 
@@ -194,7 +229,7 @@ namespace QLDLC1_sys.UC_control
                 txtMabill.Text = null;
                 checkupdate = false;
 
-                txtGia.Text = null;
+            
                 nbrSoluong.Value = 0;
                 Tongtien();
                 kiemtra();
@@ -209,14 +244,14 @@ namespace QLDLC1_sys.UC_control
             int product = int.Parse(cbId.Text);
             int soluong = (int)nbrSoluong.Value;
             float gianhap = float.Parse(txtGia.Text);
-            bool kt=TrangnhaphangBLL.Instance.updateProduct(idBill, soluong, gianhap);
+            bool kt=TrangnhaphangBLL.Instance.updateProduct(idBill, soluong);
             if(kt==false) MessageBox.Show("Lỗi! Số sản phẩm trong kho không hợp lệ sau khi update");
             int id=int.Parse(txtId.Text);
             TrangnhaphangBLL.Instance.getBillInfo(dtgvBillInfo, id);
             txtMabill.Text = null;
             checkupdate = false;
 
-            txtGia.Text = null;
+   
             nbrSoluong.Value = 0;
             Tongtien();
             kiemtra();
@@ -224,9 +259,20 @@ namespace QLDLC1_sys.UC_control
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            TrangnhaphangBLL.Instance.luuBill(int.Parse(txtId.Text));
-            checkupdate = true;
+            
+            float thanhtoan;
+            if (txtThanhtoan.Text == "") thanhtoan = 0;
+            else thanhtoan = float.Parse(txtThanhtoan.Text);
+            TrangnhaphangBLL.Instance.luuBill(int.Parse(txtId.Text),dateNhap.Value,thanhtoan);
+            checkupdate = false;
             txtMabill.Text=null;
+            txtId.Text=null;
+            LichsunhapBLL.Instance.loadBillImport(dtgvBillnhap);
+            txtThanhtoan.Text = null;
+            txtTongtien.Text = null;
+            dtgvBillInfo.DataSource = null;
+            kiemtranhap();
+
         }
 
         private void dtgvBillnhap_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -238,14 +284,15 @@ namespace QLDLC1_sys.UC_control
                 {
                     DataGridViewRow row = dtgvBillnhap.Rows[e.RowIndex];
                     txtId.Text = row.Cells[0].Value.ToString();
-                    dateNhap.Value = (DateTime)row.Cells[1].Value;
+                    cboNhaSX.Text = row.Cells[1].Value.ToString();
+                    dateNhap.Value = (DateTime)row.Cells[3].Value;
                     int id = int.Parse(txtId.Text);
                     TrangnhaphangBLL.Instance.getBillInfo(dtgvBillInfo, id);
                     dtgvBillInfo.Columns[0].HeaderText = "Mã số";
                     dtgvBillInfo.Columns[1].HeaderText = "Mã SP";
                     dtgvBillInfo.Columns[2].HeaderText = "Tên sản phẩm";
-                    dtgvBillInfo.Columns[3].HeaderText = "Số lượng";
-                    dtgvBillInfo.Columns[4].HeaderText = "Giá nhập";
+                    dtgvBillInfo.Columns[3].HeaderText = "Giá";
+                    dtgvBillInfo.Columns[4].HeaderText = "Số lượng";
                     dtgvBillInfo.Columns[5].HeaderText = "Thành tiền";
 
 
@@ -253,14 +300,15 @@ namespace QLDLC1_sys.UC_control
                     dtgvBillInfo.Columns[0].Width = 80;
                     dtgvBillInfo.Columns[1].Width = 80;
                     dtgvBillInfo.Columns[2].Width = 300;
-                    dtgvBillInfo.Columns[3].Width = 80;
-                    dtgvBillInfo.Columns[4].Width = 150;
+                    dtgvBillInfo.Columns[3].Width =150;
+                    dtgvBillInfo.Columns[4].Width = 80;
                     dtgvBillInfo.Columns[5].Width = 150;
 
                 }
             }
             Tongtien();
             kiemtra();
+            kiemtranhap();
 
 
         }
@@ -283,14 +331,58 @@ namespace QLDLC1_sys.UC_control
 
         private void cbTen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(checkupdate==true)
+            txtGia.Text = null;
+            product pr = cbTen.SelectedItem as product;
+            txtGia.Text = pr.ProductPrice.ToString();
+            if (checkupdate==true)
             {
-                MessageBox.Show("Chỉ có thể update số lượng hoặc giá nhập!");
+                MessageBox.Show("Chỉ có thể update số lượng!");
                 txtMabill.Text = null;
                 checkupdate = false;
                 nbrSoluong.Value = 0;
-                txtGia.Text = null;
+               
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {  ThemnhaSX mh=new ThemnhaSX();
+            mh.ShowDialog();
+
+        }
+
+        private void cboNhaSX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtDiachi.Text = "";
+            txtChietkhau.Text = "";
+            NhaSX nh=cboNhaSX.SelectedItem as NhaSX;
+            if (nh != null) {
+                txtDiachi.Text = nh.wards.full_name + ", "+nh.districts.full_name + ", "+nh.provinces.full_name;
+                TrangnhaphangBLL.Instance.loadIdSanPham2(cbId,nh.NhaSXId);
+                cbTen.DataSource = cbId.DataSource;
+                cbTen.DisplayMember = "ProductName";
+                cbId.DisplayMember = "ProductId";
+                txtChietkhau.Text = nh.NhaSXChietkhau.ToString();
+            }
+
+        }
+
+        private void txtThanhtoan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLammoi_Click(object sender, EventArgs e)
+        {
+            txtId.Text = null;
+            txtThanhtoan.Text = null;
+            txtTongtien.Text = null;
+            dtgvBillInfo.DataSource = null;
+            kiemtranhap();
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

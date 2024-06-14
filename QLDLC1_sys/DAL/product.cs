@@ -19,10 +19,10 @@ namespace DAL
         {
             this.BillExportDetails = new HashSet<BillExportDetails>();
             this.BillImportDetails = new HashSet<BillImportDetails>();
-            this.chietkhausp = new HashSet<chietkhausp>();
         }
     
         public int ProductId { get; set; }
+        public Nullable<int> NhaSXId { get; set; }
         public Nullable<int> ProductGroupName { get; set; }
         public string ProductName { get; set; }
         public double ProductPrice { get; set; }
@@ -35,7 +35,6 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BillImportDetails> BillImportDetails { get; set; }
         public virtual productgroup productgroup { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chietkhausp> chietkhausp { get; set; }
+        public virtual NhaSX NhaSX { get; set; }
     }
 }

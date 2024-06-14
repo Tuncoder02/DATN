@@ -18,31 +18,30 @@ namespace DAL
         public customer()
         {
             this.BillExport = new HashSet<BillExport>();
-            this.chietkhausp = new HashSet<chietkhausp>();
+            this.Bonus = new HashSet<Bonus>();
             this.Receipts = new HashSet<Receipts>();
         }
     
         public int CustomerId { get; set; }
         public string CustomerFullName { get; set; }
         public Nullable<System.DateTime> Ngaydk { get; set; }
-        public Nullable<int> Isdailycap2 { get; set; }
+        public Nullable<int> Dailycap { get; set; }
         public string CustomerWard { get; set; }
         public string CustomerDistrict { get; set; }
         public string CustomerCity { get; set; }
-        public Nullable<int> CustomerDiscount { get; set; }
         public string CustomerPhoneNumber { get; set; }
         public string CustomerEmail { get; set; }
         public Nullable<int> CustomerPoint { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BillExport> BillExport { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bonus> Bonus { get; set; }
         public virtual districts districts { get; set; }
         public virtual provinces provinces { get; set; }
-        public virtual wards wards { get; set; }
-        public virtual wards wards1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chietkhausp> chietkhausp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipts> Receipts { get; set; }
+        public virtual wards wards { get; set; }
+        public virtual dailycap dailycap1 { get; set; }
     }
 }

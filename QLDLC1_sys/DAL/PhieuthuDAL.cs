@@ -69,5 +69,6 @@ namespace DAL
             products = DataProvider.Ins.DB.Receipts.Where(x => x.customer.CustomerPhoneNumber == sdt).ToList();
             return products;
         }
+
     }
 }

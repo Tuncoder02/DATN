@@ -402,8 +402,7 @@ namespace QLDLC1_sys
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
-            UC_Lichsunhap uc=new UC_Lichsunhap();
-            showControl(uc);
+           
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -560,8 +559,7 @@ namespace QLDLC1_sys
             btnLichsuban.ForeColor = SystemColors.ControlText;
             btnLichsuban.BackColor = SystemColors.ControlLightLight;
             btnLichsuban.Image = Image.FromFile(defaultImagePath);
-            UC_Lichsuban uc=new UC_Lichsuban();
-            showControl(uc);
+        
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);

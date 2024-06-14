@@ -19,10 +19,11 @@ namespace DAL
                 return instance;
             }
         }
-        public BillImport taoHoadon()
+        public BillImport taoHoadon(int nhasxid,DateTime date)
         {
             BillImport bill =new BillImport();
-            bill.BillImportDate = DateTime.Now;
+            bill.BillImportDate = date;
+            bill.NhaSXId = nhasxid;
             DataProvider.Ins.DB.BillImport.Add(bill);
             DataProvider.Ins.DB.SaveChanges();
             return bill;
@@ -43,13 +44,13 @@ namespace DAL
             return result;
         }
 
-        public bool addBillInfo1(int idBill,int idProduct,int soluong,float gianhap)
+        public bool addBillInfo1(int idBill,int idProduct,int soluong)
         {
             BillImportDetails bill= new BillImportDetails();
             bill.BillImportId= idBill;
             bill.ProductId= idProduct;
             bill.Quantity= soluong;
-            bill.Price= gianhap;
+         
             product pr = DataProvider.Ins.DB.product.Find(bill.ProductId);
             pr.ProductQuantity = pr.ProductQuantity + soluong;
             DataProvider.Ins.DB.BillImportDetails.Add(bill);
@@ -82,7 +83,7 @@ namespace DAL
             }
             return false;
         }
-        public bool updateProduct(int id,int soluong,float gianhap)
+        public bool updateProduct(int id,int soluong)
         {
             BillImportDetails pr = DataProvider.Ins.DB.BillImportDetails.Find(id);
             if (pr != null)
@@ -93,7 +94,7 @@ namespace DAL
                 if ((pr1.ProductQuantity + am) < 0) return false;
                 pr.Quantity = soluong;
                 pr1.ProductQuantity = pr1.ProductQuantity + am;
-                pr.Price=gianhap;
+              
                 DataProvider.Ins.DB.SaveChanges();
                 return true;
             }
@@ -101,9 +102,15 @@ namespace DAL
 
         }
 
-        public bool luuBill(int idBill)
+        public bool luuBill(int idBill,DateTime date,float thanhtoan)
         {
-         
+            
+            BillImport bill=DataProvider.Ins.DB.BillImport.Find(idBill);
+            if (bill == null)
+                return false;
+            bill.BillImportDate = date;
+            bill.BillPay = thanhtoan;
+            DataProvider.Ins.DB.SaveChanges();
             return true;
         }
     }

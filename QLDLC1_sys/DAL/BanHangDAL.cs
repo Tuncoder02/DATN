@@ -25,9 +25,9 @@ namespace DAL
         {
             BillExport bill = new BillExport();
             bill.BillExportDate = DateTime.Now;
-            bill.BillDiscount = 0;
+         
             bill.CustomerId = idcus;
-            bill.BillPayPercent = 0;
+            bill.BillPay = 0;
             DataProvider.Ins.DB.BillExport.Add(bill);
             DataProvider.Ins.DB.SaveChanges();
             return bill;
@@ -112,14 +112,15 @@ namespace DAL
 
         }
 
-        public bool luuBill(int idBill,int idKH,int pay)
+        public bool luuBill(int idBill,int idKH,float pay,DateTime date)
         {
             int kt = 0;
             
   
             BillExport br= DataProvider.Ins.DB.BillExport.Find(idBill);
             br.CustomerId = idKH;
-            br.BillPayPercent = pay;
+            br.BillPay = pay;
+            br.BillExportDate = date;
             DataProvider.Ins.DB.SaveChanges();
             return true;
         }
@@ -142,41 +143,7 @@ namespace DAL
             }
             return false;
         }
-        public class BillDetailWithDiscount
-        {
-            public int BillDetailId { get; set; }
-            public int CustomerId { get; set; }
-            public int BillId { get; set; }
-
-            public int ProductId { get; set; }
-            public string ProductName { get; set; }
-            public int Quantity { get; set; }
-            public double Price { get; set; }
-            public double DiscountAmount { get; set; }
-            // Các trường khác từ BillDetail nếu cần
-        }
-
-        public List<BillDetailWithDiscount> GetBillDetailsWithDiscounts()
-        {
-            var result = from bd in DataProvider.Ins.DB.BillExportDetails
-                         join b in DataProvider.Ins.DB.BillExport on bd.BillExportId equals b.BillExportId
-
-                         join d in DataProvider.Ins.DB.chietkhausp on new { b.CustomerId, bd.ProductId } equals new { d.CustomerId, d.ProductId } into discountGroup
-                         from dg in discountGroup.DefaultIfEmpty()
-                         select new BillDetailWithDiscount
-                         {
-                             BillDetailId = bd.BillExportDetailsId,
-                             BillId = (int)bd.BillExportId,
-                             ProductId =(int) bd.ProductId,
-                             ProductName=bd.product.ProductName,
-                             Quantity =(int) bd.Quantity,
-                             Price = (double)bd.product.ProductPrice,
-                             DiscountAmount = dg == null ? 0 : (double)dg.chietkhau
-                         };
-
-            return result.ToList();
-            
-        }
+  
 
     }
 }

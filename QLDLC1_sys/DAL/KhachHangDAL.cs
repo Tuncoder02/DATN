@@ -29,7 +29,7 @@ namespace DAL
         public List<customer> GetDaily()
         {
             List<customer> products = new List<customer>();
-            products = DataProvider.Ins.DB.customer.Where(x => x.Isdailycap2==1).ToList();
+            products = DataProvider.Ins.DB.customer.Where(x => x.dailycap1!=null).ToList();
             return products;
         }
         public List<customer> GetCustomer1()
@@ -48,9 +48,8 @@ namespace DAL
             ct.CustomerDistrict = codehuyen;
             ct.CustomerWard=codexa;
             ct.Ngaydk=DateTime.Now;
-            ct.Isdailycap2 = isdaily;
+            ct.Dailycap = isdaily;
             ct.CustomerPoint = 0;
-            ct.CustomerDiscount = 0;
             DataProvider.Ins.DB.customer.Add(ct);
             DataProvider.Ins.DB.SaveChanges();
 
@@ -67,7 +66,7 @@ namespace DAL
             ct.CustomerWard= codexa;
             ct.CustomerPoint= diem;
             ct.Ngaydk = date;
-            ct.Isdailycap2= isdaily;
+            ct.Dailycap = isdaily;
             DataProvider.Ins.DB.SaveChanges();
             return true;
 
