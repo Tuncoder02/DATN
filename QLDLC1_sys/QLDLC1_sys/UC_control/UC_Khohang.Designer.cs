@@ -47,16 +47,16 @@
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbNhomsanpham = new System.Windows.Forms.ComboBox();
-            this.ptrboxAnh = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
+            this.ptrboxAnh = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nbrSoluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSanPham)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -169,9 +169,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(336, 41);
+            this.label1.Size = new System.Drawing.Size(342, 41);
             this.label1.TabIndex = 0;
-            this.label1.Text = "     Thông tin kho hàng";
+            this.label1.Text = "     Danh mục sản phẩm";
             // 
             // txtGiasanpham
             // 
@@ -272,14 +272,6 @@
             this.cbNhomsanpham.TabIndex = 18;
             this.cbNhomsanpham.SelectedIndexChanged += new System.EventHandler(this.cbNhomsanpham_SelectedIndexChanged);
             // 
-            // ptrboxAnh
-            // 
-            this.ptrboxAnh.Location = new System.Drawing.Point(50, 34);
-            this.ptrboxAnh.Name = "ptrboxAnh";
-            this.ptrboxAnh.Size = new System.Drawing.Size(330, 190);
-            this.ptrboxAnh.TabIndex = 0;
-            this.ptrboxAnh.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
@@ -316,6 +308,14 @@
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
+            // ptrboxAnh
+            // 
+            this.ptrboxAnh.Location = new System.Drawing.Point(50, 34);
+            this.ptrboxAnh.Name = "ptrboxAnh";
+            this.ptrboxAnh.Size = new System.Drawing.Size(330, 190);
+            this.ptrboxAnh.TabIndex = 0;
+            this.ptrboxAnh.TabStop = false;
+            // 
             // UC_Khohang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -336,9 +336,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptrboxAnh)).EndInit();
             this.ResumeLayout(false);
 
         }

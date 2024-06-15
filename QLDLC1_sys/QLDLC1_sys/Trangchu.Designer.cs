@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.KhohangMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -63,7 +62,10 @@
             this.Thongketrans = new System.Windows.Forms.Timer(this.components);
             this.Khachhangtrans = new System.Windows.Forms.Timer(this.components);
             this.panelBody = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSodu = new System.Windows.Forms.TextBox();
+            this.btnTrangchu = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnTongquan = new System.Windows.Forms.Button();
             this.btnNhaphang = new System.Windows.Forms.Button();
@@ -75,18 +77,17 @@
             this.btnTongcongno = new System.Windows.Forms.Button();
             this.btnCongnokhachhang = new System.Windows.Forms.Button();
             this.btnDangkyDL = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.btnQuanly = new System.Windows.Forms.Button();
-            this.btnDangkyKH = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnTKDoanhso = new System.Windows.Forms.Button();
             this.btnTKSanpham = new System.Windows.Forms.Button();
             this.btnTKKhachhang = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button17 = new System.Windows.Forms.Button();
+            this.btnQuanly = new System.Windows.Forms.Button();
+            this.btnDangkyKH = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.KhohangMenu.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -112,14 +113,17 @@
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.txtSodu);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -127,15 +131,6 @@
             this.panel1.Size = new System.Drawing.Size(1330, 43);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Location = new System.Drawing.Point(3, 411);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(298, 67);
-            this.panel3.TabIndex = 3;
             // 
             // KhohangMenu
             // 
@@ -201,9 +196,8 @@
             this.SlideMenu.Controls.Add(this.KhohangMenu);
             this.SlideMenu.Controls.Add(this.BanhangMenu);
             this.SlideMenu.Controls.Add(this.CongnoMenu);
-            this.SlideMenu.Controls.Add(this.KhachhangMenu);
             this.SlideMenu.Controls.Add(this.ThongkeMenu);
-            this.SlideMenu.Controls.Add(this.panel3);
+            this.SlideMenu.Controls.Add(this.KhachhangMenu);
             this.SlideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.SlideMenu.Location = new System.Drawing.Point(0, 43);
             this.SlideMenu.Name = "SlideMenu";
@@ -214,7 +208,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.button2);
+            this.panel8.Controls.Add(this.btnTrangchu);
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
@@ -280,7 +274,7 @@
             this.KhachhangMenu.Controls.Add(this.panel18);
             this.KhachhangMenu.Controls.Add(this.panel19);
             this.KhachhangMenu.Controls.Add(this.panel20);
-            this.KhachhangMenu.Location = new System.Drawing.Point(0, 274);
+            this.KhachhangMenu.Location = new System.Drawing.Point(0, 341);
             this.KhachhangMenu.Margin = new System.Windows.Forms.Padding(0);
             this.KhachhangMenu.Name = "KhachhangMenu";
             this.KhachhangMenu.Size = new System.Drawing.Size(298, 67);
@@ -323,7 +317,7 @@
             this.ThongkeMenu.Controls.Add(this.panel16);
             this.ThongkeMenu.Controls.Add(this.panel17);
             this.ThongkeMenu.Controls.Add(this.panel7);
-            this.ThongkeMenu.Location = new System.Drawing.Point(0, 341);
+            this.ThongkeMenu.Location = new System.Drawing.Point(0, 274);
             this.ThongkeMenu.Margin = new System.Windows.Forms.Padding(0);
             this.ThongkeMenu.Name = "ThongkeMenu";
             this.ThongkeMenu.Size = new System.Drawing.Size(298, 67);
@@ -450,21 +444,51 @@
             this.panelBody.TabIndex = 11;
             this.panelBody.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
-            // button2
+            // label1
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::QLDLC1_sys.Properties.Resources.Hometrang2;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(-14, -17);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(327, 102);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "               Trang chủ";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(77, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(399, 28);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Hệ thống quản lý đại lý chăn ga gối đệm";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(877, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 28);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Số dư:";
+            // 
+            // txtSodu
+            // 
+            this.txtSodu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSodu.Location = new System.Drawing.Point(954, 3);
+            this.txtSodu.Name = "txtSodu";
+            this.txtSodu.ReadOnly = true;
+            this.txtSodu.Size = new System.Drawing.Size(270, 34);
+            this.txtSodu.TabIndex = 4;
+            // 
+            // btnTrangchu
+            // 
+            this.btnTrangchu.BackColor = System.Drawing.SystemColors.ControlText;
+            this.btnTrangchu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrangchu.ForeColor = System.Drawing.Color.White;
+            this.btnTrangchu.Image = global::QLDLC1_sys.Properties.Resources.Hometrang2;
+            this.btnTrangchu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrangchu.Location = new System.Drawing.Point(-14, -17);
+            this.btnTrangchu.Name = "btnTrangchu";
+            this.btnTrangchu.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.btnTrangchu.Size = new System.Drawing.Size(327, 102);
+            this.btnTrangchu.TabIndex = 2;
+            this.btnTrangchu.Text = "               Trang chủ";
+            this.btnTrangchu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrangchu.UseVisualStyleBackColor = false;
+            this.btnTrangchu.Click += new System.EventHandler(this.btnTrangchu_Click);
             // 
             // button7
             // 
@@ -662,60 +686,6 @@
             this.btnDangkyDL.UseVisualStyleBackColor = false;
             this.btnDangkyDL.Click += new System.EventHandler(this.btnDangkyDL_Click);
             // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.SystemColors.ControlText;
-            this.button17.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.ForeColor = System.Drawing.Color.White;
-            this.button17.Image = global::QLDLC1_sys.Properties.Resources.group__1_;
-            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.Location = new System.Drawing.Point(-11, -17);
-            this.button17.Margin = new System.Windows.Forms.Padding(0);
-            this.button17.Name = "button17";
-            this.button17.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.button17.Size = new System.Drawing.Size(327, 102);
-            this.button17.TabIndex = 2;
-            this.button17.Text = "               Khách hàng";
-            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.UseVisualStyleBackColor = false;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            this.button17.MouseLeave += new System.EventHandler(this.button17_MouseLeave);
-            this.button17.MouseHover += new System.EventHandler(this.button17_MouseHover);
-            // 
-            // btnQuanly
-            // 
-            this.btnQuanly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.btnQuanly.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanly.ForeColor = System.Drawing.Color.White;
-            this.btnQuanly.Image = global::QLDLC1_sys.Properties.Resources.circle;
-            this.btnQuanly.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuanly.Location = new System.Drawing.Point(-11, -24);
-            this.btnQuanly.Name = "btnQuanly";
-            this.btnQuanly.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.btnQuanly.Size = new System.Drawing.Size(327, 102);
-            this.btnQuanly.TabIndex = 2;
-            this.btnQuanly.Text = "               Quản lý";
-            this.btnQuanly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuanly.UseVisualStyleBackColor = false;
-            this.btnQuanly.Click += new System.EventHandler(this.btnQuanly_Click);
-            // 
-            // btnDangkyKH
-            // 
-            this.btnDangkyKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.btnDangkyKH.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangkyKH.ForeColor = System.Drawing.Color.White;
-            this.btnDangkyKH.Image = global::QLDLC1_sys.Properties.Resources.circle;
-            this.btnDangkyKH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangkyKH.Location = new System.Drawing.Point(-11, -24);
-            this.btnDangkyKH.Name = "btnDangkyKH";
-            this.btnDangkyKH.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.btnDangkyKH.Size = new System.Drawing.Size(327, 102);
-            this.btnDangkyKH.TabIndex = 2;
-            this.btnDangkyKH.Text = "               Hợp đồng ĐL";
-            this.btnDangkyKH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangkyKH.UseVisualStyleBackColor = false;
-            this.btnDangkyKH.Click += new System.EventHandler(this.btnDangkyKH_Click);
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ControlText;
@@ -787,35 +757,81 @@
             this.btnTKKhachhang.UseVisualStyleBackColor = false;
             this.btnTKKhachhang.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button1
+            // button17
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::QLDLC1_sys.Properties.Resources.information__1_;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-14, -17);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(327, 102);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "               Thông tin";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
+            this.button17.BackColor = System.Drawing.SystemColors.ControlText;
+            this.button17.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.ForeColor = System.Drawing.Color.White;
+            this.button17.Image = global::QLDLC1_sys.Properties.Resources.group__1_;
+            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button17.Location = new System.Drawing.Point(-11, -17);
+            this.button17.Margin = new System.Windows.Forms.Padding(0);
+            this.button17.Name = "button17";
+            this.button17.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.button17.Size = new System.Drawing.Size(327, 102);
+            this.button17.TabIndex = 2;
+            this.button17.Text = "               Khách hàng";
+            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.MouseLeave += new System.EventHandler(this.button17_MouseLeave);
+            this.button17.MouseHover += new System.EventHandler(this.button17_MouseHover);
             // 
-            // pictureBox2
+            // btnQuanly
             // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox2.Image = global::QLDLC1_sys.Properties.Resources.logout;
-            this.pictureBox2.Location = new System.Drawing.Point(1246, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(84, 43);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.btnQuanly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnQuanly.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuanly.ForeColor = System.Drawing.Color.White;
+            this.btnQuanly.Image = global::QLDLC1_sys.Properties.Resources.circle;
+            this.btnQuanly.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuanly.Location = new System.Drawing.Point(-11, -24);
+            this.btnQuanly.Name = "btnQuanly";
+            this.btnQuanly.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.btnQuanly.Size = new System.Drawing.Size(327, 102);
+            this.btnQuanly.TabIndex = 2;
+            this.btnQuanly.Text = "               Quản lý";
+            this.btnQuanly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuanly.UseVisualStyleBackColor = false;
+            this.btnQuanly.Click += new System.EventHandler(this.btnQuanly_Click);
+            // 
+            // btnDangkyKH
+            // 
+            this.btnDangkyKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.btnDangkyKH.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangkyKH.ForeColor = System.Drawing.Color.White;
+            this.btnDangkyKH.Image = global::QLDLC1_sys.Properties.Resources.circle;
+            this.btnDangkyKH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangkyKH.Location = new System.Drawing.Point(-11, -24);
+            this.btnDangkyKH.Name = "btnDangkyKH";
+            this.btnDangkyKH.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.btnDangkyKH.Size = new System.Drawing.Size(327, 102);
+            this.btnDangkyKH.TabIndex = 2;
+            this.btnDangkyKH.Text = "               Thưởng doanh số";
+            this.btnDangkyKH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangkyKH.UseVisualStyleBackColor = false;
+            this.btnDangkyKH.Click += new System.EventHandler(this.btnDangkyKH_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Image = global::QLDLC1_sys.Properties.Resources._9027543_rotate_refresh_icon;
+            this.btnRefresh.Location = new System.Drawing.Point(1230, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(44, 31);
+            this.btnRefresh.TabIndex = 6;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = global::QLDLC1_sys.Properties.Resources._299068_add_sign_icon;
+            this.btnAdd.Location = new System.Drawing.Point(1280, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(44, 31);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pictureBox1
             // 
@@ -843,9 +859,10 @@
             this.Name = "Trangchu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Trangchu_Load);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.KhohangMenu.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -871,7 +888,6 @@
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -881,9 +897,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel KhohangMenu;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button7;
@@ -934,6 +947,11 @@
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button btnDangkyDL;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTrangchu;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtSodu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

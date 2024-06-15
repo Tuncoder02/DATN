@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,7 +56,7 @@ namespace QLDLC1_sys.UC_control
             customer ct = cbMaKH.SelectedItem as customer;
             DateTime startDate = new DateTime(dateTuNgay.Value.Year, dateTuNgay.Value.Month, dateTuNgay.Value.Day, 0, 0, 0);
             DateTime endDate = new DateTime(dateDenNgay.Value.Year, dateDenNgay.Value.Month, dateDenNgay.Value.Day, 23, 59, 59);
-            txtSodudauky.Text = ThecongnokhachhangBLL.Instance.soDudauky(ct.CustomerId, startDate).ToString();
+            txtSodudauky.Text = ThecongnokhachhangBLL.Instance.soDudauky(ct.CustomerId, startDate).ToString("N0", CultureInfo.InvariantCulture); ;
             ThecongnokhachhangBLL.Instance.getData(dtgvCongno, ct.CustomerId, startDate, endDate);
             dtgvCongno.Columns[0].HeaderText = "Ngày phát sinh";
             dtgvCongno.Columns[1].HeaderText = "Số chứng từ";
@@ -87,7 +88,7 @@ namespace QLDLC1_sys.UC_control
             NhaSX ct = cbMaKH.SelectedItem as NhaSX;
             DateTime startDate = new DateTime(dateTuNgay.Value.Year, dateTuNgay.Value.Month, dateTuNgay.Value.Day, 0, 0, 0);
             DateTime endDate = new DateTime(dateDenNgay.Value.Year, dateDenNgay.Value.Month, dateDenNgay.Value.Day, 23, 59, 59);
-           txtSodudauky.Text = ThecongnonhasanxuatBLL.Instance.soDudauky(ct.NhaSXId, startDate).ToString();
+           txtSodudauky.Text = ThecongnonhasanxuatBLL.Instance.soDudauky(ct.NhaSXId, startDate).ToString("N0", CultureInfo.InvariantCulture); ;
             ThecongnonhasanxuatBLL.Instance.getData(dtgvCongno, ct.NhaSXId, startDate, endDate);
             dtgvCongno.Columns[0].HeaderText = "Ngày phát sinh";
             dtgvCongno.Columns[1].HeaderText = "Số chứng từ";
@@ -152,7 +153,7 @@ namespace QLDLC1_sys.UC_control
 
             }
             double total = double.Parse(txtSodudauky.Text) + total1 - total2;
-            txtSoducuoiky.Text = total.ToString("F0");
+            txtSoducuoiky.Text = total.ToString("N0", CultureInfo.InvariantCulture); 
         }
 
         private void UC_Congnokhachhang_Load(object sender, EventArgs e)

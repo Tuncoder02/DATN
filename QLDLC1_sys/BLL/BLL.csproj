@@ -65,6 +65,7 @@
     <Compile Include="KhoHangBLL.cs" />
     <Compile Include="KiemtradailyBLL.cs" />
     <Compile Include="LichsunhapBLL.cs" />
+    <Compile Include="NaptienBLL.cs" />
     <Compile Include="NhomBLL.cs" />
     <Compile Include="PhieuchiBLL.cs" />
     <Compile Include="PhieuthuBLL.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="ThecongnokhachhangBLL.cs" />
     <Compile Include="ThecongnonhasanxuatBLL.cs" />
     <Compile Include="ThemnhaSXBLL.cs" />
+    <Compile Include="ThuongdoanhsoBLL.cs" />
     <Compile Include="TongcongnokhachhangBLL.cs" />
     <Compile Include="TongcongnonhasanxuatBLL.cs" />
     <Compile Include="TongquanthongkeBLL.cs" />

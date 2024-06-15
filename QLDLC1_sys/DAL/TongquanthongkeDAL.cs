@@ -142,49 +142,46 @@ namespace DAL
         public List<ProductTransactionSummary> getNhapxuat(DateTime startDate,DateTime endDate) 
         {
             // Truy vấn mua hàng
-         /*   var purchaseQuery = from invoice in DataProvider.Ins.DB.BillImport
-                                where invoice.BillImportDate >= startDate && invoice.BillImportDate <= endDate
-                                from detail in invoice.BillImportDetails
-                                join product in DataProvider.Ins.DB.product on detail.ProductId equals product.ProductId
-                                group new { detail, product } by new { detail.ProductId, product.ProductName } into g
-                                select new ProductTransactionSummary
-                                {
-                                    ProductId = (int)g.Key.ProductId,
-                                    ProductName = g.Key.ProductName,
-                                    TotalPurchase = g.Sum(x => x.detail.Quantity * x.detail.Price) ?? 0,
-                                    TotalSales = 0.0 // Mặc định là 0 cho truy vấn mua hàng
-                                };
+            var purchaseSummary = from purchase in DataProvider.Ins.DB.BillImportDetails
+                                  where purchase.BillImport.BillImportDate >= startDate && purchase.BillImport.BillImportDate <= endDate
+                                  group purchase by purchase.ProductId into purchaseGroup
+                                  select new
+                                  {
+                                      ProductId = purchaseGroup.Key,
+                                    
+                                      TotalPurchase = purchaseGroup.Sum(p => p.Quantity * p.product.ProductPrice * (1 - p.BillImport.NhaSX.NhaSXChietkhau/100))??0
+                                  };
 
-            // Truy vấn bán hàng
-            var salesQuery = from invoice in DataProvider.Ins.DB.BillExport
-                             where invoice.BillExportDate >= startDate && invoice.BillExportDate <= endDate
-                             from detail in invoice.BillExportDetails
-                             join product in DataProvider.Ins.DB.product on detail.ProductId equals product.ProductId
-                             join discount in DataProvider.Ins.DB.chietkhausp on new { detail.ProductId, invoice.CustomerId } equals new { discount.ProductId, discount.CustomerId } into discounts
-                             from d in discounts.DefaultIfEmpty()
-                             select new ProductTransactionSummary
-                             {
-                                 ProductId = (int)detail.ProductId,
-                                 ProductName = product.ProductName,
-                                 TotalPurchase = 0.0,
-                                 TotalSales = detail.Quantity * product.ProductPrice * (1 - (d != null ? d.chietkhau : 0) / 100) ?? 0
-                             };
+            // Tính toán tổng tiền xuất cho mỗi sản phẩm trong khoảng thời gian
+            var salesSummary = from sale in DataProvider.Ins.DB.BillExportDetails
+                               where sale.BillExport.BillExportDate >= startDate && sale.BillExport.BillExportDate <= endDate
+                               group sale by sale.ProductId into salesGroup
+                               select new
+                               {
+                                   ProductId = salesGroup.Key,
+                                   TotalSales = salesGroup.Sum(s => s.Quantity * s.product.ProductPrice * (1 - s.BillExport.customer.dailycap1.chietkhau/100))??0
+                               };
 
-            // Kết hợp kết quả của hai truy vấn để có tổng tiền mua và bán cho mỗi sản phẩm
-            var combinedQuery = purchaseQuery.Concat(salesQuery);
-
-            var productTransactions = (from item in combinedQuery
-                                       group item by new { item.ProductId, item.ProductName } into g
-                                       select new ProductTransactionSummary
-                                       {
-                                           ProductId = g.Key.ProductId,
-                                           ProductName = g.Key.ProductName,
-                                           TotalPurchase = g.Sum(x => x.TotalPurchase),
-                                           TotalSales = g.Sum(x => x.TotalSales)
-                                       }).ToList();*/
+            // Kết hợp kết quả từ tổng tiền nhập và tổng tiền xuất
+            var productTransactionSummaries = from product in DataProvider.Ins.DB.product
+                                              join purchase in purchaseSummary
+                                              on product.ProductId equals purchase.ProductId into purchaseGroup
+                                              from purchase in purchaseGroup.DefaultIfEmpty()
+                                              join sale in salesSummary
+                                              on product.ProductId equals sale.ProductId into salesGroup
+                                              from sale in salesGroup.DefaultIfEmpty()
+                                              select new ProductTransactionSummary
+                                              {
+                                                  ProductId = product.ProductId,
+                                                  ProductName = product.ProductName,
+                                                  TotalPurchase = purchase != null ? purchase.TotalPurchase : 0,
+                                                  TotalSales = sale != null ? sale.TotalSales : 0
+                                              };
 
 
-            return null;
+
+
+            return productTransactionSummaries.ToList();
 
         }
 

@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace QLDLC1_sys.UC_control
 {
@@ -35,7 +37,7 @@ namespace QLDLC1_sys.UC_control
             dtgvSanPham.Columns[4].Width = 100;
             dtgvSanPham.Columns[5].Width = 500;
             dtgvSanPham.Columns[6].Width = 500;
-            lbpath.Text = "ngu";
+            lbpath.Text = "no";
             kiemtra();
         }
         private void kiemtra()
@@ -87,7 +89,8 @@ namespace QLDLC1_sys.UC_control
                     DataGridViewRow row = dtgvSanPham.Rows[e.RowIndex];
                     txtMaSP.Text = row.Cells[0].Value.ToString();
                     txtTensanpham.Text = row.Cells[2].Value.ToString();
-                    txtGiasanpham.Text = row.Cells[3].Value.ToString();
+                    float gia= float.Parse(row.Cells[3].Value.ToString());
+                    txtGiasanpham.Text = gia.ToString("N0", CultureInfo.InvariantCulture);
                     nbrSoluong.Value = int.Parse(row.Cells[4].Value.ToString());
                    
                     //SanPhamBUS.Instance.showImageToPictureBox(row.Cells[7].Value.ToString(), pictureLinhKien);

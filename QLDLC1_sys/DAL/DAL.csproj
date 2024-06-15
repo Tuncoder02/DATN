@@ -176,6 +176,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NaptienDAL.cs" />
     <Compile Include="NhaSX.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -208,6 +209,7 @@
     <Compile Include="ThecongnokhachhangDAL.cs" />
     <Compile Include="ThecongnonhasanxuatDAL.cs" />
     <Compile Include="ThemNhaSXDAL.cs" />
+    <Compile Include="ThuongdoanhsoDAL.cs" />
     <Compile Include="TongcongnokhachhangDAL.cs" />
     <Compile Include="TongcongnonhasanxuatDAL.cs" />
     <Compile Include="TongquanthongkeDAL.cs" />

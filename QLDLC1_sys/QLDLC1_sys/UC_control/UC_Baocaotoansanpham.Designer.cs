@@ -31,16 +31,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dtgvTongsanpham = new System.Windows.Forms.DataGridView();
-            this.txtTongno = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.dateDenNgay = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTuNgay = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtTongno = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dtgvTongsanpham = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -66,9 +66,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(336, 41);
+            this.label1.Size = new System.Drawing.Size(310, 41);
             this.label1.TabIndex = 0;
-            this.label1.Text = "     Thông tin kho hàng";
+            this.label1.Text = "     Báo cáo sản phẩm";
             // 
             // panel2
             // 
@@ -82,56 +82,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1496, 164);
             this.panel2.TabIndex = 11;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.txtTongno);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 774);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1496, 87);
-            this.panel3.TabIndex = 12;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dtgvTongsanpham);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 221);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1496, 553);
-            this.panel4.TabIndex = 13;
-            // 
-            // dtgvTongsanpham
-            // 
-            this.dtgvTongsanpham.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtgvTongsanpham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTongsanpham.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvTongsanpham.Location = new System.Drawing.Point(0, 0);
-            this.dtgvTongsanpham.Name = "dtgvTongsanpham";
-            this.dtgvTongsanpham.RowHeadersWidth = 51;
-            this.dtgvTongsanpham.RowTemplate.Height = 24;
-            this.dtgvTongsanpham.Size = new System.Drawing.Size(1496, 553);
-            this.dtgvTongsanpham.TabIndex = 1;
-            // 
-            // txtTongno
-            // 
-            this.txtTongno.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongno.Location = new System.Drawing.Point(1072, 21);
-            this.txtTongno.Name = "txtTongno";
-            this.txtTongno.ReadOnly = true;
-            this.txtTongno.Size = new System.Drawing.Size(324, 34);
-            this.txtTongno.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(914, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 29);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Tổng số dư:";
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnTraCuu
             // 
@@ -181,10 +132,60 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(289, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(721, 39);
+            this.label2.Size = new System.Drawing.Size(700, 38);
             this.label2.TabIndex = 7;
             this.label2.Text = "BÁO CÁO XUẤT - NHẬP - TỒN SẢN PHẨM";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.txtTongno);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 774);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1496, 87);
+            this.panel3.TabIndex = 12;
+            // 
+            // txtTongno
+            // 
+            this.txtTongno.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongno.Location = new System.Drawing.Point(1072, 21);
+            this.txtTongno.Name = "txtTongno";
+            this.txtTongno.ReadOnly = true;
+            this.txtTongno.Size = new System.Drawing.Size(324, 34);
+            this.txtTongno.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(914, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 29);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Tổng số dư:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dtgvTongsanpham);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 221);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1496, 553);
+            this.panel4.TabIndex = 13;
+            // 
+            // dtgvTongsanpham
+            // 
+            this.dtgvTongsanpham.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtgvTongsanpham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTongsanpham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvTongsanpham.Location = new System.Drawing.Point(0, 0);
+            this.dtgvTongsanpham.Name = "dtgvTongsanpham";
+            this.dtgvTongsanpham.RowHeadersWidth = 51;
+            this.dtgvTongsanpham.RowTemplate.Height = 24;
+            this.dtgvTongsanpham.Size = new System.Drawing.Size(1496, 553);
+            this.dtgvTongsanpham.TabIndex = 1;
             // 
             // UC_Baocaotoansanpham
             // 

@@ -31,16 +31,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbTen = new System.Windows.Forms.ComboBox();
-            this.cbId = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.dateDenNgay = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTuNgay = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbTen = new System.Windows.Forms.ComboBox();
+            this.cbId = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtSodudauky = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSoducuoiky = new System.Windows.Forms.TextBox();
@@ -91,58 +91,6 @@
             this.panel2.Size = new System.Drawing.Size(600, 804);
             this.panel2.TabIndex = 11;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(74, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(426, 62);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "TRA CỨU\r\nCHI TIẾT XUẤT NHẬP TỒN SẢN PHẨM\r\n";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbTen
-            // 
-            this.cbTen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbTen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTen.FormattingEnabled = true;
-            this.cbTen.Location = new System.Drawing.Point(219, 184);
-            this.cbTen.Name = "cbTen";
-            this.cbTen.Size = new System.Drawing.Size(241, 30);
-            this.cbTen.TabIndex = 54;
-            // 
-            // cbId
-            // 
-            this.cbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbId.FormattingEnabled = true;
-            this.cbId.Location = new System.Drawing.Point(219, 134);
-            this.cbId.Name = "cbId";
-            this.cbId.Size = new System.Drawing.Size(80, 30);
-            this.cbId.TabIndex = 53;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(57, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 22);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Tên sản phẩm:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(57, 140);
-            this.label9.Name = "label9";
-            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label9.Size = new System.Drawing.Size(134, 22);
-            this.label9.TabIndex = 51;
-            this.label9.Text = "Mã sản phẩm:";
             // 
             // btnTraCuu
             // 
@@ -195,6 +143,58 @@
             this.label4.Size = new System.Drawing.Size(89, 22);
             this.label4.TabIndex = 55;
             this.label4.Text = "Từ ngày:";
+            // 
+            // cbTen
+            // 
+            this.cbTen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTen.FormattingEnabled = true;
+            this.cbTen.Location = new System.Drawing.Point(219, 184);
+            this.cbTen.Name = "cbTen";
+            this.cbTen.Size = new System.Drawing.Size(241, 30);
+            this.cbTen.TabIndex = 54;
+            // 
+            // cbId
+            // 
+            this.cbId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbId.FormattingEnabled = true;
+            this.cbId.Location = new System.Drawing.Point(219, 134);
+            this.cbId.Name = "cbId";
+            this.cbId.Size = new System.Drawing.Size(80, 30);
+            this.cbId.TabIndex = 53;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(57, 190);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 22);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Tên sản phẩm:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(57, 140);
+            this.label9.Name = "label9";
+            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label9.Size = new System.Drawing.Size(134, 22);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Mã sản phẩm:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(74, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(426, 62);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "TRA CỨU\r\nCHI TIẾT XUẤT NHẬP TỒN SẢN PHẨM\r\n";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtSodudauky
             // 

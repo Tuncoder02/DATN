@@ -1,9 +1,11 @@
-﻿using QLDLC1_sys.UC_control;
+﻿using BLL;
+using QLDLC1_sys.UC_control;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -18,6 +20,9 @@ namespace QLDLC1_sys
         public Trangchu()
         {
             InitializeComponent();
+            txtSodu.Text = NaptienBLL.Instance.sodu().ToString("N0", CultureInfo.InvariantCulture);
+
+
         }
         private Form Currentchildform;
         private void Openchildform(Form childForm)
@@ -56,7 +61,10 @@ namespace QLDLC1_sys
             btnTongquan.Image = Image.FromFile(defaultImagePath);
             UC_Khohang uc =new UC_Khohang();
             showControl(uc);
-
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor= Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
@@ -123,7 +131,7 @@ namespace QLDLC1_sys
 
         private void Trangchu_Load(object sender, EventArgs e)
         {
-
+            btnTrangchu_Click(sender, e);
         }
         bool KhohangExpand=false;
         private void Khohangtrans_Tick(object sender, EventArgs e)
@@ -164,7 +172,7 @@ namespace QLDLC1_sys
             if (SlideExpand == false)
             {
                 SlideMenu.Width += 10;
-                if (SlideMenu.Width >= 272)
+                if (SlideMenu.Width >= 240)
                 {
                     Slidemenutrans.Stop();
                     SlideExpand = true;
@@ -227,7 +235,7 @@ namespace QLDLC1_sys
             if (CongnoExpand == false)
             {
                 CongnoMenu.Height += 10;
-                if (CongnoMenu.Height >= 256)
+                if (CongnoMenu.Height >= 240)
                 {
                     Congnotrans.Stop();
                     CongnoExpand = true;
@@ -257,7 +265,7 @@ namespace QLDLC1_sys
             if (ThongkeExpand == false)
             {
                 ThongkeMenu.Height += 10;
-                if (ThongkeMenu.Height >= 249)
+                if (ThongkeMenu.Height >= 240)
                 {
                     Thongketrans.Stop();
                     ThongkeExpand = true;
@@ -327,6 +335,10 @@ namespace QLDLC1_sys
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnTongquan.ForeColor = SystemColors.ControlLightLight;
             btnTongquan.BackColor = Color.FromArgb(41, 43, 43);
@@ -402,7 +414,12 @@ namespace QLDLC1_sys
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
-           
+
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -492,6 +509,10 @@ namespace QLDLC1_sys
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
             btnNhaphang.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnTongquan.ForeColor = SystemColors.ControlLightLight;
             btnTongquan.BackColor = Color.FromArgb(41, 43, 43);
@@ -564,6 +585,10 @@ namespace QLDLC1_sys
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -658,6 +683,10 @@ namespace QLDLC1_sys
             btnTKDoanhso.BackColor = Color.FromArgb(41, 43, 43);
             btnTKDoanhso.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnTongquan.ForeColor = SystemColors.ControlLightLight;
             btnTongquan.BackColor = Color.FromArgb(41, 43, 43);
@@ -714,7 +743,12 @@ namespace QLDLC1_sys
             btnTKDoanhso.ForeColor = SystemColors.ControlText;
             btnTKDoanhso.BackColor = SystemColors.ControlLightLight;
             btnTKDoanhso.Image = Image.FromFile(defaultImagePath);
-             
+
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
+
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
@@ -802,6 +836,10 @@ namespace QLDLC1_sys
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
             btnNhaphang.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnTaohoadon.ForeColor = SystemColors.ControlLightLight;
             btnTaohoadon.BackColor = Color.FromArgb(41, 43, 43);
@@ -874,6 +912,10 @@ namespace QLDLC1_sys
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -951,6 +993,10 @@ namespace QLDLC1_sys
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -1028,6 +1074,10 @@ namespace QLDLC1_sys
             btnTongquan.BackColor = Color.FromArgb(41, 43, 43);
             btnTongquan.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -1104,6 +1154,10 @@ namespace QLDLC1_sys
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
             btnQuanly.Image = Image.FromFile(defaultImagePath1);
 
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
@@ -1168,13 +1222,17 @@ namespace QLDLC1_sys
             // Kết hợp đường dẫn tương đối với tên tệp ảnh mặc định
             string defaultImagePath = Path.Combine(appPath, "img", "circle_den.png");
 
-
+            
             // Kết hợp đường dẫn tương đối với tên tệp ảnh mặc định
             string defaultImagePath1 = Path.Combine(appPath, "img", "circle.png");
 
             btnDangkyDL.ForeColor = SystemColors.ControlText;
             btnDangkyDL.BackColor = SystemColors.ControlLightLight;
             btnDangkyDL.Image = Image.FromFile(defaultImagePath);
+            string homePath = Path.Combine(appPath, "img", "Hometrang.png");
+            btnTrangchu.ForeColor = SystemColors.ControlLightLight;
+            btnTrangchu.BackColor = SystemColors.ControlText;
+            btnTrangchu.Image = Image.FromFile(homePath);
 
             btnQuanly.ForeColor = SystemColors.ControlLightLight;
             btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
@@ -1290,17 +1348,27 @@ namespace QLDLC1_sys
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            button1.BackColor = SystemColors.GrayText;
+            btnTrangchu.BackColor = SystemColors.GrayText;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = SystemColors.ControlText;
+            btnTrangchu.BackColor = SystemColors.ControlText;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnTrangchu_Click(object sender, EventArgs e)
+        {
             string appPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             // Kết hợp đường dẫn tương đối với tên tệp ảnh mặc định
@@ -1309,18 +1377,26 @@ namespace QLDLC1_sys
 
             // Kết hợp đường dẫn tương đối với tên tệp ảnh mặc định
             string defaultImagePath1 = Path.Combine(appPath, "img", "circle.png");
-            btnTongquan.ForeColor = SystemColors.ControlLightLight;
-            btnTongquan.BackColor = Color.FromArgb(41, 43, 43);
-            btnTongquan.Image = Image.FromFile(defaultImagePath1);
-
-            btnQuanly.ForeColor = SystemColors.ControlLightLight;
-            btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
-            btnQuanly.Image = Image.FromFile(defaultImagePath1);
-
 
             btnNhaphang.ForeColor = SystemColors.ControlLightLight;
             btnNhaphang.BackColor = Color.FromArgb(41, 43, 43);
             btnNhaphang.Image = Image.FromFile(defaultImagePath1);
+         
+            btnQuanly.ForeColor = SystemColors.ControlLightLight;
+            btnQuanly.BackColor = Color.FromArgb(41, 43, 43);
+            btnQuanly.Image = Image.FromFile(defaultImagePath1);
+
+            string homePath = Path.Combine(appPath, "img", "Homeden.png");
+            btnTrangchu.ForeColor = SystemColors.ControlText;
+            btnTrangchu.BackColor = SystemColors.ControlLightLight;
+            btnTrangchu.Image = Image.FromFile(homePath);
+
+            UC_Thongketongquan uc=new UC_Thongketongquan();
+            showControl(uc);
+
+            btnTongquan.ForeColor = SystemColors.ControlLightLight;
+            btnTongquan.BackColor = Color.FromArgb(41, 43, 43);
+            btnTongquan.Image = Image.FromFile(defaultImagePath1);
 
 
             btnTaohoadon.ForeColor = SystemColors.ControlLightLight;
@@ -1373,9 +1449,15 @@ namespace QLDLC1_sys
             btnLichsunhap.Image = Image.FromFile(defaultImagePath1);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
+            Naptien nt=new Naptien();
+            nt.ShowDialog();
+        }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSodu.Text = NaptienBLL.Instance.sodu().ToString("N0", CultureInfo.InvariantCulture);
         }
     }
 }

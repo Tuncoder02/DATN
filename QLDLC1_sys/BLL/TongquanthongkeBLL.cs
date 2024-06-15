@@ -45,14 +45,14 @@ namespace BLL
 
             var totalAnnotation = new TextAnnotation
             {
-                Text = $"Tổng\n{totalQuantity}",
+                Text = $"{totalQuantity}",
                 ForeColor = Color.Black,
-                Font = new System.Drawing.Font("Arial", 14, System.Drawing.FontStyle.Bold),
+                Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold),
                 AnchorX = 0,
                 AnchorY = 0,
                 AnchorAlignment = ContentAlignment.TopLeft,
-                X = 5, // khoảng cách từ trái
-                Y = 5, // khoảng cách từ trên
+                X = 5, 
+                Y = 5, 
                 Alignment = ContentAlignment.TopLeft
             };
             chart1.Annotations.Add(totalAnnotation);
@@ -82,9 +82,9 @@ namespace BLL
 
             var totalAnnotation = new TextAnnotation
             {
-                Text = $"Tổng\n{totalQuantity}",
+                Text = $"{totalQuantity}",
                 ForeColor = Color.Black,
-                Font = new System.Drawing.Font("Arial", 14, System.Drawing.FontStyle.Bold),
+                Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold),
                 AnchorX = 0,
                 AnchorY = 0,
                 AnchorAlignment = ContentAlignment.TopLeft,

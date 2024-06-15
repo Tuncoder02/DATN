@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -101,7 +102,7 @@ namespace QLDLC1_sys.UC_control
         private void cbTen_SelectedIndexChanged(object sender, EventArgs e)
         {
             product pr=cbTen.SelectedItem as product;
-            txtGia.Text=pr.ProductPrice.ToString();
+            txtGia.Text=pr.ProductPrice.ToString("N0", CultureInfo.InvariantCulture); ;
             if (checkupdate == true)
             {
 
@@ -333,7 +334,7 @@ namespace QLDLC1_sys.UC_control
                     total += value;
                 }
             }
-            txtTongtien.Text = total.ToString("F0");
+            txtTongtien.Text = total.ToString("N0", CultureInfo.InvariantCulture); ;
 
         }
 

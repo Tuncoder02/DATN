@@ -16,8 +16,11 @@ namespace QLDLC1_sys.UC_control
         public UC_Thongketongquan()
         {
             InitializeComponent();
-            DateTime startDate = new DateTime(2023, 1, 1); 
+          
             DateTime endDate =DateTime.Now;
+            DateTime dt = DateTime.Now;
+            DateTime startDate = new DateTime(dt.Year, dt.Month, 1, 0, 0, 0);
+            dateTuNgay.Value = startDate;
             TongquanthongkeBLL.Instance.loadSPNhap(chartNhap, startDate, endDate);
             TongquanthongkeBLL.Instance.loadSPXuat(chartXuat,startDate, endDate);
             TongquanthongkeBLL.Instance.loadTon(chartTon, endDate);
@@ -72,6 +75,11 @@ namespace QLDLC1_sys.UC_control
             TongquanthongkeBLL.Instance.loadTon(chartTon, endDate);
             TongquanthongkeBLL.Instance.loadKhachhang(chartKhachhang, startDate, endDate);
             loaddtgv(startDate, endDate);
+        }
+
+        private void dtgvTien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

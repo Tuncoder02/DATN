@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,7 @@ namespace QLDLC1_sys.UC_control
 
             // Cài đặt font chữ và kích thước cho header
             dtgvTongcongno.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
+            Tongno();
         }
         private void loadnhasanxuat(DateTime startDate, DateTime endDate)
         {
@@ -82,6 +84,7 @@ namespace QLDLC1_sys.UC_control
 
             // Cài đặt font chữ và kích thước cho header
             dtgvTongcongno.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 16, FontStyle.Bold);
+            Tongno();
         }
         private bool kiemtra = false;
         private void btnTraCuu_Click(object sender, EventArgs e)
@@ -110,7 +113,7 @@ namespace QLDLC1_sys.UC_control
                     total += value;
                 }
             }
-            txtTongno.Text = total.ToString("F0");
+            txtTongno.Text = total.ToString("N0", CultureInfo.InvariantCulture);
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

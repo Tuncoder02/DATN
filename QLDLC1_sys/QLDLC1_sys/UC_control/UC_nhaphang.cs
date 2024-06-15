@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -325,7 +326,7 @@ namespace QLDLC1_sys.UC_control
                 }
             }
 
-            txtTongtien.Text = total.ToString("F0");
+            txtTongtien.Text = total.ToString("N0", CultureInfo.InvariantCulture); ;
 
         }
 
@@ -333,7 +334,7 @@ namespace QLDLC1_sys.UC_control
         {
             txtGia.Text = null;
             product pr = cbTen.SelectedItem as product;
-            txtGia.Text = pr.ProductPrice.ToString();
+            txtGia.Text = pr.ProductPrice.ToString("N0", CultureInfo.InvariantCulture);
             if (checkupdate==true)
             {
                 MessageBox.Show("Chỉ có thể update số lượng!");
